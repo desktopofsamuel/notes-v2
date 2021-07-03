@@ -1,6 +1,11 @@
 import { extendTheme } from '@chakra-ui/react';
 
-const theme = extendTheme({
+const customTheme = extendTheme({
+  config: {
+    cssVarPrefix: 'dos',
+    initialColorMode: 'light',
+    useSystemColorMode: false,
+  },
   fonts: {
     body: 'Inter, Noto Sans HK, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif',
     heading:
@@ -60,4 +65,4 @@ const theme = extendTheme({
   },
 });
 
-export default theme;
+export default customTheme;

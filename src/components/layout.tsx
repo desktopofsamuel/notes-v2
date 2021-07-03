@@ -1,8 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { ChakraProvider, SimpleGrid, Box } from '@chakra-ui/react';
+import { ChakraProvider, Container, Box, Grid } from '@chakra-ui/react';
 import Sidebar from '@/components/sidebar';
-import theme from '../../theme';
+import customTheme from '../../theme';
 
 const Layout: React.FC = ({ children }) => (
   <main>
@@ -14,11 +14,13 @@ const Layout: React.FC = ({ children }) => (
       <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
     </Helmet>
 
-    <ChakraProvider theme={theme}>
-      <SimpleGrid>
-        <Sidebar />
-        <Box>{children}</Box>
-      </SimpleGrid>
+    <ChakraProvider theme={customTheme}>
+      <Container maxW="container.xl">
+        <Grid gridTemplateColumns="300px auto" py="10">
+          <Sidebar />
+          <Box>{children}</Box>
+        </Grid>
+      </Container>
     </ChakraProvider>
   </main>
 );
