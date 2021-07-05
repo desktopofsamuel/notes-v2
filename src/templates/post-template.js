@@ -1,35 +1,32 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '@/components/layout';
-import { Heading } from '@chakra-ui/react';
+import Post from '@/components/post';
 
 const PostTemplate = ({ data }) => (
-  <>
-    {console.log(data)}
-    <Layout>
-      <Heading>Hello</Heading>
-    </Layout>
-  </>
+  <Layout>
+    <Post post={data.mdx} />
+  </Layout>
 );
 
 export const query = graphql`
   query PostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       id
-      html
+      body
       excerpt
       fields {
         slug
-        tagSlugs
+        # tagSlugs
       }
       frontmatter {
         date
         description
         tags
+        template
         title
         socialImage
       }
-      excerpt
     }
   }
 `;

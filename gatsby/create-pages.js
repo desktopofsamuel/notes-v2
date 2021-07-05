@@ -2,13 +2,29 @@
 
 const path = require('path');
 const _ = require('lodash');
+
+const query = `
+  {
+    allMdx(filter: { frontmatter: { draft: { ne: true } } }) {
+      edges {
+        node {
+          frontmatter {
+            template
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`;
+
 // const createCategoriesPages = require('./pagination/create-categories-pages.js');
 // const createTagsPages = require('./pagination/create-tags-pages.js');
 // const createPostsPages = require('./pagination/create-posts-pages.js');
 
-const createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
-
+const createPages = async ({ graphql, actions: { createPage } }) => {
   // // 404
   // createPage({
   //   path: '/404',
@@ -43,53 +59,49 @@ const createPages = async ({ graphql, actions }) => {
   // });
 
   // Posts and pages from markdown
-  const result = await graphql(`
-    {
-      allMarkdownRemark(filter: { frontmatter: { draft: { ne: true } } }) {
-        edges {
-          node {
-            frontmatter {
-              template
-            }
-            fields {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `);
 
-  const { edges } = result.data.allMarkdownRemark;
+  const response = await graphql(query);
+  if (response.errors) throw new Error(response.errors);
+  const posts = response.data.allMdx.edges;
 
-  _.each(edges, (edge) => {
-    // if (_.get(edge, 'node.frontmatter.template') === 'page') {
-    //   createPage({
-    //     path: edge.node.fields.slug,
-    //     component: path.resolve('./src/templates/page-template.js'),
-    //     context: { slug: edge.node.fields.slug },
-    //   });
-    // }
-    // if (_.get(edge, 'node.frontmatter.template') === 'digest') {
-    //   createPage({
-    //     path: edge.node.fields.slug,
-    //     component: path.resolve('./src/templates/short-post-template.js'),
-    //     context: { slug: edge.node.fields.slug },
-    //   });
-    // }
-    if (_.get(edge, 'node.frontmatter.template') === 'post') {
-      createPage({
-        path: edge.node.fields.slug,
-        component: path.resolve('./src/templates/post-template.js'),
-        context: { slug: edge.node.fields.slug },
-      });
-    }
+  console.log(posts);
+
+  posts.forEach(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve('./src/templates/post-template.js'),
+      context: { slug: node.fields.slug },
+    });
   });
-
-  // Feeds
-  // await createTagsPages(graphql, actions);
-  // await createCategoriesPages(graphql, actions);
-  // await createPostsPages(graphql, actions);
 };
+
+// _.each(edges, (edge) => {
+// if (_.get(edge, 'node.frontmatter.template') === 'page') {
+//   createPage({
+//     path: edge.node.fields.slug,
+//     component: path.resolve('./src/templates/page-template.js'),
+//     context: { slug: edge.node.fields.slug },
+//   });
+// }
+// if (_.get(edge, 'node.frontmatter.template') === 'digest') {
+//   createPage({
+//     path: edge.node.fields.slug,
+//     component: path.resolve('./src/templates/short-post-template.js'),
+//     context: { slug: edge.node.fields.slug },
+//   });
+// }
+//   if (_.get(edge, 'node.frontmatter.template') === 'post') {
+//     createPage({
+//       path: edge.node.fields.slug,
+//       component: path.resolve('./src/templates/post-template.js'),
+//       context: { slug: edge.node.fields.slug },
+//     });
+//   }
+// });
+
+// Feeds
+// await createTagsPages(graphql, actions);
+// await createCategoriesPages(graphql, actions);
+// await createPostsPages(graphql, actions);
 
 module.exports = createPages;

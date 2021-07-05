@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import { Box, Flex, Text, Heading, VStack, SimpleGrid } from '@chakra-ui/react';
+import { Text, Heading, VStack, SimpleGrid } from '@chakra-ui/react';
 import {
   FaTwitter,
   FaInstagram,
@@ -22,20 +22,23 @@ const Sidebar: React.FC = () => (
         layout="fixed"
         width={100}
         height={100}
+        style={{
+          borderRadius: `50%`,
+        }}
       />
 
       <Heading as="h1" size="sm">
         Samuel W.
       </Heading>
-      <Text color="gray.700">
+      <Text>
         科技 | 設計 | 城市 UI/UX 設計師，喜愛攝影，漫遊城市的不同角落。
       </Text>
-      <Flex direction="column">
+      <VStack spacing="4" align="flex-start">
         <Text>所有文章</Text>
         <Text>2</Text>
         <Text>所有文章</Text>
         <Text>所有文章</Text>
-      </Flex>
+      </VStack>
       <SimpleGrid columns={3}>
         <SocialIcon to="https://twitter.com/desktopofsamuel">
           <FaTwitter />
