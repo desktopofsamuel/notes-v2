@@ -1,8 +1,14 @@
 import React from 'react';
+import Layout from '@/components/layout';
+import MDXCompProvider from '@/components/mdx-provider';
 
-export default ({ children }) => (
-  <div>
-    <h1>My Layout</h1>
-    <div>{children}</div>
-  </div>
+const DefaultPageTemplate = ({ children }) => (
+  <MDXCompProvider>
+    <Layout>
+      {children}
+      {console.log(children)}
+    </Layout>
+  </MDXCompProvider>
 );
+
+export default DefaultPageTemplate;

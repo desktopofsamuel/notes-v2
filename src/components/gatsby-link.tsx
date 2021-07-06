@@ -1,5 +1,6 @@
 import { Link as GatsbyLink } from 'gatsby';
 import React from 'react';
+import { Link as ChakraLink } from '@chakra-ui/react';
 // import { OutboundLink } from "gatsby-plugin-google-gtag";
 
 const ActiveLink = {
@@ -52,12 +53,13 @@ const Link = ({
         target={target}
         {...other}
       >
-        {children}
+        <ChakraLink>{children}</ChakraLink>
       </GatsbyLink>
     );
   }
   return (
-    <a
+    <ChakraLink
+      isExternal
       href={to}
       className={className}
       target={target}
@@ -65,7 +67,7 @@ const Link = ({
       {...other}
     >
       {children}
-    </a>
+    </ChakraLink>
   );
 };
 

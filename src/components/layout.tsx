@@ -5,7 +5,7 @@ import Sidebar from '@/components/sidebar';
 import customTheme from '../../theme';
 
 const Layout: React.FC = ({ children }) => (
-  <main>
+  <>
     <Helmet>
       <link
         href="https://fonts.googleapis.com/css?family=Noto+Sans+HK:300,400,500,700&display=swap&subset=chinese-hongkong"
@@ -13,16 +13,15 @@ const Layout: React.FC = ({ children }) => (
       />
       <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
     </Helmet>
-
     <ChakraProvider theme={customTheme}>
       <Container maxW="container.xl">
-        <Grid gridTemplateColumns="300px auto" py="10">
+        <Grid gridTemplateColumns="33% 66%" py="10" gap="10">
           <Sidebar />
           <Box>{children}</Box>
         </Grid>
       </Container>
     </ChakraProvider>
-  </main>
+  </>
 );
 
 export default Layout;

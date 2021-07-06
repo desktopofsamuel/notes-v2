@@ -4,7 +4,7 @@ import Layout from '@/components/layout';
 import Post from '@/components/post';
 import MDXCompProvider from '@/components/mdx-provider';
 
-const PostTemplate = ({ data }) => (
+const PageTemplate = ({ data }) => (
   <MDXCompProvider>
     <Layout>
       <Post post={data.mdx} />
@@ -13,7 +13,7 @@ const PostTemplate = ({ data }) => (
 );
 
 export const query = graphql`
-  query PostBySlug($slug: String!) {
+  query PageBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       id
       body
@@ -34,4 +34,4 @@ export const query = graphql`
   }
 `;
 
-export default PostTemplate;
+export default PageTemplate;

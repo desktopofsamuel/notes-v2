@@ -5,12 +5,22 @@ const _ = require('lodash');
 
 const query = `
   {
-    allMdx(filter: { frontmatter: { draft: { ne: true } } }) {
+    pages: allMdx(
+      filter: {frontmatter: {draft: {ne: true}}, fileAbsolutePath: {regex: "/pages/"}}
+    ) {
       edges {
         node {
-          frontmatter {
-            template
+          fields {
+            slug
           }
+        }
+      }
+    }
+    posts: allMdx(
+      filter: {frontmatter: {draft: {ne: true}}, fileAbsolutePath: {regex: "/posts/"}}
+    ) {
+      edges {
+        node {
           fields {
             slug
           }
@@ -62,11 +72,19 @@ const createPages = async ({ graphql, actions: { createPage } }) => {
 
   const response = await graphql(query);
   if (response.errors) throw new Error(response.errors);
-  const posts = response.data.allMdx.edges;
+  const { posts, pages } = response.data;
 
-  console.log(posts);
+  console.log(posts, pages);
 
-  posts.forEach(({ node }) => {
+  pages.edges.forEach(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve('./src/templates/page-template.js'),
+      context: { slug: node.fields.slug },
+    });
+  });
+
+  posts.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
       component: path.resolve('./src/templates/post-template.js'),
