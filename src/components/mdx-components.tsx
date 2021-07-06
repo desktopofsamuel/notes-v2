@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Alert,
   Box,
+  Image,
   chakra,
   Code,
   Kbd,

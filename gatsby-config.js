@@ -16,6 +16,32 @@ module.exports = {
     author: siteConfig.author,
   },
   plugins: [
+    `gatsby-remark-images`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        defaultLayouts: {
+          default: require.resolve('./src/templates/default-template.js'),
+        },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+              linkImagesToOriginal: false,
+              backgroundColor: 'transparent',
+            },
+          },
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-unwrap-images',
+        ],
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -38,39 +64,27 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        extensions: [`.mdx`, `.md`],
-        defaultLayouts: {
-          default: require.resolve('./src/templates/default-template.js'),
-        },
-      },
-    },
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    {
       resolve: '@chakra-ui/gatsby-plugin',
       options: {
         resetCSS: false,
         isUsingColorMode: false,
       },
     },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          // "gatsby-remark-relative-images",
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 1920,
-              linkImagesToOriginal: false,
-              backgroundColor: 'transparent',
-            },
-          },
-        ],
-      },
-    },
+    // {
+    //   resolve: 'gatsby-transformer-remark',
+    //   options: {
+    //     plugins: [
+    //       // "gatsby-remark-relative-images",
+    //       {
+    //         resolve: 'gatsby-remark-images',
+    //         options: {
+    //           maxWidth: 1920,
+    //           linkImagesToOriginal: false,
+    //           backgroundColor: 'transparent',
+    //         },
+    //       },
+    //     ],
+    //   },
+    // },
   ],
 };

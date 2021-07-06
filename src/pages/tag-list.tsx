@@ -3,13 +3,14 @@ import Layout from '@/components/layout';
 import GatsbyLink from '@/components/gatsby-link';
 import kebabCase from 'lodash/kebabCase';
 import { useSiteMetadata, useTagsList } from '../hooks';
-import { UnorderedList, ListItem } from '@chakra-ui/react';
+import { UnorderedList, ListItem, Heading } from '@chakra-ui/react';
 
 const TagList = ({}) => {
   const { title, subtitle } = useSiteMetadata();
   const tags = useTagsList();
   return (
     <Layout>
+      <Heading>Tags</Heading>
       <UnorderedList>
         {tags.map((tag) => (
           <ListItem key={tag.fieldValue}>

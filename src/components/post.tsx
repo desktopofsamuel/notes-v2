@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { chakra, Box, Heading } from '@chakra-ui/react';
+import { chakra, Heading } from '@chakra-ui/react';
 
 const MDX = chakra(MDXRenderer);
 
@@ -8,6 +8,7 @@ type PostType = {
   post: {
     frontmatter: {
       title: string;
+      tags: [string];
     };
     body: any;
   };

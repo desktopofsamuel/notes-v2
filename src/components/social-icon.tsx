@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from '@/components/gatsby-link';
-import { Circle } from '@chakra-ui/react';
+import { Circle } from '@chakra-ui/layout';
 
 type SocialIconType = {
   to: string;
