@@ -4,10 +4,14 @@ import GatsbyLink from '@/components/gatsby-link';
 import {
   Button,
   Box,
+  Flex,
+  Grid,
   Heading,
   VStack,
   SimpleGrid,
   useColorMode,
+  mode,
+  IconButton,
 } from '@chakra-ui/react';
 import {
   FaTwitter,
@@ -26,68 +30,83 @@ import config from '../../config';
 const Sidebar: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <VStack as="aside" align="flex-start" spacing="8">
-      {/* Bio */}
-      <GatsbyLink to="/">
-        <StaticImage
-          src="../../static/profile.jpg"
-          alt="Samuel W."
-          placeholder="blurred"
-          layout="fixed"
-          width={100}
-          height={100}
-          style={{
-            borderRadius: `50%`,
-          }}
+    <Grid
+      as="aside"
+      alignContent="flex-start"
+      gap="10"
+      gridTemplateColumns={{ base: 'auto auto', md: 'auto' }}
+    >
+      <Flex direction="column">
+        {/* Bio */}
+        <GatsbyLink to="/">
+          <StaticImage
+            src="../../static/profile.jpg"
+            alt="Samuel W."
+            placeholder="blurred"
+            layout="fixed"
+            width={75}
+            height={75}
+            style={{
+              borderRadius: `50%`,
+            }}
+          />
+        </GatsbyLink>
+        {/* Author */}
+        <Heading as="h1" fontSize="medium">
+          Samuel W.
+        </Heading>
+        <Box dangerouslySetInnerHTML={{ __html: config.author.fullbio }} />
+      </Flex>
+      <Flex direction="column">
+        {/* Menu  */}
+        <VStack
+          spacing="2"
+          align="flex-start"
+          alignItems={{ base: 'flex-end', md: 'flex-start' }}
+        >
+          {config.menu.map((item) => (
+            <GatsbyLink to={item.path}>{item.label}</GatsbyLink>
+          ))}
+        </VStack>
+        {/* Social */}
+        <SimpleGrid
+          columns={3}
+          display={{ base: 'none', md: 'grid' }}
+          justifyContent="spaceBetween
+          "
+        >
+          <SocialIcon to="https://twitter.com/desktopofsamuel">
+            <FaTwitter />
+          </SocialIcon>
+          <SocialIcon>
+            <FaInstagram />
+          </SocialIcon>
+          <SocialIcon>
+            <FaMediumM />
+          </SocialIcon>
+          <SocialIcon>
+            <FaFigma />
+          </SocialIcon>
+          <SocialIcon>
+            <FaLinkedin />
+          </SocialIcon>
+          <SocialIcon>
+            <FaRss />
+          </SocialIcon>
+          <SocialIcon>
+            <FaEnvelope />
+          </SocialIcon>
+        </SimpleGrid>
+        <IconButton
+          width="4"
+          aria-label="Switch Color Mode"
+          variant="outline"
+          onClick={toggleColorMode}
+          isRound
+          icon={colorMode === `light` ? <FaMoon /> : <FaSun />}
         />
-      </GatsbyLink>
-      {/* Author */}
-      <Heading as="h1" fontSize="medium">
-        Samuel W.
-      </Heading>
-      <Box
-        color="whiteAlpha.700"
-        dangerouslySetInnerHTML={{ __html: config.author.fullbio }}
-      />
-      {/* Menu  */}
-      <VStack spacing="2" align="flex-start">
-        {config.menu.map((item) => (
-          <GatsbyLink to={item.path}>{item.label}</GatsbyLink>
-        ))}
-      </VStack>
-      {/* Social */}
-      <SimpleGrid columns={3}>
-        <SocialIcon to="https://twitter.com/desktopofsamuel">
-          <FaTwitter />
-        </SocialIcon>
-        <SocialIcon>
-          <FaInstagram />
-        </SocialIcon>
-        <SocialIcon>
-          <FaMediumM />
-        </SocialIcon>
-        <SocialIcon>
-          <FaFigma />
-        </SocialIcon>
-        <SocialIcon>
-          <FaLinkedin />
-        </SocialIcon>
-        <SocialIcon>
-          <FaRss />
-        </SocialIcon>
-        <SocialIcon>
-          <FaEnvelope />
-        </SocialIcon>
-      </SimpleGrid>
-      <Button
-        colorScheme="teal"
-        mr="4"
-        fontWeight="regular"
-        onClick={toggleColorMode}
-      >
-        {colorMode === `light` ? <FaMoon /> : <FaSun />}
-      </Button>
-    </VStack>
+      </Flex>
+    </Grid>
   );
 };
 

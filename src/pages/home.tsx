@@ -27,7 +27,7 @@ const Home: React.FC<PageProps> = ({ data }) => {
 
 export const query = graphql`
   # $postsLimit: Int!, $postsOffset: Int!
-  query IndexTemplate {
+  query Index {
     allMdx(
       # limit: $postsLimit
       # skip: $postsOffset

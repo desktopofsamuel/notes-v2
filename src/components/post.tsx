@@ -19,10 +19,10 @@ const Post = ({ post }: PostType) => {
   // const { tags, title, date } = post.frontmatter;
   const { title } = post.frontmatter;
   return (
-    <Box>
+    <>
       <Heading>{title}</Heading>
       <MDX>{body}</MDX>
-    </Box>
+    </>
   );
 };
 

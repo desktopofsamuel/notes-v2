@@ -8,7 +8,7 @@ module.exports = {
   description: 'UI/UX 設計師，談談科技、Gadget心得。',
   copyright: '© 版權所有',
   disqusShortname: '',
-  postsPerPage: 6,
+  postsPerPage: 3,
   googleAnalyticsId: 'UA-114278308-6',
   useKatex: false,
   menu: [

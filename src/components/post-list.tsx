@@ -27,17 +27,24 @@ const PostList = ({ edges }: EdgesType) => (
     {edges.map((edge) => (
       <VStack spacing="2" align="flex-start">
         <HStack spacing="4">
-          <Text as="time" sizes="sm" textTransform="uppercase">
+          <Text
+            as="time"
+            fontSize="sm"
+            fontWeight="bold"
+            textTransform="uppercase"
+          >
             {dayjs(edge.node.frontmatter.date).format(`MMMM YYYY`)}
           </Text>
-          <Text as="small" sizes="sm">
+          <Text as="small" fontSize="sm" color="brand.400">
             {edge.node.frontmatter.category}
           </Text>
         </HStack>
         <Link to={edge.node.fields.slug}>
-          <Heading size="lg">{edge.node.frontmatter.title}</Heading>
+          <Heading as="h2" fontSize="2xl" mt="2">
+            {edge.node.frontmatter.title}
+          </Heading>
         </Link>
-        <Text>{edge.node.excerpt}</Text>
+        <Text noOfLines={3}>{edge.node.excerpt}</Text>
         <Link to={edge.node.fields.slug}>
           <Button
             rightIcon={<FaArrowRight />}

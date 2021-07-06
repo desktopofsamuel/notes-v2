@@ -17,7 +17,7 @@ export const query = graphql`
     mdx(fields: { slug: { eq: $slug } }) {
       id
       body
-      excerpt
+      excerpt(pruneLength: 300)
       fields {
         slug
         # tagSlugs

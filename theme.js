@@ -1,5 +1,6 @@
 import { extendTheme } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
+import { VStack } from '@chakra-ui/layout';
 
 const customTheme = extendTheme({
   config: {
@@ -12,6 +13,16 @@ const customTheme = extendTheme({
     heading:
       'Inter, Noto Sans HK, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif',
     mono: 'Menlo, monospace',
+  },
+  colors: {
+    text: {
+      100: 'lightgray',
+      400: 'darkgray',
+    },
+    brand: {
+      100: 'orange',
+      400: 'red',
+    },
   },
   fontSizes: {
     xs: '0.75rem',
@@ -69,12 +80,62 @@ const customTheme = extendTheme({
       body: {
         // color: mode('red.400', 'whiteAlpha.900')(props),
       },
+      p: {
+        color: mode('gray.800', 'text.400')(props),
+      },
+      a: {
+        color: 'teal.400',
+      },
+      h1: {
+        fontSize: 'xl',
+        fontWeight: 'bold',
+        mt: '8',
+        mb: '4',
+      },
+      h2: {
+        fontSizes: 'lg',
+        fontWeight: 'bold',
+        mt: '8',
+        mb: '4',
+      },
+      h3: {
+        fontSize: 'md',
+        fontWeight: 'bold',
+        mt: '8',
+        mb: '4',
+      },
+      ul: {
+        listStyle: 'square',
+        my: '2',
+      },
     }),
     components: {
+      Button: {
+        variants: {
+          solid: {
+            backgroundColor: 'blue.300',
+          },
+          disabled: {
+            PointerEvent: 'none',
+            backgroundColor: 'red.400',
+          },
+        },
+      },
       Text: {
         baseStyle: (props) => ({
-          color: mode('red.900', 'whiteAlpha.100')(props),
+          // color: mode('red.900', 'whiteAlpha.100')(props),
         }),
+      },
+      Link: {
+        baseStyle: {
+          color: 'teal.400',
+        },
+      },
+      VStack: {
+        baseStyle: {
+          align: 'flex-start',
+          spacing: '8',
+        },
       },
     },
   },

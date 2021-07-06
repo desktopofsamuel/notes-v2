@@ -3,6 +3,10 @@
 const path = require('path');
 const _ = require('lodash');
 
+const createCategoriesPages = require('./pagination/create-categories-pages.js');
+const createTagsPages = require('./pagination/create-tags-pages.js');
+const createPostsPages = require('./pagination/create-posts-pages.js');
+
 const query = `
   {
     pages: allMdx(
@@ -12,6 +16,10 @@ const query = `
         node {
           fields {
             slug
+          }
+          frontmatter {
+            tags
+            category
           }
         }
       }
@@ -24,17 +32,18 @@ const query = `
           fields {
             slug
           }
+          frontmatter {
+            tags
+            category
+          }
         }
       }
     }
   }
 `;
 
-// const createCategoriesPages = require('./pagination/create-categories-pages.js');
-// const createTagsPages = require('./pagination/create-tags-pages.js');
-// const createPostsPages = require('./pagination/create-posts-pages.js');
-
-const createPages = async ({ graphql, actions: { createPage } }) => {
+const createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
   // // 404
   // createPage({
   //   path: '/404',
@@ -89,6 +98,10 @@ const createPages = async ({ graphql, actions: { createPage } }) => {
       context: { slug: node.fields.slug },
     });
   });
+
+  await createTagsPages(graphql, actions);
+  await createPostsPages(graphql, actions);
+  await createCategoriesPages(graphql, actions);
 };
 
 // _.each(edges, (edge) => {
@@ -114,10 +127,5 @@ const createPages = async ({ graphql, actions: { createPage } }) => {
 //     });
 //   }
 // });
-
-// Feeds
-// await createTagsPages(graphql, actions);
-// await createCategoriesPages(graphql, actions);
-// await createPostsPages(graphql, actions);
 
 module.exports = createPages;

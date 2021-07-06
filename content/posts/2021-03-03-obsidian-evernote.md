@@ -4,8 +4,14 @@ title: Obsidian 上手及使用 Git 跨平台同步
 slug: Obsidian上手及使用Git跨平台同步
 date: 2021-03-03T16:00:00Z
 category: 桌面
-socialImage: "/media/obsidian-screenshot.png"
-tags: ["Obsidian", "Evernote", "Git", "Productivity", "筆記"]
+socialImage: '/media/obsidian-screenshot.png'
+tags:
+  - 'Obsidian'
+  - 'Evernote'
+  - 'Git'
+  - 'Productivity'
+  - '筆記'
+  - 'test'
 ---
 
 ## 前言： 不捨得用了 11 年的 Evernote

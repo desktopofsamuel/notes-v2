@@ -30,17 +30,8 @@ const Embed = (props) => (
 );
 
 const MDXComponents = {
-  h1: (props) => <chakra.h1 apply="mdx.h1" {...props} />,
-  h2: (props) => (
-    <chakra.h2
-      apply="mdx.h2"
-      fontSize="xl"
-      fontWeight="bold"
-      mt="8"
-      mb="4"
-      {...props}
-    />
-  ),
+  h1: (props) => <chakra.h1 {...props} />,
+  h2: (props) => <chakra.h2 {...props} />,
   h3: (props) => <chakra.h3 apply="mdx.h3" fontSize="lg" {...props} />,
   h4: (props) => <chakra.h4 apply="mdx.h4" fontSize="md " {...props} />,
   hr: (props) => <chakra.hr apply="mdx.hr" {...props} />,

@@ -15,9 +15,13 @@ const Layout: React.FC = ({ children }) => (
     </Helmet>
     <ChakraProvider theme={customTheme}>
       <Container maxW="container.xl">
-        <Grid gridTemplateColumns="33% 66%" py="10" gap="10">
+        <Grid
+          gridTemplateColumns={{ base: '100%', md: '33% 66%' }}
+          py="10"
+          gap="10"
+        >
           <Sidebar />
-          <Box>{children}</Box>
+          <Box as="main">{children}</Box>
         </Grid>
       </Container>
     </ChakraProvider>
