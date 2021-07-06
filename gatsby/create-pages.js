@@ -74,8 +74,6 @@ const createPages = async ({ graphql, actions: { createPage } }) => {
   if (response.errors) throw new Error(response.errors);
   const { posts, pages } = response.data;
 
-  console.log(posts, pages);
-
   pages.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
