@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('path');
 const _ = require('lodash');
 
@@ -50,11 +48,11 @@ const createPages = async ({ graphql, actions }) => {
   //   component: path.resolve('./src/templates/not-found-template.js'),
   // });
 
-  // // Tags list
-  // createPage({
-  //   path: '/tags',
-  //   component: path.resolve('./src/templates/tags-list-template.js'),
-  // });
+  // Tags list
+  createPage({
+    path: '/tags',
+    component: path.resolve('./src/pages/tag-list.tsx'),
+  });
 
   // // Categories list
   // createPage({
@@ -104,6 +102,8 @@ const createPages = async ({ graphql, actions }) => {
   await createCategoriesPages(graphql, actions);
 };
 
+module.exports = createPages;
+
 // _.each(edges, (edge) => {
 // if (_.get(edge, 'node.frontmatter.template') === 'page') {
 //   createPage({
@@ -127,5 +127,3 @@ const createPages = async ({ graphql, actions }) => {
 //     });
 //   }
 // });
-
-module.exports = createPages;

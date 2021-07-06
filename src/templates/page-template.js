@@ -20,7 +20,7 @@ export const query = graphql`
       excerpt(pruneLength: 300)
       fields {
         slug
-        # tagSlugs
+        tagSlugs
       }
       frontmatter {
         date

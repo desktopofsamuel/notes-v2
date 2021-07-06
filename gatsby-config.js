@@ -1,6 +1,20 @@
+const siteConfig = require('./config.js');
+
 module.exports = {
   // Since `gatsby-plugin-typescript` is automatically included in Gatsby you
   // don't need to define it here (just if you need to change the options)
+  pathPrefix: siteConfig.pathPrefix,
+  siteMetadata: {
+    url: siteConfig.url,
+    title: siteConfig.title,
+    subtitle: siteConfig.subtitle,
+    description: siteConfig.description,
+    copyright: siteConfig.copyright,
+    disqusShortname: siteConfig.disqusShortname,
+    menu: siteConfig.menu,
+    category: siteConfig.category,
+    author: siteConfig.author,
+  },
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',

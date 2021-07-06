@@ -1,13 +1,23 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '@/components/layout';
-import PostList from '@/components/post-list';
 import Pagination from '@/components/pagination';
+import PostList from '@/components/post-list';
 import { Heading } from '@chakra-ui/react';
+import { PageContext, AllMdx } from '@/type';
+import { useSiteMetadata } from '../hooks';
 
-const TagTemplate = ({ data, pageContext }) => {
+type Props = {
+  data: AllMdx;
+  pageContext: PageContext;
+};
+
+const CategoryTemplate = ({ data, pageContext }: Props) => {
+  const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
+
+  const { edges } = data.allMdx;
   const {
-    tag,
+    category,
     slug,
     currentPage,
     prevPagePath,
@@ -15,18 +25,15 @@ const TagTemplate = ({ data, pageContext }) => {
     hasPrevPage,
     hasNextPage,
   } = pageContext;
-
-  const { edges } = data.allMdx;
   const pageTitle =
     currentPage > 0
-      ? `所有關於"${tag}"的文章 - 第${currentPage}頁 - hi`
-      : `所有關於"${tag}"的文章 - hi`;
+      ? `${category} - Page ${currentPage} - ${siteTitle}`
+      : `${category} - ${siteTitle}`;
 
   return (
     <Layout>
-      <Heading as="h1" mb="8">
-        {tag}
-      </Heading>
+      <p>{pageTitle}</p>
+      <Heading>{category}</Heading>
       <PostList edges={edges} />
       <Pagination
         prevPagePath={prevPagePath}
@@ -39,34 +46,28 @@ const TagTemplate = ({ data, pageContext }) => {
 };
 
 export const query = graphql`
-  query TagPage($tag: String, $postsLimit: Int!, $postsOffset: Int!) {
-    # site {
-    #   siteMetadata {
-    #     title
-    #     subtitle
-    #   }
-    # }
+  query CategoryPage($category: String, $postsLimit: Int!, $postsOffset: Int!) {
     allMdx(
       limit: $postsLimit
       skip: $postsOffset
       filter: {
         fileAbsolutePath: { regex: "/posts/" }
-        frontmatter: { tags: { in: [$tag] }, draft: { ne: true } }
+        frontmatter: { category: { eq: $category }, draft: { ne: true } }
       }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
         node {
-          excerpt(pruneLength: 300)
           fields {
+            categorySlug
             slug
-            # categorySlug
           }
+          excerpt(pruneLength: 300)
           frontmatter {
-            title
             date
-            category
             description
+            category
+            title
           }
         }
       }
@@ -74,4 +75,4 @@ export const query = graphql`
   }
 `;
 
-export default TagTemplate;
+export default CategoryTemplate;

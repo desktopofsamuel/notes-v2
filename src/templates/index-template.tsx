@@ -3,13 +3,32 @@ import { graphql } from 'gatsby';
 import Layout from '@/components/layout';
 import PostList from '@/components/post-list';
 import Pagination from '@/components/pagination';
+import { PageContext, AllMdx } from '@/type';
+import { useSiteMetadata } from '../hooks';
 
-const IndexTemplate = ({ data, pageContext }) => {
+type Props = {
+  data: AllMdx;
+  pageContext: PageContext;
+};
+
+const IndexTemplate = ({ data, pageContext }: Props) => {
+  const {
+    title: siteTitle,
+    subtitle: siteSubtitle,
+    description: siteDescription,
+  } = useSiteMetadata();
   const { currentPage, hasNextPage, hasPrevPage, prevPagePath, nextPagePath } =
     pageContext;
   const { edges } = data.allMdx;
+
+  const pageTitle =
+    currentPage > 0
+      ? `所有文章 — 第${currentPage}頁 | ${siteTitle}`
+      : siteTitle;
+
   return (
     <Layout>
+      <p>{pageTitle}</p>
       <PostList edges={edges} />
       <Pagination
         prevPagePath={prevPagePath}
@@ -33,7 +52,7 @@ export const query = graphql`
         node {
           fields {
             slug
-            # categorySlug
+            categorySlug
           }
           excerpt(pruneLength: 300)
           frontmatter {
