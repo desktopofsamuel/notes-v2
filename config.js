@@ -7,6 +7,7 @@ module.exports = {
   subtitle: '科技 | 設計 | 城市',
   description: 'UI/UX 設計師，談談科技、Gadget心得。',
   copyright: '© 版權所有',
+  lang: 'zh',
   disqusShortname: '',
   postsPerPage: 3,
   googleAnalyticsId: 'UA-114278308-6',
@@ -22,7 +23,7 @@ module.exports = {
     },
     {
       label: '#地圖',
-      path: '/pages/travel/',
+      path: '/travel/',
     },
     {
       label: '#遙控',

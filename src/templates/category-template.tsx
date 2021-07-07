@@ -31,8 +31,7 @@ const CategoryTemplate = ({ data, pageContext }: Props) => {
       : `${category} - ${siteTitle}`;
 
   return (
-    <Layout>
-      <p>{pageTitle}</p>
+    <Layout title={pageTitle}>
       <Heading>{category}</Heading>
       <PostList edges={edges} />
       <Pagination

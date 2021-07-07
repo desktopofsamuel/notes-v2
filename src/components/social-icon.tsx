@@ -11,8 +11,8 @@ const SocialIcon: React.FC<SocialIconType> = ({ children, to }) => (
     <Circle
       m="4px"
       size="37px"
-      border="1px"
-      borderColor="whiteAlpha.300"
+      borderWidth="1px"
+      borderColor="gray.200"
       transition="ease-in-out"
       _hover={{ color: `red.400` }}
     >

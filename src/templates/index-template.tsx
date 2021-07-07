@@ -27,8 +27,11 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
       : siteTitle;
 
   return (
-    <Layout>
-      <p>{pageTitle}</p>
+    <Layout
+      title={pageTitle}
+      subtitle={siteSubtitle}
+      description={siteDescription}
+    >
       <PostList edges={edges} />
       <Pagination
         prevPagePath={prevPagePath}

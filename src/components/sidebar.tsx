@@ -70,10 +70,10 @@ const Sidebar: React.FC = () => {
         </VStack>
         {/* Social */}
         <SimpleGrid
+          spacingX="4"
+          spacingY="2"
           columns={3}
           display={{ base: 'none', md: 'grid' }}
-          justifyContent="spaceBetween
-          "
         >
           <SocialIcon to="https://twitter.com/desktopofsamuel">
             <FaTwitter />

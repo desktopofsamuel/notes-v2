@@ -49,15 +49,15 @@ const createPages = async ({ graphql, actions }) => {
   // });
 
   // Tags list
-  createPage({
-    path: '/tags',
-    component: path.resolve('./src/pages/tag-list.tsx'),
-  });
+  // createPage({
+  //   path: '/tags',
+  //   component: path.resolve('./src/pages/tag-list.tsx'),
+  // });
 
-  // // Categories list
+  // Categories list
   // createPage({
   //   path: '/categories',
-  //   component: path.resolve('./src/templates/categories-list-template.js'),
+  //   component: path.resolve('./src/pages/category-list.tsx'),
   // });
 
   // createPage({
