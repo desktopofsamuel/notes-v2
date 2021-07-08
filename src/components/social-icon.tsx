@@ -1,23 +1,23 @@
 import React from 'react';
 import Link from '@/components/gatsby-link';
-import { Circle } from '@chakra-ui/layout';
+import { IconButton } from '@chakra-ui/react';
 
 type SocialIconType = {
   to: string;
+  children: ReactNode;
 };
 
 const SocialIcon: React.FC<SocialIconType> = ({ children, to }) => (
   <Link to={to}>
-    <Circle
-      m="4px"
-      size="36px"
-      borderWidth="1px"
+    <IconButton
+      width="4"
+      variant="outline"
+      isRound
+      colorScheme="gray"
       borderColor="gray.200"
       transition="ease-in-out"
-      _hover={{ color: `red.400` }}
-    >
-      {children}
-    </Circle>
+      icon={children}
+    />
   </Link>
 );
 
