@@ -9,7 +9,7 @@ module.exports = {
   copyright: '© 版權所有',
   lang: 'zh',
   disqusShortname: '',
-  postsPerPage: 3,
+  postsPerPage: 6,
   googleAnalyticsId: 'UA-114278308-6',
   useKatex: false,
   menu: [
@@ -19,7 +19,7 @@ module.exports = {
     },
     {
       label: '關於',
-      path: '/pages/now',
+      path: '/pages/now/',
     },
     {
       label: '#地圖',
@@ -29,11 +29,9 @@ module.exports = {
       label: '#遙控',
       path: '/category/遙控/',
     },
-  ],
-  category: [
     {
-      label: '#筆記',
-      path: '/category/筆記本/',
+      label: 'Test',
+      path: '/posts/test/',
     },
   ],
   author: {
