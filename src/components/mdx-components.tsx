@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Alert,
   Box,
-  Image,
+  Image as ChakraImage,
   chakra,
   Code,
   Kbd,
@@ -11,6 +11,11 @@ import {
   AspectRatio,
 } from '@chakra-ui/react';
 import GatsbyLink from '@/components/gatsby-link';
+import Codeblock from '@/components/codeblock';
+
+const Image = (props) => (
+  <ChakraImage my="8" apply="mdx.image" as="img" {...props} />
+);
 
 const InlineCode = (props) => (
   <Code
@@ -38,7 +43,7 @@ const MDXComponents = {
   hr: (props) => <chakra.hr apply="mdx.hr" {...props} />,
   strong: (props) => <Box as="strong" fontWeight="semibold" {...props} />,
   inlineCode: InlineCode,
-  //   code: Codeblock,
+  code: Codeblock,
   pre: Pre,
   kbd: Kbd,
   blockquote: (props) => (
@@ -63,7 +68,7 @@ const MDXComponents = {
   ul: (props) => <chakra.ul apply="mdx.ul" {...props} />,
   ol: (props) => <chakra.ol apply="mdx.ul" {...props} />,
   li: (props) => <chakra.li pb="4px" {...props} />,
-  Image,
+  img: Image,
   a: GatsbyLink,
   // Tweet,
   Embed,
