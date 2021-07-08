@@ -31,18 +31,19 @@ const TagTemplate = ({ data, pageContext }: Props) => {
       : `所有關於"${tag}"的文章 - ${siteTitle}`;
 
   return (
-    <Layout>
+    <Layout title={pageTitle}>
       <Heading as="h1" mb="8">
         {tag}
       </Heading>
-      {pageTitle}
       <PostList edges={edges} />
-      <Pagination
-        prevPagePath={prevPagePath}
-        nextPagePath={nextPagePath}
-        hasPrevPage={hasPrevPage}
-        hasNextPage={hasNextPage}
-      />
+      {(hasPrevPage || hasNextPage) && (
+        <Pagination
+          prevPagePath={prevPagePath}
+          nextPagePath={nextPagePath}
+          hasPrevPage={hasPrevPage}
+          hasNextPage={hasNextPage}
+        />
+      )}
     </Layout>
   );
 };

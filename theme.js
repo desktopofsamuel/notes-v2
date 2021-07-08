@@ -1,6 +1,5 @@
 import { extendTheme } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
-import { VStack } from '@chakra-ui/layout';
 
 const customTheme = extendTheme({
   config: {
@@ -12,7 +11,7 @@ const customTheme = extendTheme({
     body: 'Inter, Noto Sans HK, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif',
     heading:
       'Inter, Noto Sans HK, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif',
-    mono: 'Menlo, monospace',
+    mono: 'Menlo, IBM Plex Mono, monospace',
   },
   colors: {
     text: {
@@ -22,6 +21,20 @@ const customTheme = extendTheme({
     brand: {
       100: 'orange',
       400: 'red',
+    },
+    primary: {
+      500: '#0077CC',
+    },
+    indigo: {
+      100: '#EAF4FA',
+      200: '#D6E8F6',
+      300: '#B8CFE6',
+      400: '#9AB2CD',
+      500: '#748cad',
+      600: '#546D94',
+      700: '#3A507C',
+      800: '#253764',
+      900: '#162553',
     },
   },
   fontSizes: {
@@ -75,16 +88,46 @@ const customTheme = extendTheme({
     wider: '0.05em',
     widest: '0.1em',
   },
+  components: {
+    Button: {
+      // variants: {
+      //   solid: {
+      //     backgroundColor: 'indigo.100',
+      //   },
+      // },
+      // defaultProps: {
+      //   colorScheme: 'indigo',
+      // },
+    },
+    Text: {
+      baseStyle: (props) => ({
+        // color: mode('red.900', 'whiteAlpha.100')(props),
+      }),
+    },
+    Link: {
+      baseStyle: {
+        // color: 'primary.500',
+      },
+    },
+    VStack: {
+      baseStyle: {
+        align: 'flex-start',
+        spacing: '8',
+        width: '100%',
+        color: 'primary.500',
+      },
+    },
+  },
   styles: {
     global: (props) => ({
       body: {
         // color: mode('red.400', 'whiteAlpha.900')(props),
       },
       p: {
-        color: mode('gray.800', 'text.400')(props),
+        color: mode('gray.800', 'white.500')(props),
       },
       a: {
-        color: 'teal.400',
+        // color: 'primary.500',
       },
       h1: {
         fontSize: 'xl',
@@ -109,35 +152,6 @@ const customTheme = extendTheme({
         my: '2',
       },
     }),
-    components: {
-      Button: {
-        variants: {
-          solid: {
-            backgroundColor: 'blue.300',
-          },
-          disabled: {
-            PointerEvent: 'none',
-            backgroundColor: 'red.400',
-          },
-        },
-      },
-      Text: {
-        baseStyle: (props) => ({
-          // color: mode('red.900', 'whiteAlpha.100')(props),
-        }),
-      },
-      Link: {
-        baseStyle: {
-          color: 'teal.400',
-        },
-      },
-      VStack: {
-        baseStyle: {
-          align: 'flex-start',
-          spacing: '8',
-        },
-      },
-    },
   },
 });
 

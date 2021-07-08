@@ -15,12 +15,16 @@ const Pagination = ({
   hasPrevPage,
 }: Props) => {
   return (
-    <Flex justifyContent="space-between">
+    <Flex justifyContent="space-between" my="8">
       <Link href={hasPrevPage ? prevPagePath : null}>
-        <Button variant={hasPrevPage ? 'solid' : 'disabled'}>← PREV</Button>
+        <Button isDisabled={!hasPrevPage} variant="solid">
+          ← PREV
+        </Button>
       </Link>
       <Link href={hasNextPage ? nextPagePath : null}>
-        <Button variant={hasNextPage ? 'solid' : 'disabled'}>→ NEXT</Button>
+        <Button variant="solid" isDisabled={!hasNextPage}>
+          → NEXT
+        </Button>
       </Link>
     </Flex>
   );

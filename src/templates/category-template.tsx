@@ -34,12 +34,14 @@ const CategoryTemplate = ({ data, pageContext }: Props) => {
     <Layout title={pageTitle}>
       <Heading>{category}</Heading>
       <PostList edges={edges} />
-      <Pagination
-        prevPagePath={prevPagePath}
-        nextPagePath={nextPagePath}
-        hasPrevPage={hasPrevPage}
-        hasNextPage={hasNextPage}
-      />
+      {(hasPrevPage || hasNextPage) && (
+        <Pagination
+          prevPagePath={prevPagePath}
+          nextPagePath={nextPagePath}
+          hasPrevPage={hasPrevPage}
+          hasNextPage={hasNextPage}
+        />
+      )}
     </Layout>
   );
 };
