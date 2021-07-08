@@ -25,11 +25,11 @@ const SEO = ({ postNode, postPath, postSEO }) => {
   return (
     <Helmet title={`${title}  | ${config.siteTitle}`}>
       <html lang={config.lang} />
-      <link
+      {/* <link
         href="https://fonts.googleapis.com/css?family=Noto+Sans+HK:400,700&display=swap&subset=chinese-hongkong"
         rel="stylesheet"
       />
-      <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
+      <link href="https://rsms.me/inter/inter.css" rel="stylesheet" /> */}
     </Helmet>
   );
 };

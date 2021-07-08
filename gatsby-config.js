@@ -70,6 +70,14 @@ module.exports = {
         isUsingColorMode: false,
       },
     },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Inter:400,700:latin', 'Noto Sans HK:400,700'],
+        },
+      },
+    },
     // {
     //   resolve: 'gatsby-transformer-remark',
     //   options: {

@@ -90,14 +90,27 @@ const customTheme = extendTheme({
   },
   components: {
     Button: {
-      // variants: {
-      //   solid: {
-      //     backgroundColor: 'indigo.100',
-      //   },
-      // },
-      // defaultProps: {
-      //   colorScheme: 'indigo',
-      // },
+      variants: {
+        solid: {
+          backgroundColor: 'indigo.100',
+          color: 'primary.500',
+          _hover: {
+            backgroundColor: 'primary.500',
+            color: 'white',
+            textDecoration: 'none',
+          },
+        },
+        ghost: {
+          background: 'none',
+          color: 'primary.500',
+          _hover: {
+            backgroundColor: 'indigo.100',
+          },
+        },
+      },
+      defaultProps: {
+        colorScheme: 'indigo',
+      },
     },
     Text: {
       baseStyle: (props) => ({
@@ -128,6 +141,9 @@ const customTheme = extendTheme({
       },
       a: {
         // color: 'primary.500',
+        _hover: {
+          textDecoration: 'none',
+        },
       },
       h1: {
         fontSize: 'xl',
@@ -150,6 +166,9 @@ const customTheme = extendTheme({
       ul: {
         listStyle: 'square',
         my: '2',
+      },
+      iframe: {
+        py: '8',
       },
     }),
   },
