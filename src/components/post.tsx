@@ -21,7 +21,7 @@ const Post = ({ post }: PostType) => {
   const { title } = post.frontmatter;
   return (
     <>
-      <Heading>{title}</Heading>
+      <Heading mt="0">{title}</Heading>
       <MDX>{body}</MDX>
     </>
   );

@@ -12,7 +12,7 @@ const PostTemplate = ({ data }) => {
     <MDXCompProvider>
       <Layout>
         <Post post={data.mdx} />
-        <HStack spacing={2}>
+        <HStack flexWrap="wrap" gap="1 2">
           {post.tags && post.tags.map((tag) => <Tag>{tag}</Tag>)}
         </HStack>
       </Layout>
