@@ -57,15 +57,13 @@ const Sidebar: React.FC = () => {
         </Heading>
         <Box dangerouslySetInnerHTML={{ __html: config.author.fullbio }} />
       </Flex>
-      <Flex direction="column">
+      <VStack alignItems={{ base: 'flex-end', md: 'flex-start' }} spacing="8">
         {/* Menu  */}
-        <VStack
-          spacing="2"
-          align="flex-start"
-          alignItems={{ base: 'flex-end', md: 'flex-start' }}
-        >
+        <VStack spacing="2" alignItems={{ base: 'flex-end', md: 'flex-start' }}>
           {config.menu.map((item) => (
-            <GatsbyLink to={item.path}>{item.label}</GatsbyLink>
+            <GatsbyLink to={item.path} key={item.label}>
+              {item.label}
+            </GatsbyLink>
           ))}
         </VStack>
         {/* Social */}
@@ -100,12 +98,13 @@ const Sidebar: React.FC = () => {
         <IconButton
           width="4"
           aria-label="Switch Color Mode"
-          variant="outline"
+          variant="solid"
+          colorScheme="gray"
           onClick={toggleColorMode}
           isRound
           icon={colorMode === `light` ? <FaMoon /> : <FaSun />}
         />
-      </Flex>
+      </VStack>
     </Grid>
   );
 };

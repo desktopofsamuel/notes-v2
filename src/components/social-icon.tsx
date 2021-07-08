@@ -10,7 +10,7 @@ const SocialIcon: React.FC<SocialIconType> = ({ children, to }) => (
   <Link to={to}>
     <Circle
       m="4px"
-      size="37px"
+      size="36px"
       borderWidth="1px"
       borderColor="gray.200"
       transition="ease-in-out"
