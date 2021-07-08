@@ -6,18 +6,19 @@ import MDXCompProvider from '@/components/mdx-provider';
 import { HStack } from '@chakra-ui/react';
 import Tag from '@/components/tag';
 
-const PostTemplate = ({ data }) => (
-  <MDXCompProvider>
-    <Layout>
-      <Post post={data.mdx} />
-      <HStack spacing={2}>
-        {data.mdx.frontmatter.tags.map((tag) => (
-          <Tag>{tag}</Tag>
-        ))}
-      </HStack>
-    </Layout>
-  </MDXCompProvider>
-);
+const PostTemplate = ({ data }) => {
+  const post = data.mdx.frontmatter;
+  return (
+    <MDXCompProvider>
+      <Layout>
+        <Post post={data.mdx} />
+        <HStack spacing={2}>
+          {post.tags && post.tags.map((tag) => <Tag>{tag}</Tag>)}
+        </HStack>
+      </Layout>
+    </MDXCompProvider>
+  );
+};
 
 export const query = graphql`
   query PostBySlug($slug: String!) {
