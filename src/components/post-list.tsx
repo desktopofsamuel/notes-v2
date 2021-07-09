@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import Link from '@/components/gatsby-link';
 import { Heading, Text, HStack, VStack, Button } from '@chakra-ui/react';
 import { FaArrowRight } from 'react-icons/fa';
+import { mode } from '@chakra-ui/theme-tools';
 
 type EdgesType = {
   edges: [
@@ -27,7 +28,7 @@ const PostList = ({ edges }: EdgesType) => (
   <VStack spacing="8">
     {edges.map((edge) => (
       <VStack spacing="2" align="flex-start" key={edge.node.fields.slug}>
-        <HStack spacing="4">
+        <HStack spacing="2">
           <Text
             as="time"
             fontSize="sm"
@@ -41,13 +42,7 @@ const PostList = ({ edges }: EdgesType) => (
           </Text>
         </HStack>
         <Link to={edge.node.fields.slug}>
-          <Heading
-            as="h2"
-            fontSize="2xl"
-            mt="0"
-            mb="2"
-            color="mode('black','whiteAlpha.200')"
-          >
+          <Heading as="h2" fontSize="2xl" mt="0" mb="2">
             {edge.node.frontmatter.title}
           </Heading>
         </Link>

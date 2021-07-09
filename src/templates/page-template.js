@@ -8,7 +8,7 @@ import config from '../../config';
 const PageTemplate = ({ data }) => {
   const page = data.mdx;
   const { title } = page.frontmatter;
-  const pageTitle = `${title} - ${config.title}`;
+  const pageTitle = `${title} | ${config.title}`;
 
   return (
     <MDXCompProvider>

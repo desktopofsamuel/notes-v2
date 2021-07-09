@@ -37,9 +37,9 @@ const Embed = (props) => (
 
 const MDXComponents = {
   h1: (props) => <chakra.h1 {...props} />,
-  h2: (props) => <chakra.h2 {...props} />,
-  h3: (props) => <chakra.h3 apply="mdx.h3" fontSize="lg" {...props} />,
-  h4: (props) => <chakra.h4 apply="mdx.h4" fontSize="md " {...props} />,
+  h2: (props) => <chakra.h2 apply="mdx.h2" fontSize="2xl" {...props} />,
+  h3: (props) => <chakra.h3 apply="mdx.h3" fontSize="xl" {...props} />,
+  h4: (props) => <chakra.h4 apply="mdx.h4" fontSize="lg" {...props} />,
   hr: (props) => <chakra.hr apply="mdx.hr" {...props} />,
   strong: (props) => <Box as="strong" fontWeight="semibold" {...props} />,
   inlineCode: InlineCode,
@@ -63,8 +63,8 @@ const MDXComponents = {
   // th: THead,
   // td: TData,
   br: (props) => <Box height="24px" {...props} />,
-  a: (props) => <GatsbyLink {...props} />,
-  p: (props) => <chakra.p apply="mdx.p" {...props} />,
+  a: (props) => <GatsbyLink color="primary.500" {...props} />,
+  p: (props) => <chakra.p apply="mdx.p" lineHeight="taller" {...props} />,
   ul: (props) => <chakra.ul apply="mdx.ul" {...props} />,
   ol: (props) => <chakra.ol apply="mdx.ul" {...props} />,
   li: (props) => <chakra.li pb="4px" {...props} />,

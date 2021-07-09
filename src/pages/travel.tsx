@@ -3,11 +3,19 @@ import { graphql } from 'gatsby';
 import Layout from '@/components/layout';
 import ImageFeed from '@/components/image-feed';
 import { Heading } from '@chakra-ui/react';
+import { useSiteMetadata } from '../hooks';
 
 const TravelPage = ({ data }) => {
   const { edges } = data.allMdx;
+  const {
+    title: siteTitle,
+    subtitle: siteSubtitle,
+    description: siteDescription,
+  } = useSiteMetadata();
+  const pageTitle = `#地圖 | ${siteTitle}`;
+
   return (
-    <Layout>
+    <Layout title={pageTitle}>
       <Heading as="h1">#地圖</Heading>
       <ImageFeed edges={edges} />
     </Layout>

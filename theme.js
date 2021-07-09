@@ -28,7 +28,7 @@ const customTheme = extendTheme({
     indigo: {
       100: '#EAF4FA',
       200: '#D6E8F6',
-      300: '#B8CFE6',
+      300: '#BBBFCC',
       400: '#9AB2CD',
       500: '#748cad',
       600: '#546D94',
@@ -90,9 +90,11 @@ const customTheme = extendTheme({
   },
   components: {
     Button: {
+      baseStyle: (props) => ({
+        // background: mode('indigo.100', 'indigo.900')(props),
+      }),
       variants: {
         solid: {
-          backgroundColor: 'indigo.100',
           color: 'primary.500',
           _hover: {
             backgroundColor: 'primary.500',
@@ -100,16 +102,20 @@ const customTheme = extendTheme({
             textDecoration: 'none',
           },
         },
-        ghost: {
+        ghost: (props) => ({
           background: 'none',
-          color: 'primary.500',
+          color: mode('primary.500', 'white')(props),
           _hover: {
-            backgroundColor: 'indigo.100',
+            background: mode('indigo.100', 'whiteAlpha.200')(props),
+            color: mode('primary.500', 'white')(props),
           },
+        }),
+        outline: (props) => ({
+          borderColor: 'indigo.200',
+        }),
+        defaultProps: {
+          // colorScheme: 'indigo',
         },
-      },
-      defaultProps: {
-        colorScheme: 'indigo',
       },
     },
     Text: {
@@ -133,11 +139,9 @@ const customTheme = extendTheme({
   },
   styles: {
     global: (props) => ({
-      body: {
-        // color: mode('red.400', 'whiteAlpha.900')(props),
-      },
+      body: {},
       p: {
-        color: mode('gray.800', 'white.500')(props),
+        color: mode('gray.800', 'indigo.300')(props),
       },
       a: {
         // color: 'primary.500',

@@ -48,12 +48,16 @@ const ImageFeed = ({ edges }: EdgesType) => (
             position="absolute"
             top="0"
           />
-          <Image
-            src={edge.node.frontmatter.socialImage}
-            alt={edge.node.frontmatter.title}
-            height="100%"
-            objectFit="cover"
-          />
+          {!edge.node.frontmatter.socialImage && (
+            <Image
+              src={edge.node.frontmatter.socialImage}
+              alt={edge.node.frontmatter.title}
+              height="100%"
+              width="100%"
+              objectFit="cover"
+            />
+          )}
+
           <VStack
             spacing="2"
             align="flex-start"
