@@ -12,15 +12,14 @@ type Props = {
 };
 
 const IndexTemplate = ({ data, pageContext }: Props) => {
+  const { currentPage, hasNextPage, hasPrevPage, prevPagePath, nextPagePath } =
+    pageContext;
+  const { edges } = data.allMdx;
   const {
     title: siteTitle,
     subtitle: siteSubtitle,
     description: siteDescription,
   } = useSiteMetadata();
-  const { currentPage, hasNextPage, hasPrevPage, prevPagePath, nextPagePath } =
-    pageContext;
-  const { edges } = data.allMdx;
-
   const pageTitle =
     currentPage > 0
       ? `所有文章 — 第${currentPage}頁 | ${siteTitle}`
