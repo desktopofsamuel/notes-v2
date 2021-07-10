@@ -114,7 +114,7 @@ const SEO = ({ postNode, postPath, postSEO }) => {
   return (
     <Helmet title={`${title}  | ${config.title}`}>
       <html lang={config.lang} />
-      {console.log(postNode, postNode, postPath)}
+      {/* {console.log(postNode, postNode, postPath)} */}
       {/* <link
         href="https://fonts.googleapis.com/css?family=Noto+Sans+HK:400,700&display=swap&subset=chinese-hongkong"
         rel="stylesheet"

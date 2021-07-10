@@ -49,11 +49,11 @@ const ImageFeed = ({ edges }: EdgesType) => (
             top="0"
           />
 
-          <GatsbyImage
+          <Image
             // image={
             //   edge.node.frontmatter.socialImage.childImageSharp.gatsbyImageData
             // }
-            image={edge.node.frontmatter.socialImage}
+            src={edge.node.frontmatter.socialImage}
             alt={edge.node.frontmatter.title}
             loading="lazy"
             height="100%"

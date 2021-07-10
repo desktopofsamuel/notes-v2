@@ -6,7 +6,7 @@ const DefaultPageTemplate = ({ children }) => (
   <MDXCompProvider>
     <Layout>
       {children}
-      {console.log(children)}
+      {/* {console.log(children)} */}
     </Layout>
   </MDXCompProvider>
 );
