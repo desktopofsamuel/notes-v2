@@ -29,10 +29,6 @@ module.exports = {
       label: '#遙控',
       path: '/category/遙控/',
     },
-    {
-      label: 'Test',
-      path: '/posts/test/',
-    },
   ],
   author: {
     name: 'Samuel W.',

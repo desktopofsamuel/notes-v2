@@ -1,15 +1,14 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import Link from '@/components/gatsby-link';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import {
   Box,
   SimpleGrid,
   Heading,
   Text,
-  HStack,
   VStack,
   Image,
-  Button,
 } from '@chakra-ui/react';
 
 type EdgesType = {
@@ -24,7 +23,6 @@ type EdgesType = {
           date: string;
           category: [string];
           title: string;
-          socialImage: string;
           description: string;
         };
       };
@@ -51,9 +49,12 @@ const ImageFeed = ({ edges }: EdgesType) => (
             top="0"
           />
 
-          <Image
-            src={edge.node.frontmatter.socialImage}
+          <GatsbyImage
+            image={
+              edge.node.frontmatter.socialImage.childImageSharp.gatsbyImageData
+            }
             alt={edge.node.frontmatter.title}
+            loading="lazy"
             height="100%"
             width="100%"
             objectFit="cover"
@@ -86,7 +87,6 @@ const ImageFeed = ({ edges }: EdgesType) => (
               lineHeight="tall"
               color="whiteAlpha.800"
             >
-              {console.log(edge.node.excerpt)}
               {edge.node.excerpt || edge.node.frontmatter.description}
             </Text>
           </VStack>

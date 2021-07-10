@@ -28,7 +28,13 @@ module.exports = {
         defaultLayouts: {
           default: require.resolve('./src/templates/default-template.js'),
         },
+        plugins: [
+          `gatsby-remark-images`,
+          'gatsby-remark-unwrap-images',
+          // `gatsby-remark-images-medium-zoom`, // Important!
+        ],
         gatsbyRemarkPlugins: [
+          'gatsby-remark-relative-images',
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -38,7 +44,6 @@ module.exports = {
             },
           },
           'gatsby-remark-copy-linked-files',
-          'gatsby-remark-unwrap-images',
         ],
       },
     },
@@ -70,12 +75,39 @@ module.exports = {
         isUsingColorMode: false,
       },
     },
+    // {
+    //   resolve: 'gatsby-plugin-web-font-loader',
+    //   options: {
+    //     google: {
+    //       families: ['Inter:400,700:latin', 'Noto Sans HK:400,700', 'Menlo'],
+    //     },
+    //   },
+    // },
     {
-      resolve: 'gatsby-plugin-web-font-loader',
+      resolve: `gatsby-plugin-webfonts`,
       options: {
-        google: {
-          families: ['Inter:400,700:latin', 'Noto Sans HK:400,700', 'Menlo'],
+        fonts: {
+          google: [
+            {
+              family: 'Inter',
+              variants: ['400', '700'],
+              subsets: ['latin'],
+              fontDisplay: 'swap',
+            },
+            {
+              family: 'Noto Sans HK',
+              variants: ['400', '700'],
+              fontDisplay: 'swap',
+            },
+            {
+              family: 'Space Mono',
+              variants: ['400'],
+              fontDisplay: 'swap',
+            },
+          ],
         },
+        useMinify: true,
+        usePreload: true,
       },
     },
     // {

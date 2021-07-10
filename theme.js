@@ -11,7 +11,7 @@ const customTheme = extendTheme({
     body: 'Inter, Noto Sans HK, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif',
     heading:
       'Inter, Noto Sans HK, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif',
-    mono: 'Menlo, IBM Plex Mono, monospace',
+    mono: 'Space Mono, IBM Plex Mono, monospace',
   },
   colors: {
     text: {
