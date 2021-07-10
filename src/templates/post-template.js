@@ -6,6 +6,7 @@ import MDXCompProvider from '@/components/mdx-provider';
 import { HStack } from '@chakra-ui/react';
 import Tag from '@/components/tag';
 import { useSiteMetadata } from '../hooks';
+import SEO from '@/components/seo';
 
 const PostTemplate = ({ data }) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
@@ -15,10 +16,11 @@ const PostTemplate = ({ data }) => {
 
   return (
     <MDXCompProvider>
-      <Layout title={pageTitle}>
+      <Layout>
+        <SEO postNode={data.mdx} postSEO postPath={data.mdx.fields.slug} />
         <Post post={data.mdx} />
         <HStack flexWrap="wrap" gap="1 2">
-          {post.tags && post.tags.map((tag) => <Tag>{tag}</Tag>)}
+          {post.tags && post.tags.map((tag) => <Tag index={tag}>{tag}</Tag>)}
         </HStack>
       </Layout>
     </MDXCompProvider>

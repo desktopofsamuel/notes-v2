@@ -24,6 +24,8 @@ type EdgesType = {
           date: string;
           category: [string];
           title: string;
+          socialImage: string;
+          description: string;
         };
       };
     },
@@ -33,7 +35,7 @@ type EdgesType = {
 const ImageFeed = ({ edges }: EdgesType) => (
   <SimpleGrid spacing="4" columns={{ base: 1, sm: 2 }}>
     {edges.map((edge) => (
-      <Link to={edge.node.fields.slug}>
+      <Link to={edge.node.fields.slug} key={edge.node.fields.slug}>
         <Box
           height="33vh"
           width="100%"
@@ -48,15 +50,14 @@ const ImageFeed = ({ edges }: EdgesType) => (
             position="absolute"
             top="0"
           />
-          {!edge.node.frontmatter.socialImage && (
-            <Image
-              src={edge.node.frontmatter.socialImage}
-              alt={edge.node.frontmatter.title}
-              height="100%"
-              width="100%"
-              objectFit="cover"
-            />
-          )}
+
+          <Image
+            src={edge.node.frontmatter.socialImage}
+            alt={edge.node.frontmatter.title}
+            height="100%"
+            width="100%"
+            objectFit="cover"
+          />
 
           <VStack
             spacing="2"
@@ -85,7 +86,8 @@ const ImageFeed = ({ edges }: EdgesType) => (
               lineHeight="tall"
               color="whiteAlpha.800"
             >
-              {edge.node.excerpt}
+              {console.log(edge.node.excerpt)}
+              {edge.node.excerpt || edge.node.frontmatter.description}
             </Text>
           </VStack>
         </Box>

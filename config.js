@@ -2,7 +2,7 @@
 
 module.exports = {
   url: 'https://notes.desktopofsamuel.com',
-  pathPrefix: '/',
+  pathPrefix: '',
   title: 'Desktop of Samuel 數位筆記',
   subtitle: '科技 | 設計 | 城市',
   description: 'UI/UX 設計師，談談科技、Gadget心得。',

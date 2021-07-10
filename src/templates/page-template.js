@@ -12,7 +12,6 @@ const PageTemplate = ({ data }) => {
 
   return (
     <MDXCompProvider>
-      {console.log(title)}
       <Layout title={pageTitle}>
         <Post post={data.mdx} />
       </Layout>
