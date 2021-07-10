@@ -50,9 +50,10 @@ const ImageFeed = ({ edges }: EdgesType) => (
           />
 
           <GatsbyImage
-            image={
-              edge.node.frontmatter.socialImage.childImageSharp.gatsbyImageData
-            }
+            // image={
+            //   edge.node.frontmatter.socialImage.childImageSharp.gatsbyImageData
+            // }
+            image={edge.node.frontmatter.socialImage}
             alt={edge.node.frontmatter.title}
             loading="lazy"
             height="100%"

@@ -46,11 +46,7 @@ export const query = graphql`
             date
             category
             description
-            socialImage {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
+            socialImage
           }
         }
       }
