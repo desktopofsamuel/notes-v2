@@ -74,7 +74,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Inter:400,700:latin', 'Noto Sans HK:400,700'],
+          families: ['Inter:400,700:latin', 'Noto Sans HK:400,700', 'Menlo'],
         },
       },
     },
@@ -94,5 +94,61 @@ module.exports = {
     //     ],
     //   },
     // },
+    {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        query: `
+            {
+              site {
+                siteMetadata {
+                  site_url: url
+                  title
+                  description
+                }
+              }
+            }
+          `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) =>
+              allMdx.edges.map((edge) => ({
+                ...edge.node.frontmatter,
+                description: edge.node.frontmatter.description,
+                date: edge.node.frontmatter.date,
+                url: site.siteMetadata.site_url + edge.node.fields.slug,
+                guid: site.siteMetadata.site_url + edge.node.fields.slug,
+                custom_elements: [{ 'content:encoded': edge.node.html }],
+              })),
+            query: `
+                {
+                  allMdx(
+                    limit: 1000,
+                    sort: { order: DESC, fields: [frontmatter___date] },
+                    filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
+                  ) {
+                    edges {
+                      node {
+                        html
+                        fields {
+                          slug
+                        }
+                        frontmatter {
+                          title
+                          date
+                          template
+                          draft
+                          description
+                        }
+                      }
+                    }
+                  }
+                }
+              `,
+            output: '/rss.xml',
+            title: siteConfig.title,
+          },
+        ],
+      },
+    },
   ],
 };
