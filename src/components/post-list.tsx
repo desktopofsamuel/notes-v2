@@ -27,7 +27,12 @@ type EdgesType = {
 const PostList = ({ edges }: EdgesType) => (
   <VStack spacing="8">
     {edges.map((edge) => (
-      <VStack spacing="2" align="flex-start" key={edge.node.fields.slug}>
+      <VStack
+        spacing="2"
+        align="flex-start"
+        key={edge.node.fields.slug}
+        width="100%"
+      >
         <HStack spacing="2">
           <Text
             as="time"
@@ -37,7 +42,7 @@ const PostList = ({ edges }: EdgesType) => (
           >
             {dayjs(edge.node.frontmatter.date).format(`MMMM YYYY`)}
           </Text>
-          <Text as="small" fontSize="sm" color="brand.400">
+          <Text as="small" fontSize="sm" color="orange.400" fontWeight="bold">
             {edge.node.frontmatter.category}
           </Text>
         </HStack>
