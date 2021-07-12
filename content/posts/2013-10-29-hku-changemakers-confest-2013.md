@@ -1,10 +1,12 @@
 ---
-title: "陳腔濫調的改變：HKU Changemakers Confest 2013後感"
-slug: "陳腔濫調的改變-hku-changemakers-confest-2013後感"
-date: "2013-10-29"
+title: '陳腔濫調的改變：HKU Changemakers Confest 2013後感'
+slug: '陳腔濫調的改變-hku-changemakers-confest-2013後感'
+date: '2013-10-29'
 template: post
 draft: false
-category: "筆記"
+category: '筆記'
+tags:
+  - 香港大學
 ---
 
 ![HKU Changemakers Confest 2013](/media/evernote-1-2.jpg)

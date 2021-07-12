@@ -1,13 +1,13 @@
 ---
-title: "A Series of Unfortunate Events"
-date: "2017-01-22"
+title: 'A Series of Unfortunate Events'
+date: '2017-01-22'
 template: post
 draft: false
-category: "遙控"
-slug: "a-series-of-unfortunate-events"
+category: '遙控'
+slug: 'a-series-of-unfortunate-events'
 tags:
-  - "Netflix 推介"
-  - "尼蒙利斯連環不幸事件"
+  - Netflix
+  - '尼蒙利斯連環不幸事件'
   - 美劇
 ---
 

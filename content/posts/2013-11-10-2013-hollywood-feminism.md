@@ -1,10 +1,13 @@
 ---
-title: "從Pacific Rim 到 Gravity：荷里活的女性主義"
-slug: "從pacific-rim-到-gravity-荷里活的女性主義"
-date: "2013-11-10"
+title: '從Pacific Rim 到 Gravity：荷里活的女性主義'
+slug: '從pacific-rim-到-gravity-荷里活的女性主義'
+date: '2013-11-10'
 template: post
 draft: false
-category: "銀幕"
+category: '銀幕'
+tags:
+  - 影評
+  - 女性主義
 ---
 
 ![feminism](/media/feminism.jpg)

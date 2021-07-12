@@ -1,12 +1,12 @@
 ---
-title: "科技與人文交匯：BLACK MIRROR"
-slug: "科技與人文交匯-black-mirror"
-date: "2013-04-15"
+title: '科技與人文交匯：BLACK MIRROR'
+slug: '科技與人文交匯-black-mirror'
+date: '2013-04-15'
 template: post
 draft: false
-category: "遙控"
+category: '遙控'
 tags:
-  - "Black Mirror"
+  - '美劇'
 ---
 
 ![Black Mirror 黑鏡](/media/blackmirror1x02_0001-1.jpg)

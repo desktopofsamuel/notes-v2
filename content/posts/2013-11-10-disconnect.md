@@ -1,10 +1,12 @@
 ---
-title: "斷了線：Disconnect"
-slug: "斷了線-disconnect"
-date: "2013-11-10"
+title: '斷了線：Disconnect'
+slug: '斷了線-disconnect'
+date: '2013-11-10'
 template: post
 draft: false
-category: "銀幕"
+category: '銀幕'
+tags:
+  - 影評
 ---
 
 ![disconnect](medi/disconnect.jpg)

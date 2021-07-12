@@ -1,11 +1,14 @@
 ---
-title: "《報導者的抉擇—焦點追擊 Spotlight》"
-date: "2016-02-23"
-slug: "報導者的抉擇-焦點追擊-spotlight"
+title: '《報導者的抉擇—焦點追擊 Spotlight》'
+date: '2016-02-23'
+slug: '報導者的抉擇-焦點追擊-spotlight'
 template: post
 draft: false
-category: "銀幕"
-socialImage: "/media/spotlight-2015-directed-by-tom-mccarthy-movie-review2.jpg"
+category: '銀幕'
+socialImage: '/media/spotlight-2015-directed-by-tom-mccarthy-movie-review2.jpg'
+tags:
+  - 影評
+  - Journalism
 ---
 
 ![](/media/spotlight-2015-directed-by-tom-mccarthy-movie-review2.jpg)

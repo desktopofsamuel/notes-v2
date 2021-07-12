@@ -1,12 +1,12 @@
 ---
-title: "Dear White People"
-slug: "dear-white-people"
-date: "2017-08-28T15:43:28.006Z"
+title: 'Dear White People'
+slug: 'dear-white-people'
+date: '2017-08-28T15:43:28.006Z'
 template: post
 draft: false
-category: "遙控"
+category: '遙控'
 tags:
-  - "Netflix 推介"
+  - Netflix
   - Dear White People
   - 美劇
 ---

@@ -1,10 +1,12 @@
 ---
-title: "中年男人的寬容：The Descendants"
-slug: "中年男人的寬容-the-descendants"
-date: "2013-09-16"
+title: '中年男人的寬容：The Descendants'
+slug: '中年男人的寬容-the-descendants'
+date: '2013-09-16'
 template: post
 draft: false
-category: "銀幕"
+category: '銀幕'
+tags:
+  - 影評
 ---
 
 ![descendants3](/media/descendants3.jpg)

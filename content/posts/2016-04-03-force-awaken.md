@@ -1,14 +1,13 @@
 ---
-title: "《星球大戰：原力覺醒──新時代的序章》"
-date: "2016-04-03"
-socialImage: "/media/3-620x330.jpg"
+title: '《星球大戰：原力覺醒──新時代的序章》'
+date: '2016-04-03'
+socialImage: '/media/3-620x330.jpg'
 template: post
 draft: false
-category: "銀幕"
-slug: "星球大戰-原力覺醒-新時代的序章"
+category: '銀幕'
+slug: '星球大戰-原力覺醒-新時代的序章'
 tags:
   - Star Wars
-  - The Force Awakens
   - 影評
 ---
 

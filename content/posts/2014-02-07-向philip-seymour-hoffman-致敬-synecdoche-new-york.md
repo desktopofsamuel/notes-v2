@@ -1,10 +1,10 @@
 ---
-title: "向Philip Seymour Hoffman 致敬： Synecdoche, New York"
-date: "2014-02-07"
-slug: "向philip-seymour-hoffman-致敬-synecdoche-new-york"
+title: '向 Philip Seymour Hoffman 致敬：Synecdoche, New York'
+date: '2014-02-07'
+slug: '向 philip-seymour-hoffman-致敬-synecdoche-new-york'
 template: post
 draft: false
-category: "銀幕"
+category: '銀幕'
 tags:
   - 影評
 ---

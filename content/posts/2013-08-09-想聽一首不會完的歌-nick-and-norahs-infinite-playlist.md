@@ -1,12 +1,13 @@
 ---
-title: "想聽一首不會完的歌 — Nick & Norah’s Infinite Playlist"
-slug: "想聽一首不會完的歌-nick-and-norahs-infinite-playlist"
-date: "2013-08-09"
+title: '想聽一首不會完的歌 — Nick & Norah’s Infinite Playlist'
+slug: '想聽一首不會完的歌-nick-and-norahs-infinite-playlist'
+date: '2013-08-09'
 template: post
 draft: false
-category: "銀幕"
+category: '銀幕'
 tags:
   - 影評
+  - 音樂
 ---
 
 ![](/media/nick-norah.jpg)

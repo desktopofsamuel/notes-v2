@@ -1,13 +1,13 @@
 ---
-title: "Bojack Horseman"
-date: "2017-02-22"
+title: 'Bojack Horseman'
+date: '2017-02-22'
 template: post
 draft: false
-category: "遙控"
-slug: "bojack-horseman"
+category: '遙控'
+slug: 'bojack-horseman'
 tags:
-  - "Netflix 推介"
-  - "Bojack Horseman"
+  - Netflix
+  - 'Bojack Horseman'
   - 美劇
 ---
 

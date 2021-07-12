@@ -1,13 +1,13 @@
 ---
-title: "The Expanse"
-date: "2017-02-05"
+title: 'The Expanse'
+date: '2017-02-05'
 template: post
 draft: false
-category: "遙控"
-slug: "the-expanse"
+category: '遙控'
+slug: 'the-expanse'
 tags:
-  - "Netflix 推介"
-  - "The Expanse"
+  - Netflix
+  - 'The Expanse'
   - 美劇
 ---
 

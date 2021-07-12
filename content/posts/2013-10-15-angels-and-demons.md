@@ -1,10 +1,12 @@
 ---
-title: "不能自拔的內心變奏：蔡健雅 - 天使與魔鬼的對話"
-slug: "不能自拔的內心變奏-蔡健雅-天使與魔鬼的對話"
-date: "2013-10-15"
+title: '不能自拔的內心變奏：蔡健雅 - 天使與魔鬼的對話'
+slug: '不能自拔的內心變奏-蔡健雅-天使與魔鬼的對話'
+date: '2013-10-15'
 template: post
 draft: false
-category: "筆記"
+category: '筆記'
+tags:
+  - 音樂
 ---
 
 ![](/media/homersimpsonangeldemonio-e1343276902884.jpg)

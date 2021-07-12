@@ -1,10 +1,13 @@
 ---
-title: "戲劇化的新聞—談 The Newsroom 的新聞道德"
-date: "2014-12-12"
-slug: "戲劇化的新聞—談the-newsroom-的新聞道德"
+title: '戲劇化的新聞—談 The Newsroom 的新聞道德'
+date: '2014-12-12'
+slug: '戲劇化的新聞—談the-newsroom-的新聞道德'
 template: post
 draft: false
-category: "遙控"
+category: '遙控'
+tags:
+  - 美劇
+  - Journalism
 ---
 
 ![戲劇化的新聞—談the-newsroom-的新聞道德](/media/136e6b59-8536-4365-a206-04acd290850d.jpg)

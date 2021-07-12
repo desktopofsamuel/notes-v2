@@ -1,12 +1,15 @@
 ---
-
-title: "Before, Before, Before"
-slug: "before-before-before"
-date: "2013-11-03"
+title: 'Before, Before, Before'
+slug: 'before-before-before'
+date: '2013-11-03'
 template: post
 draft: false
-category: "銀幕"
----> Jesse: You know what's the worst thing about somebody breaking up with you? It's when you remember how little you thought about the people you broke up with and you realize that is how little they're thinking of you. You know, you'd like to think you're both in all this pain but they're just like "Hey, I'm glad you're gone".
+category: '銀幕'
+tags:
+  - 影評
+---
+
+> Jesse: You know what's the worst thing about somebody breaking up with you? It's when you remember how little you thought about the people you broke up with and you realize that is how little they're thinking of you. You know, you'd like to think you're both in all this pain but they're just like "Hey, I'm glad you're gone".
 
 > Jesse: I kind of see this all love as this, escape for two people who don't know how to be alone. People always talk about how love is this totally unselfish, giving thing, but if you think about it, there's nothing more selfish.
 >
