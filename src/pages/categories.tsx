@@ -9,7 +9,7 @@ const CategoryList = ({}) => {
   const { title, subtitle } = useSiteMetadata();
   const categories = useCategoriesList();
   return (
-    <Layout>
+    <Layout title={`Category | ${title}`}>
       <Heading>Categories</Heading>
       <UnorderedList>
         {categories.map((category) => (

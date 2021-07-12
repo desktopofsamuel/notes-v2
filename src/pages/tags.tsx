@@ -9,7 +9,7 @@ const TagList = ({}) => {
   const { title, subtitle } = useSiteMetadata();
   const tags = useTagsList();
   return (
-    <Layout>
+    <Layout title={`Tags | ${title}`}>
       <Heading>Tags</Heading>
       <UnorderedList>
         {tags.map((tag) => (

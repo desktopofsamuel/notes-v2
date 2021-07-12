@@ -14,7 +14,9 @@ const useTagsList = () => {
     `,
   );
 
-  return allMdx.group;
+  return allMdx.group.sort(function (a, b) {
+    return b.totalCount - a.totalCount;
+  });
 };
 
 export default useTagsList;
