@@ -30,7 +30,7 @@ export const query = graphql`
           category: { eq: "地圖" }
           template: { eq: "post" }
           draft: { ne: true }
-          socialImage: { regex: "/" }
+          # socialImage: { regex: "/" }
         }
       }
       sort: { order: DESC, fields: [frontmatter___date] }
@@ -47,7 +47,11 @@ export const query = graphql`
             date
             category
             description
-            socialImage
+            socialImage {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
           }
         }
       }

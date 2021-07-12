@@ -41,7 +41,12 @@ export const query = graphql`
         tags
         template
         title
-        socialImage
+        # socialImage {
+        #   publicURL
+        #   childImageSharp {
+        #     gatsbyImageData
+        #   }
+        # }
       }
     }
   }

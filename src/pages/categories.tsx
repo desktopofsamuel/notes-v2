@@ -2,15 +2,17 @@ import React from 'react';
 import Layout from '@/components/layout';
 import GatsbyLink from '@/components/gatsby-link';
 import kebabCase from 'lodash/kebabCase';
-import { useSiteMetadata, useCategoriesList } from '../hooks';
 import { UnorderedList, ListItem, Heading } from '@chakra-ui/react';
+import { useSiteMetadata, useCategoriesList } from '../hooks';
 
 const CategoryList = ({}) => {
   const { title, subtitle } = useSiteMetadata();
   const categories = useCategoriesList();
   return (
     <Layout title={`Category | ${title}`}>
-      <Heading>Categories</Heading>
+      <Heading as="h1" variant="pagetitle">
+        Categories
+      </Heading>
       <UnorderedList>
         {categories.map((category) => (
           <ListItem key={category.fieldValue}>

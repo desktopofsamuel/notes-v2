@@ -13,7 +13,7 @@ const PageTemplate = ({ data }) => {
   return (
     <MDXCompProvider>
       <Layout title={pageTitle}>
-        <Post post={data.mdx} />
+        <Post post={data.mdx} hideMeta />
       </Layout>
     </MDXCompProvider>
   );
@@ -35,7 +35,12 @@ export const query = graphql`
         tags
         template
         title
-        socialImage
+        # socialImage {
+        #   publicURL
+        #   childImageSharp {
+        #     gatsbyImageData
+        #   }
+        # }
       }
     }
   }

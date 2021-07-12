@@ -16,11 +16,38 @@ module.exports = {
     author: siteConfig.author,
   },
   plugins: [
-    `gatsby-remark-images`,
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'media',
+        path: `${__dirname}/static/media`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'posts',
+        path: `${__dirname}/content/posts`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'assets',
+        path: `${__dirname}/static`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/content/pages`,
+      },
+    },
     `gatsby-transformer-sharp`,
-
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-image`,
+    `gatsby-remark-images`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -34,7 +61,20 @@ module.exports = {
           // `gatsby-remark-images-medium-zoom`, // Important!
         ],
         gatsbyRemarkPlugins: [
-          'gatsby-remark-relative-images',
+          {
+            resolve: `gatsby-remark-relative-images`,
+            options: {
+              // [Optional] The root of "media_folder" in your config.yml
+              // Defaults to "static"
+              // staticFolderName: 'media',
+              // [Optional] Include the following fields, use dot notation for nested fields
+              // All fields are included by default
+              // include: ['featured'],
+              // [Optional] Exclude the following fields, use dot notation for nested fields
+              // No fields are excluded by default
+              // exclude: ['featured.skip'],
+            },
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -47,42 +87,14 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/static/media`,
-        name: 'media',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/static`,
-        name: 'assets',
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content`,
-        name: `pages`,
-      },
-    },
+
     {
       resolve: '@chakra-ui/gatsby-plugin',
       options: {
-        resetCSS: false,
+        resetCSS: true,
         isUsingColorMode: false,
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-web-font-loader',
-    //   options: {
-    //     google: {
-    //       families: ['Inter:400,700:latin', 'Noto Sans HK:400,700', 'Menlo'],
-    //     },
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-webfonts`,
       options: {

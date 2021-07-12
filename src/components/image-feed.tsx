@@ -24,6 +24,11 @@ type EdgesType = {
           category: [string];
           title: string;
           description: string;
+          socialImage: {
+            childImageSharp: {
+              any;
+            };
+          };
         };
       };
     },
@@ -47,19 +52,25 @@ const ImageFeed = ({ edges }: EdgesType) => (
             height="100%"
             position="absolute"
             top="0"
+            zIndex="1"
           />
-
-          <Image
-            // image={
-            //   edge.node.frontmatter.socialImage.childImageSharp.gatsbyImageData
-            // }
-            src={edge.node.frontmatter.socialImage}
-            alt={edge.node.frontmatter.title}
-            loading="lazy"
-            height="100%"
-            width="100%"
-            objectFit="cover"
-          />
+          {edge.node.frontmatter.socialImage && (
+            <GatsbyImage
+              image={
+                edge.node.frontmatter.socialImage.childImageSharp
+                  .gatsbyImageData
+              }
+              // src={edge.node.frontmatter.socialImage}
+              alt={edge.node.frontmatter.title}
+              style={{
+                height: '100%',
+                width: '100%',
+                objectFit: 'cover',
+                zIndex: '-1',
+              }}
+              loading="lazy"
+            />
+          )}
 
           <VStack
             spacing="2"
@@ -67,6 +78,7 @@ const ImageFeed = ({ edges }: EdgesType) => (
             position="absolute"
             bottom="0"
             p="4"
+            zIndex="2"
           >
             <Text
               as="time"
@@ -78,7 +90,7 @@ const ImageFeed = ({ edges }: EdgesType) => (
               {dayjs(edge.node.frontmatter.date).format(`MMMM YYYY`)}
             </Text>
 
-            <Heading as="h2" fontSize="lg" mt="2" color="white">
+            <Heading as="h2" fontSize="xl" mt="2" color="white">
               {edge.node.frontmatter.title}
             </Heading>
 

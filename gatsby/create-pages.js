@@ -18,6 +18,7 @@ const query = `
           frontmatter {
             tags
             category
+            template
           }
         }
       }
@@ -33,6 +34,7 @@ const query = `
           frontmatter {
             tags
             category
+            template
           }
         }
       }

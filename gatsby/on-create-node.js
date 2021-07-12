@@ -1,30 +1,28 @@
-'use strict';
 const path = require(`path`);
 const _ = require('lodash');
-// const { fmImagesToRelative } = require("gatsby-remark-relative-images");
+const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 const { createFilePath } = require('gatsby-source-filesystem');
 
 const onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
+  let slug;
 
-  // fmImagesToRelative(node);
+  fmImagesToRelative(node);
 
   if (node.internal.type === 'Mdx') {
-    if (typeof node.frontmatter.slug !== 'undefined') {
-      const dirname = getNode(node.parent).relativeDirectory;
-      createNodeField({
-        node,
-        name: 'slug',
-        value: `/${dirname}/${node.frontmatter.slug}/`,
-      });
+    if (node.frontmatter.template === 'page') {
+      slug = `/pages/${node.frontmatter.slug}/`;
+    } else if (node.frontmatter.template === 'post') {
+      slug = `/posts/${node.frontmatter.slug}/`;
     } else {
-      const value = createFilePath({ node, getNode });
-      createNodeField({
-        node,
-        name: 'slug',
-        value,
-      });
+      slug = `${node.frontmatter.slug}/`;
     }
+
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug,
+    });
 
     if (node.frontmatter.tags) {
       const tagSlugs = node.frontmatter.tags.map(

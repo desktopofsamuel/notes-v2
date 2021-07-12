@@ -39,16 +39,20 @@ const Layout: React.FC = ({
       <ChakraProvider theme={customTheme} resetCSS={true}>
         <Container maxW="container.lg">
           <Grid
-            gridTemplateColumns={{ base: '100%', md: '33% 1px 66%' }}
+            gridTemplateColumns={{
+              base: '100%',
+              md: 'minmax(0, 200px) auto',
+              lg: 'minmax(0, 200px) minmax(0,1px) auto',
+            }}
             py="10"
-            gap="10"
+            gap={{ base: '0', md: '2', lg: '10' }}
           >
             <Sidebar />
             <Box
               background="linear-gradient(180deg,#e1e1e1 0,#e1e1e1 48%,#fff)"
               height="33vh"
               width="1px"
-              display={{ base: 'none', md: 'block' }}
+              display={{ base: 'none', md: 'none', lg: 'block' }}
             />
             <Box as="main">{children}</Box>
           </Grid>
