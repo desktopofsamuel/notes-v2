@@ -42,7 +42,7 @@ const PostList = ({ edges }: EdgesType) => (
           >
             {dayjs(edge.node.frontmatter.date).format(`MMMM YYYY`)}
           </Text>
-          <Text as="small" fontSize="sm" color="orange.400" fontWeight="bold">
+          <Text as="small" fontSize="sm" color="orange.500" fontWeight="bold">
             {edge.node.frontmatter.category}
           </Text>
         </HStack>

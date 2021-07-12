@@ -141,7 +141,9 @@ const customTheme = extendTheme({
     global: (props) => ({
       body: {},
       p: {
-        color: mode('gray.800', 'indigo.300')(props),
+        color: mode('gray.600', 'indigo.300')(props),
+        lineHeight: 'taller',
+        my: '4',
       },
       a: {
         // color: 'primary.500',
@@ -170,6 +172,10 @@ const customTheme = extendTheme({
       ul: {
         listStyle: 'square',
         my: '2',
+      },
+      li: {
+        color: mode('gray.600', 'indigo.300')(props),
+        lineHeight: 'taller',
       },
       iframe: {
         py: '8',

@@ -64,7 +64,7 @@ const MDXComponents = {
   // td: TData,
   br: (props) => <Box height="24px" {...props} />,
   a: (props) => <GatsbyLink color="primary.500" {...props} />,
-  p: (props) => <chakra.p apply="mdx.p" lineHeight="taller" {...props} />,
+  p: (props) => <chakra.p apply="mdx.p" {...props} />,
   ul: (props) => <chakra.ul apply="mdx.ul" {...props} />,
   ol: (props) => <chakra.ol apply="mdx.ul" {...props} />,
   li: (props) => <chakra.li pb="4px" {...props} />,

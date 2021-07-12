@@ -30,6 +30,7 @@ export const query = graphql`
           category: { eq: "地圖" }
           template: { eq: "post" }
           draft: { ne: true }
+          socialImage: { regex: "/" }
         }
       }
       sort: { order: DESC, fields: [frontmatter___date] }

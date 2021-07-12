@@ -20,7 +20,7 @@ const PostTemplate = ({ data }) => {
         <SEO postNode={data.mdx} postSEO postPath={data.mdx.fields.slug} />
         <Post post={data.mdx} />
         <HStack flexWrap="wrap" gap="1 2">
-          {post.tags && post.tags.map((tag) => <Tag index={tag}>{tag}</Tag>)}
+          {post.tags && post.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
         </HStack>
       </Layout>
     </MDXCompProvider>
