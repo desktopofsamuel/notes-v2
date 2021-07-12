@@ -36,7 +36,7 @@ const Layout: React.FC = ({
         <meta name="author" content={config.siteTitleShort} />
         <meta name="copyright" content={config.copyright} />
       </Helmet>
-      <ChakraProvider theme={customTheme}>
+      <ChakraProvider theme={customTheme} resetCSS={true}>
         <Container maxW="container.lg">
           <Grid
             gridTemplateColumns={{ base: '100%', md: '33% 1px 66%' }}

@@ -1,5 +1,6 @@
 import { extendTheme } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
+// import Heading from '@/components/element/heading';
 
 const customTheme = extendTheme({
   config: {
@@ -23,6 +24,7 @@ const customTheme = extendTheme({
       400: 'red',
     },
     primary: {
+      300: '#33aaff',
       500: '#0077CC',
     },
     indigo: {
@@ -136,20 +138,46 @@ const customTheme = extendTheme({
         color: 'primary.500',
       },
     },
+    Heading: {
+      baseStyle: {
+        fontSize: '2xl',
+      },
+      variants: {
+        pagetitle: {
+          fontSize: '4xl',
+          mt: '0',
+          mb: '8',
+        },
+        title: {
+          fontSize: '2xl',
+          my: '0',
+          lineHeight: 'tall',
+        },
+        heading: {
+          fontSize: '3xl',
+        },
+      },
+      defaultProps: {
+        variant: 'pagetitle',
+      },
+    },
   },
   styles: {
     global: (props) => ({
-      body: {},
+      body: {
+        lineHeight: 'taller',
+      },
       p: {
         color: mode('gray.600', 'indigo.300')(props),
-        lineHeight: 'taller',
         my: '4',
       },
       a: {
         // color: 'primary.500',
-        _hover: {
-          textDecoration: 'none',
-        },
+        // _hover: {
+        //   borderBottomWidth: '1px',
+        //   borderBottomColor: 'primary.500',
+        //   borderBottomStyle: 'solid',
+        // },
       },
       h1: {
         fontSize: 'xl',
@@ -158,8 +186,9 @@ const customTheme = extendTheme({
         mb: '4',
       },
       h2: {
-        fontSizes: 'lg',
+        fontSize: '2xl',
         fontWeight: 'bold',
+        lineHeight: 'taller',
         mt: '8',
         mb: '4',
       },
@@ -175,7 +204,6 @@ const customTheme = extendTheme({
       },
       li: {
         color: mode('gray.600', 'indigo.300')(props),
-        lineHeight: 'taller',
       },
       iframe: {
         py: '8',

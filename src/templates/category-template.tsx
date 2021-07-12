@@ -32,7 +32,7 @@ const CategoryTemplate = ({ data, pageContext }: Props) => {
 
   return (
     <Layout title={pageTitle}>
-      <Heading>{category}</Heading>
+      <Heading as="h1">{category}</Heading>
       <PostList edges={edges} />
       {(hasPrevPage || hasNextPage) && (
         <Pagination

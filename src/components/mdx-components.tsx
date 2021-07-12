@@ -63,13 +63,23 @@ const MDXComponents = {
   // th: THead,
   // td: TData,
   br: (props) => <Box height="24px" {...props} />,
-  a: (props) => <GatsbyLink color="primary.500" {...props} />,
+  a: (props) => (
+    <GatsbyLink
+      color="primary.500"
+      borderBottomWidth="1px"
+      borderBottomColor="primary.500"
+      _hover={{
+        textDecoration: 'none',
+        color: 'primary.300',
+      }}
+      {...props}
+    />
+  ),
   p: (props) => <chakra.p apply="mdx.p" {...props} />,
   ul: (props) => <chakra.ul apply="mdx.ul" {...props} />,
   ol: (props) => <chakra.ol apply="mdx.ul" {...props} />,
   li: (props) => <chakra.li pb="4px" {...props} />,
   img: Image,
-  a: GatsbyLink,
   // Tweet,
   Embed,
   // VideoPlayer,

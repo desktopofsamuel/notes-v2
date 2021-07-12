@@ -32,9 +32,7 @@ const TagTemplate = ({ data, pageContext }: Props) => {
 
   return (
     <Layout title={pageTitle}>
-      <Heading as="h1" mb="8">
-        {tag}
-      </Heading>
+      <Heading as="h1">{tag}</Heading>
       <PostList edges={edges} />
       {(hasPrevPage || hasNextPage) && (
         <Pagination

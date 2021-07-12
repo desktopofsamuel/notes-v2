@@ -52,7 +52,7 @@ const Sidebar: React.FC = () => {
           />
         </GatsbyLink>
         {/* Author */}
-        <Heading as="h1" fontSize="medium">
+        <Heading as="h1" fontSize="medium" mt="4">
           Samuel W.
         </Heading>
         <Box dangerouslySetInnerHTML={{ __html: config.author.fullbio }} />

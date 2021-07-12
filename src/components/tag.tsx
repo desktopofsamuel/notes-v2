@@ -6,7 +6,13 @@ import kebabCase from 'lodash/kebabCase';
 
 const Tag = ({ children }) => (
   <GatsbyLink to={`/tag/${kebabCase(children)}/`}>
-    <ChakraTag variant="subtle" px="3" py="2" borderRadius="full">
+    <ChakraTag
+      variant="subtle"
+      px="3"
+      py="2"
+      borderRadius="full"
+      _hover={{ background: 'primary.500', color: 'white' }}
+    >
       <TagLeftIcon width="10px" as={FaHashtag} mr="1" />
       <TagLabel fontWeight="bold">{children}</TagLabel>
     </ChakraTag>

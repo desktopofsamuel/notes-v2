@@ -47,7 +47,7 @@ const PostList = ({ edges }: EdgesType) => (
           </Text>
         </HStack>
         <Link to={edge.node.fields.slug}>
-          <Heading as="h2" fontSize="2xl" mt="0" mb="2">
+          <Heading as="h2" variant="title">
             {edge.node.frontmatter.title}
           </Heading>
         </Link>
