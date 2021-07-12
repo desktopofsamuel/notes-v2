@@ -19,9 +19,6 @@ const PostTemplate = ({ data }) => {
       <Layout>
         <SEO postNode={data.mdx} postSEO postPath={data.mdx.fields.slug} />
         <Post post={data.mdx} />
-        <HStack flexWrap="wrap" gap="1 2">
-          {post.tags && post.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
-        </HStack>
       </Layout>
     </MDXCompProvider>
   );
@@ -38,6 +35,7 @@ export const query = graphql`
         tagSlugs
       }
       frontmatter {
+        category
         date
         description
         tags
