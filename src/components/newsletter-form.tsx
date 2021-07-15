@@ -38,15 +38,62 @@ const Newsletter = ({}) => {
   const [status, setStatus] = useState(null);
   const FORM_URL = `https://api.convertkit.com/v3/forms/1917969/subscribe`;
 
+  // const formik = useFormik({
+  //   initialValues: {
+  //     name: '',
+  //     email: '',
+  //   },
+
+  //   onSubmit: (values, actions) => {
+  //     const data = {
+  //       api_key: process.env.CONVERTKIT_API_KEY,
+  //       email: values.email,
+  //       first_name: values.name,
+  //     };
+  //     const feed = JSON.stringify(data);
+  //     console.log(feed);
+  //     fetch(FORM_URL, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: feed,
+  //     })
+  //       .then((response) => {
+  //         if (!response.ok) {
+  //           let err = new Error('HTTP status code: ' + response.status);
+  //           err.response = response;
+  //           err.status = response.status;
+  //           setStatus('API ERROR');
+  //           throw err;
+  //         }
+  //         return setStatus('SUCCESS'), console.log('Success:', response);
+  //       })
+  //       // .then((data) => {
+  //       //   console.log('Success:', data);
+  //       //   setStatus('SUCCESS');
+  //       // })
+  //       .catch((error) => {
+  //         console.error('Error:', error);
+  //         setStatus('ERROR');
+  //       });
+  //     actions.setSubmitting(false);
+  //   },
+  // });
+
   return (
     <Formik
-      initialValues={{ name: '', email: '' }}
+      initialValues={{
+        name: '',
+        email: '',
+      }}
       onSubmit={(values, actions) => {
-        const feed = JSON.stringify({
+        const data = {
           api_key: process.env.CONVERTKIT_API_KEY,
           email: values.email,
           first_name: values.name,
-        });
+        };
+        const feed = JSON.stringify(data);
         console.log(feed);
         fetch(FORM_URL, {
           method: 'POST',
@@ -77,7 +124,7 @@ const Newsletter = ({}) => {
       }}
     >
       {(props) => (
-        <Form>
+        <Form onSubmit={props.handleSubmit} onReset={props.handleReset}>
           {status === 'SUCCESS' && (
             <Alert status="success">
               <AlertIcon />
@@ -86,13 +133,13 @@ const Newsletter = ({}) => {
           )}
           {status === 'ERROR' && (
             <Alert status="error">
-              <FaCheckCircle />
+              <AlertIcon />
               Sorry, some error has occured, please try again later.
             </Alert>
           )}
           {status === 'API ERROR' && (
             <Alert status="error">
-              <FaCheckCircle />
+              <AlertIcon />
               Sorry, API error has occured, please try again later.
             </Alert>
           )}
