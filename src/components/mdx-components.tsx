@@ -8,7 +8,6 @@ import {
   Kbd,
   useColorModeValue,
   Link as ChakraLink,
-  AspectRatio,
 } from '@chakra-ui/react';
 import GatsbyLink from '@/components/gatsby-link';
 import Codeblock from '@/components/codeblock';
@@ -65,9 +64,9 @@ const MDXComponents = {
   br: (props) => <Box height="24px" {...props} />,
   a: (props) => (
     <GatsbyLink
-      color="primary.500"
+      color={useColorModeValue('primary.500', 'primary.400')}
       borderBottomWidth="1px"
-      borderBottomColor="primary.500"
+      borderBottomColor={useColorModeValue('primary.500', 'primary.400')}
       _hover={{
         textDecoration: 'none',
         color: 'primary.300',

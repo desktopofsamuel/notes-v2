@@ -25,8 +25,10 @@ const customTheme = extendTheme({
     },
     primary: {
       300: '#33aaff',
+      400: '#78c7ff',
       500: '#0077CC',
     },
+
     indigo: {
       100: '#EAF4FA',
       200: '#D6E8F6',
@@ -94,26 +96,37 @@ const customTheme = extendTheme({
     Button: {
       baseStyle: (props) => ({
         // background: mode('indigo.100', 'indigo.900')(props),
+        _hover: {
+          textDecoration: 'none',
+        },
       }),
       variants: {
-        solid: {
-          color: 'primary.500',
+        solid: (props) => ({
+          color: mode('primary.500', 'primary.400')(props),
           _hover: {
-            backgroundColor: 'primary.500',
-            color: 'white',
+            // backgroundColor: 'primary.500',
+            // color: 'white',
             textDecoration: 'none',
           },
-        },
+        }),
         ghost: (props) => ({
           background: 'none',
           color: mode('primary.500', 'white')(props),
           _hover: {
             background: mode('indigo.100', 'whiteAlpha.200')(props),
             color: mode('primary.500', 'white')(props),
+            textDecoration: 'none',
           },
         }),
         outline: (props) => ({
           borderColor: 'indigo.200',
+        }),
+        disabled: (props) => ({
+          color: 'primary.500',
+          _hover: {
+            color: mode('primary.500', 'white')(props),
+            textDecoration: 'none',
+          },
         }),
         defaultProps: {
           // colorScheme: 'indigo',
@@ -126,9 +139,7 @@ const customTheme = extendTheme({
       }),
     },
     Link: {
-      baseStyle: {
-        // color: 'primary.500',
-      },
+      baseStyle: {},
     },
     VStack: {
       baseStyle: {
