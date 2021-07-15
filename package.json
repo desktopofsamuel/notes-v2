@@ -35,6 +35,7 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "dayjs": "^1.10.5",
+    "dotenv": "^10.0.0",
     "email-octopus": "^1.1.2",
     "formik": "^2.2.9",
     "framer-motion": "^4.1.17",
