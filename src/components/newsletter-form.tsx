@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Box,
-  SimpleGrid,
-  Heading,
-  Text,
-  VStack,
-  HStack,
-  Image,
-  Container,
   Input,
   Button,
   Stack,
@@ -50,16 +42,18 @@ const Newsletter = ({}) => {
     <Formik
       initialValues={{ name: '', email: '' }}
       onSubmit={(values, actions) => {
+        const feed = JSON.stringify({
+          api_key: process.env.CONVERTKIT_API_KEY,
+          email: values.email,
+          first_name: values.name,
+        });
+        console.log(feed);
         fetch(FORM_URL, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            api_key: process.env.CONVERTKIT_API_KEY,
-            email: values.email,
-            first_name: values.name,
-          }),
+          body: feed,
         })
           .then((response) => {
             if (!response.ok) {
