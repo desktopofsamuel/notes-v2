@@ -11,11 +11,14 @@ import {
   Input,
   Button,
   Stack,
+  Alert,
+  AlertIcon,
   FormControl,
   FormLabel,
   FormErrorMessage,
   FormHelperText,
 } from '@chakra-ui/react';
+import { FaCheckCircle } from 'react-icons/fa';
 import { Form, Field, Formik } from 'formik';
 // import eo from 'email-octopus';
 
@@ -40,108 +43,50 @@ function validateEmail(value) {
 }
 
 const Newsletter = ({}) => {
-  // const [status, setStatus] = useState(null);
-  // const [email, setEmail] = useState('');
-  // const listId = '50c6d144-ae86-11eb-a3d0-06b4694bee2a';
-  // const emailOctopus = new eo.EmailOctopus(
-  //   apiKey,
-  // );
-
-  // const FORM_URL = `https://app.convertkit.com/forms/1917969/subscriptions`;
-
-  // const handleSubmit = async (data) => {
-  //   // const data = new FormData(e.target);
-  //   console.log(data);
-  //   try {
-  //     const response = await fetch(FORM_URL, {
-  //       method: 'post',
-  //       body: data,
-  //       headers: {
-  //         accept: 'application/json',
-  //       },
-  //     });
-  //     setEmail('');
-  //     const json = await response.json();
-  //     if (json.status === 'success') {
-  //       setStatus('SUCCESS');
-  //       console.log(sucess);
-  //       return;
-  //     }
-  //   } catch (err) {
-  //     setStatus('ERROR');
-  //     console.log(err);
-  //   }
-  // };
-
-  // const handleInputChange = (event) => {
-  //   const { value } = event.target;
-  //   setEmail(value);
-  // };
-
-  // var options = {
-  //   email_address: 'john@doe.com',
-  //   first_name: 'John',
-  //   last_name: 'Doe',
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(e.body);
-  //   emailOctopus.lists.contacts
-  //     .create(listId, e.body)
-  //     .then((data) => {
-  //       console.log(data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+  const [status, setStatus] = useState(null);
+  const FORM_URL = `https://api.convertkit.com/v3/forms/1917969/subscribe`;
 
   return (
     <Formik
-      initialValues={{ name: 'My Name' }}
+      initialValues={{ name: '', email: '' }}
       onSubmit={(values, actions) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          actions.setSubmitting(false);
-        }, 1000);
+        fetch(FORM_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            api_key: process.env.CONVERTKIT_API_KEY,
+            email: values.email,
+            first_name: values.name,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log('Success:', data);
+            setStatus('SUCCESS');
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+            setStatus('ERROR');
+          });
+        actions.setSubmitting(false);
       }}
-      // onSubmit={handleSubmit}
-      // async (data) => {
-      // base('Newsletter').create(
-      //   [
-      //     {
-      //       fields: {
-      //         Email: values.email,
-      //         Name: values.name,
-      //       },
-      //     },
-      //   ],
-      //   (err) => {
-      //     if (err) {
-      //       console.error(err);
-      //       console.log(values);
-      //     }
-      //   },
-      // );
-
-      // fetch('https://app.convertkit.com/forms/1917969/subscriptions', {
-      //   method: 'post',
-      //   body: JSON.stringify(data),
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   mode: 'no-cors',
-      // }).then((response) => response.json());
     >
       {(props) => (
         <Form>
-          {/* {status === 'SUCCESS' && (
-              <p>Please go confirm your subscription!</p>
-            )}
-            {status === 'ERROR' && (
-              <p>Oops, Something went wrong! try again.</p>
-            )} */}
+          {status === 'SUCCESS' && (
+            <Alert status="success">
+              <AlertIcon />
+              Check your inbox to confirm your subscription!
+            </Alert>
+          )}
+          {status === 'ERROR' && (
+            <Alert status="error">
+              <FaCheckCircle />
+              Sorry, some error has occured, please try again later.
+            </Alert>
+          )}
           <Field name="name" validate={validateName}>
             {({ field, form }) => (
               <FormControl
