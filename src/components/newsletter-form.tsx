@@ -37,7 +37,7 @@ function validateEmail(value) {
 const Newsletter = ({}) => {
   const [status, setStatus] = useState(null);
   const FORM_URL = `https://api.convertkit.com/v3/forms/1917969/subscribe`;
-
+  const API = process.env.CONVERTKIT_API_KEY;
   // const formik = useFormik({
   //   initialValues: {
   //     name: '',
@@ -89,7 +89,7 @@ const Newsletter = ({}) => {
       }}
       onSubmit={async (values, actions) => {
         const data = {
-          api_key: process.env.CONVERTKIT_API_KEY,
+          api_key: API,
           email: values.email,
           first_name: values.name,
         };
