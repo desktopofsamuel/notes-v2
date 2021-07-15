@@ -69,7 +69,7 @@ const Newsletter = ({}) => {
               setStatus('API ERROR');
               throw err;
             }
-            return setStatus('SUCCESS');
+            return setStatus('SUCCESS'), console.log('Success:', response);
           })
           // .then((data) => {
           //   console.log('Success:', data);
