@@ -10,9 +10,7 @@ import {
   FormErrorMessage,
   FormHelperText,
 } from '@chakra-ui/react';
-import { FaCheckCircle } from 'react-icons/fa';
 import { Form, Field, Formik } from 'formik';
-// import eo from 'email-octopus';
 
 function validateName(value) {
   let error;
