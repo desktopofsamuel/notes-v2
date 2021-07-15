@@ -87,7 +87,7 @@ const Newsletter = ({}) => {
         name: '',
         email: '',
       }}
-      onSubmit={(values, actions) => {
+      onSubmit={async (values, actions) => {
         const data = {
           api_key: process.env.CONVERTKIT_API_KEY,
           email: values.email,
