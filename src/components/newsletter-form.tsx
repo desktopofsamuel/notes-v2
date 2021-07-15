@@ -61,11 +61,20 @@ const Newsletter = ({}) => {
             first_name: values.name,
           }),
         })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log('Success:', data);
-            setStatus('SUCCESS');
+          .then((response) => {
+            if (!response.ok) {
+              let err = new Error('HTTP status code: ' + response.status);
+              err.response = response;
+              err.status = response.status;
+              setStatus('API ERROR');
+              throw err;
+            }
+            return setStatus('SUCCESS');
           })
+          // .then((data) => {
+          //   console.log('Success:', data);
+          //   setStatus('SUCCESS');
+          // })
           .catch((error) => {
             console.error('Error:', error);
             setStatus('ERROR');
@@ -85,6 +94,12 @@ const Newsletter = ({}) => {
             <Alert status="error">
               <FaCheckCircle />
               Sorry, some error has occured, please try again later.
+            </Alert>
+          )}
+          {status === 'API ERROR' && (
+            <Alert status="error">
+              <FaCheckCircle />
+              Sorry, API error has occured, please try again later.
             </Alert>
           )}
           <Field name="name" validate={validateName}>
