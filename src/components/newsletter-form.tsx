@@ -35,7 +35,7 @@ function validateEmail(value) {
 const Newsletter = ({}) => {
   const [status, setStatus] = useState(null);
   const FORM_URL = `https://api.convertkit.com/v3/forms/1917969/subscribe`;
-  const API = process.env.CONVERTKIT_API_KEY;
+  const API = process.env.GATSBY_CONVERTKIT_API_KEY;
   console.log(API);
   // const formik = useFormik({
   //   initialValues: {
