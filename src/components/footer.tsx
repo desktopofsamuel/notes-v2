@@ -173,7 +173,7 @@ const Footer = ({}) => {
           </Center>
           <Heading>Keep In Touch</Heading>
           <Text fontSize="lg">
-            即使沒有社交媒體，我們還可以保持聯絡，以電郵接收最新通訊！
+            在社交媒體消失前，讓我們繼續保持聯絡，以電郵接收最新通訊！
           </Text>
           <Newsletter />
           <Text colorScheme="gray" opacity="0.5">
