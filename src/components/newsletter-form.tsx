@@ -145,7 +145,7 @@ const Newsletter = ({}) => {
           <Stack
             direction={{ base: 'column', md: 'row' }}
             minHeight="80px"
-            my="4"
+            my="2"
           >
             <Field name="name" validate={validateName}>
               {({ field, form }) => (

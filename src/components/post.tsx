@@ -1,7 +1,14 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { chakra, Heading, Text, Wrap, HStack } from '@chakra-ui/react';
+import {
+  chakra,
+  Heading,
+  Text,
+  Wrap,
+  HStack,
+  UnorderedList,
+} from '@chakra-ui/react';
 import Tag from '@/components/tag';
 import GatsbyLink from '@/components/gatsby-link';
 import kebabCase from 'lodash/kebabCase';
@@ -49,9 +56,11 @@ const Post = ({ post, hideMeta }: PostType) => {
         {title}
       </Heading>
       <MDX>{body}</MDX>
-      <Wrap spacing="2">
-        {tags && tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
-      </Wrap>
+      <UnorderedList m="0">
+        <Wrap spacing="2">
+          {tags && tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+        </Wrap>
+      </UnorderedList>
     </>
   );
 };

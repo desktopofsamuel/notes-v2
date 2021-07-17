@@ -22,6 +22,7 @@ const InlineCode = (props) => (
     bg={useColorModeValue('blue.50', 'blue.900')}
     color={useColorModeValue('blue.600', 'blue.200')}
     rounded="lg"
+    px="2"
     {...props}
   />
 );
