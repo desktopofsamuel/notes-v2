@@ -10,7 +10,7 @@ import {
   VStack,
   SimpleGrid,
   useColorMode,
-  mode,
+  useColorModeValue,
   IconButton,
 } from '@chakra-ui/react';
 import {
@@ -52,16 +52,31 @@ const Sidebar: React.FC = () => {
           />
         </GatsbyLink>
         {/* Author */}
-        <Heading as="h1" fontSize="medium" mt="4">
-          Samuel W.
-        </Heading>
+        <GatsbyLink to="/">
+          <Heading as="h1" fontSize="medium" mt="4">
+            Samuel W.
+          </Heading>
+        </GatsbyLink>
         <Box dangerouslySetInnerHTML={{ __html: config.author.fullbio }} />
       </Flex>
       <VStack alignItems={{ base: 'flex-end', md: 'flex-start' }} spacing="8">
         {/* Menu  */}
         <VStack spacing="2" alignItems={{ base: 'flex-end', md: 'flex-start' }}>
           {config.menu.map((item) => (
-            <GatsbyLink to={item.path} key={item.label}>
+            <GatsbyLink
+              to={item.path}
+              key={item.label}
+              borderBottomWidth="1px"
+              borderBottomColor="transparent"
+              _hover={{
+                color: useColorModeValue('primary.500', 'primary.400'),
+                borderBottomColor: useColorModeValue(
+                  'primary.500',
+                  'primary.400',
+                ),
+                borderBottomWidth: '1px',
+              }}
+            >
               {item.label}
             </GatsbyLink>
           ))}

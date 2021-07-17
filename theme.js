@@ -15,6 +15,7 @@ const customTheme = extendTheme({
     mono: 'Space Mono, IBM Plex Mono, monospace',
   },
   colors: {
+    transparent: 'rgba(0,0,0,0)',
     text: {
       100: 'lightgray',
       400: 'darkgray',
@@ -121,6 +122,10 @@ const customTheme = extendTheme({
         outline: (props) => ({
           borderColor: 'indigo.200',
         }),
+        brand: (props) => ({
+          backgroundColor: mode('primary.500', 'primary.400'),
+          color: 'white',
+        }),
         disabled: (props) => ({
           color: 'primary.500',
           _hover: {
@@ -138,9 +143,7 @@ const customTheme = extendTheme({
         // color: mode('red.900', 'whiteAlpha.100')(props),
       }),
     },
-    Link: {
-      baseStyle: {},
-    },
+    Link: {},
     VStack: {
       baseStyle: {
         align: 'flex-start',
@@ -163,6 +166,11 @@ const customTheme = extendTheme({
           fontSize: '2xl',
           my: '0',
           lineHeight: 'tall',
+          borderBottom: '1px dotted rgba(0,0,0,0)',
+          transition: 'all 0.1s ease-in-out',
+          _hover: {
+            borderBottom: '1px dotted black',
+          },
         },
         heading: {
           fontSize: '3xl',

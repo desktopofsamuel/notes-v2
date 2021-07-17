@@ -6,6 +6,7 @@ import Sidebar from '@/components/sidebar';
 import SEO from '@/components/seo';
 import customTheme from '../../theme';
 import config from '../../config';
+import Footer from '@/components/footer';
 
 type Props = {
   children: ReactNode;
@@ -56,6 +57,7 @@ const Layout: React.FC = ({
             />
             <Box as="main">{children}</Box>
           </Grid>
+          <Footer />
         </Container>
       </ChakraProvider>
     </>
