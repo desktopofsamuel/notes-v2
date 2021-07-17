@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import {
+  Container,
   Input,
   Button,
   Stack,
   Alert,
+  HStack,
   AlertIcon,
   FormControl,
   FormLabel,
@@ -36,7 +38,6 @@ const Newsletter = ({}) => {
   const [status, setStatus] = useState(null);
   const FORM_URL = `https://api.convertkit.com/v3/forms/1917969/subscribe`;
   const API = process.env.GATSBY_CONVERTKIT_API_KEY;
-  console.log(API);
   // const formik = useFormik({
   //   initialValues: {
   //     name: '',
@@ -87,12 +88,11 @@ const Newsletter = ({}) => {
         email: '',
       }}
       onSubmit={async (values, actions) => {
-        const data = {
+        const feed = JSON.stringify({
           api_key: API,
           email: values.email,
           first_name: values.name,
-        };
-        const feed = JSON.stringify(data);
+        });
         console.log(feed);
         fetch(FORM_URL, {
           method: 'POST',
@@ -142,39 +142,52 @@ const Newsletter = ({}) => {
               Sorry, API error has occured, please try again later.
             </Alert>
           )}
-          <Field name="name" validate={validateName}>
-            {({ field, form }) => (
-              <FormControl
-                isInvalid={form.errors.name && form.touched.name}
-                isRequired
-              >
-                <FormLabel htmlFor="name">First name</FormLabel>
-                <Input {...field} id="name" placeholder="你的名字" />
-                <FormErrorMessage>{form.errors.name}</FormErrorMessage>
-              </FormControl>
-            )}
-          </Field>
-          <Field name="email" validate={validateEmail}>
-            {({ field, form }) => (
-              <FormControl
-                isInvalid={form.errors.email && form.touched.email}
-                isRequired
-              >
-                <FormLabel htmlFor="email">E-mail</FormLabel>
-                <Input
-                  {...field}
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="你的電郵地址"
-                />
-                <FormErrorMessage>{form.errors.email}</FormErrorMessage>
-              </FormControl>
-            )}
-          </Field>
-          <Button mt={4} isLoading={props.isSubmitting} type="submit">
-            Submit
-          </Button>
+          <Stack
+            direction={{ base: 'column', md: 'row' }}
+            minHeight="80px"
+            my="4"
+          >
+            <Field name="name" validate={validateName}>
+              {({ field, form }) => (
+                <FormControl
+                  isInvalid={form.errors.name && form.touched.name}
+                  isRequired
+                >
+                  {/* <FormLabel htmlFor="name">First name</FormLabel> */}
+                  <Input {...field} id="name" placeholder="Your name" />
+                  <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                </FormControl>
+              )}
+            </Field>
+            <Field name="email" validate={validateEmail}>
+              {({ field, form }) => (
+                <FormControl
+                  isInvalid={form.errors.email && form.touched.email}
+                  isRequired
+                >
+                  {/* <FormLabel htmlFor="email">E-mail</FormLabel> */}
+                  <Input
+                    {...field}
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Your email"
+                  />
+                  <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                </FormControl>
+              )}
+            </Field>
+            <Button
+              width="300px"
+              variant="brand"
+              mt={4}
+              isLoading={props.isSubmitting}
+              colorScheme={status === 'SUCCESS' ? 'green' : 'blue'}
+              type="submit"
+            >
+              Submit
+            </Button>
+          </Stack>
         </Form>
       )}
     </Formik>
