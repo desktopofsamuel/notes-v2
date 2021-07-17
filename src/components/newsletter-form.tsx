@@ -93,7 +93,7 @@ const Newsletter = ({}) => {
           email: values.email,
           first_name: values.name,
         });
-        console.log(feed);
+        console.log(values);
         fetch(FORM_URL, {
           method: 'POST',
           headers: {
@@ -119,29 +119,11 @@ const Newsletter = ({}) => {
             console.error('Error:', error);
             setStatus('ERROR');
           });
-        actions.setSubmitting(false);
+        actions.setSubmitting(true);
       }}
     >
-      {(props) => (
-        <Form onSubmit={props.handleSubmit} onReset={props.handleReset}>
-          {status === 'SUCCESS' && (
-            <Alert status="success">
-              <AlertIcon />
-              Check your inbox to confirm your subscription!
-            </Alert>
-          )}
-          {status === 'ERROR' && (
-            <Alert status="error">
-              <AlertIcon />
-              Sorry, some error has occured, please try again later.
-            </Alert>
-          )}
-          {status === 'API ERROR' && (
-            <Alert status="error">
-              <AlertIcon />
-              Sorry, API error has occured, please try again later.
-            </Alert>
-          )}
+      {({ handleSubmit, handleReset, isSubmitting }) => (
+        <Form onSubmit={handleSubmit} onReset={handleReset}>
           <Stack
             direction={{ base: 'column', md: 'row' }}
             minHeight="80px"
@@ -180,14 +162,32 @@ const Newsletter = ({}) => {
             <Button
               width="300px"
               variant="brand"
-              mt={4}
-              isLoading={props.isSubmitting}
-              colorScheme={status === 'SUCCESS' ? 'green' : 'blue'}
+              isLoading={isSubmitting}
+              isDisabled={status === 'SUCCESS'}
               type="submit"
             >
               Submit
             </Button>
+            {console.log(isSubmitting)}
           </Stack>
+          {status === 'SUCCESS' && (
+            <Alert status="success">
+              <AlertIcon />
+              還差一步，立即打開你的電郵信箱確認電郵。
+            </Alert>
+          )}
+          {status === 'ERROR' && (
+            <Alert status="error">
+              <AlertIcon />
+              對不起，發生了錯誤，請稍後再試一次。
+            </Alert>
+          )}
+          {status === 'API ERROR' && (
+            <Alert status="error">
+              <AlertIcon />
+              對不起，API 發生了錯誤，請稍後再試一次。
+            </Alert>
+          )}
         </Form>
       )}
     </Formik>

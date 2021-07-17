@@ -123,15 +123,16 @@ const customTheme = extendTheme({
           borderColor: 'indigo.200',
         }),
         brand: (props) => ({
-          backgroundColor: mode('primary.500', 'primary.400'),
+          backgroundColor: mode('primary.500', 'primary.400')(props),
           color: 'white',
+          _disabled: {
+            _hover: {
+              backgroundColor: mode('primary.500', 'primary.400')(props),
+            },
+          },
         }),
         disabled: (props) => ({
           color: 'primary.500',
-          _hover: {
-            color: mode('primary.500', 'white')(props),
-            textDecoration: 'none',
-          },
         }),
         defaultProps: {
           // colorScheme: 'indigo',

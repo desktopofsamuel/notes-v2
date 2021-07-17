@@ -35,8 +35,8 @@ const Footer = ({}) => {
         >
           <path
             opacity="0.3"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M762.352 4.5495C883.325 28.6451 989.174 103.568 1065.61 200.383C1146.28 302.557 1224.45 429.711 1198.78 557.338C1173.67 682.117 1029.98 735.246 939.92 825.183C864.264 900.736 812.908 1001.25 713.884 1041.57C608.165 1084.62 492.001 1075.33 380.03 1053.16C249.684 1027.36 85.8048 1020.22 20.7603 904.348C-44.6564 787.813 64.0494 650.407 79.4185 517.65C93.0204 400.157 31.0843 264.428 105.487 172.483C179.832 80.6103 322.909 104.529 437.408 75.2566C547.497 47.1112 650.913 -17.6471 762.352 4.5495Z"
             fill="url(#paint0_linear)"
           />
@@ -49,8 +49,8 @@ const Footer = ({}) => {
               y2="1089.55"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="rgba(155, 213, 255, 0.8)" />
-              <stop offset="1" stop-color="white" stop-opacity="0" />
+              <stop stopColor="rgba(155, 213, 255, 0.8)" />
+              <stop offset="1" stopColor="white" stopOpacity="0" />
             </linearGradient>
           </defs>
         </svg>
