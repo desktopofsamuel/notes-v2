@@ -1,10 +1,10 @@
 ---
-title: "談再整理自己的文章（上） — 5分鐘匯出 Medium 和 Wordpress 文章至 Markdown"
-slug: "談再整理自己的文章上-5分鐘匯出-medium-和-wordpress-文章至-Markdown"
-date: "2020-02-24T05:02:29.085Z"
+title: '談再整理自己的文章（上） — 5分鐘匯出 Medium 和 Wordpress 文章至 Markdown'
+slug: '談再整理自己的文章上-5分鐘匯出-medium-和-wordpress-文章至-Markdown'
+date: '2020-02-24T05:02:29.085Z'
 template: post
 draft: false
-category: "桌面"
+category: '桌面'
 tags:
   - Markdown
   - Medium
@@ -51,7 +51,7 @@ Medium 第一天開放的時候，我已經是用戶，當年還是搶著註冊 
 
 Medium 倒只是一個發佈及社交平台，用作更多 backlink 和獲得更高 SEO 排名的方法。最終 call to action 的地方，還是全盤自己控制的個人網頁。而外國不少 coder 和 designer 也由 Medium 轉到自己網頁，畢竟 Medium pivot 成付費平台後也不再是原本的 CMS 的概念。
 
-所以現在主站 [DesktopofSamuel.com](https://www.desktopofsamuel.com) 就是英語版，有自己設計的作品集和自我介紹。副站 Notes.DesktopofSamuel.com 就是新的中文網誌。新網誌希望開始寫多一點自己日常生活在科技的嘗試，開展不同的寫作計劃，如 Paul Stamatiou 我的器材頁。大部分文章還是會發佈到 Medium ，但你亦可以用 Feedly 或其他 App 訂閱我的 RSS。
+所以現在主站 [desktopofSamuel.com](https://www.desktopofsamuel.com) 就是英語版，有自己設計的作品集和自我介紹。副站 [notes.desktopofSamuel.com](https://notes.desktopofsamuel.com) 就是新的中文網誌。新網誌希望開始寫多一點自己日常生活在科技的嘗試，開展不同的寫作計劃，如 [Paul Stamatiou 我的器材頁](https://paulstamatiou.com/stuff-i-use/)。大部分文章還是會發佈到 Medium ，但你亦可以用 Feedly 或其他 App 訂閱[我的 RSS](https://notes.desktopofsamuel.com/rss.xml)。
 
 ## 匯出 Medium 和 Wordpress 文章至 Markdown
 
@@ -59,7 +59,7 @@ Medium 倒只是一個發佈及社交平台，用作更多 backlink 和獲得更
 
 上半部分先教大家如何匯出文章，現在寫作很熱門的不是用甚麼軟件，而是 Markdown 這個格式。基本上，Markdown 就是易讀易寫的文字格式，可以匯出成不同風格的 HTML 檔。現時熱門的筆記應用如 Notion 和 Bear 都支援 Markdown 。iPad 上著名的寫作 App 如 iA Writer 和 Ulysses 也同樣支援。（偏偏 Evernote 現在還未支援）
 
-只要學會幾種基本 Markdown 語法，如標題用 「#」標記、鏈結是 [鏈結顯示的文字](網址) ，就可以開始編寫。很多新網誌的 Framework ， Markdown 格式也通用，換然之，匯出 Markdown 將是持久保存網誌的方法。
+只要學會幾種基本 Markdown 語法，如標題用 「#」標記、鏈結是 `[鏈結顯示的文字](網址)` ，就可以開始編寫。很多新網誌的 Framework ， Markdown 格式也通用，換然之，匯出 Markdown 將是持久保存網誌的方法。
 
 ### 如何從 Wordpress 匯入 Markdown 文章
 
