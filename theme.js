@@ -100,6 +100,12 @@ const customTheme = extendTheme({
         _hover: {
           textDecoration: 'none',
         },
+        // _disabled: {
+        //   background: mode('primary.500', 'primary.400')(props),
+        //   _hover: {
+        //     backgroundColor: mode('primary.500', 'primary.400')(props),
+        //   },
+        // },
       }),
       variants: {
         solid: (props) => ({
@@ -124,12 +130,8 @@ const customTheme = extendTheme({
         }),
         brand: (props) => ({
           backgroundColor: mode('primary.500', 'primary.400')(props),
+
           color: 'white',
-          _disabled: {
-            _hover: {
-              backgroundColor: mode('primary.500', 'primary.400')(props),
-            },
-          },
         }),
         disabled: (props) => ({
           color: 'primary.500',

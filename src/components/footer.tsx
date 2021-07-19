@@ -20,9 +20,12 @@ const Footer = ({}) => {
     >
       <Box
         position="absolute"
-        width="100%"
+        width="1440px"
         bottom="0"
         left="0"
+        right="0"
+        marginLeft="auto"
+        marginRight="auto"
         zIndex="-1"
         opacity="0.7"
       >

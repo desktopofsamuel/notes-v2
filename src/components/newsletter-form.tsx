@@ -160,7 +160,7 @@ const Newsletter = ({}) => {
               )}
             </Field>
             <Button
-              width="300px"
+              minWidth="100px"
               variant="brand"
               isLoading={isSubmitting}
               isDisabled={status === 'SUCCESS'}

@@ -100,7 +100,7 @@ const ImageFeed = ({ edges }: EdgesType) => (
               lineHeight="tall"
               color="whiteAlpha.800"
             >
-              {edge.node.excerpt || edge.node.frontmatter.description}
+              {edge.node.frontmatter.description || edge.node.excerpt}
             </Text>
           </VStack>
         </Box>
