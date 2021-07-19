@@ -1,14 +1,15 @@
 ---
-title: "二零一三的三隻獨立遊戲"
-date: "2013-12-22"
-slug: "二零一三的三隻獨立遊戲"
+title: '二零一三的三隻獨立遊戲'
+date: '2013-12-22'
+slug: '二零一三的三隻獨立遊戲'
 template: post
 draft: false
-category: "桌面"
+category: '桌面'
 tags:
-  - "遊戲"
-  - "iOS"
-socialImage: "/media/indie-1.jpg"
+  - '遊戲'
+  - 'iOS'
+  - 'indie'
+socialImage: '/media/indie-1.jpg'
 ---
 
 ![](/media/indie-1.jpg)

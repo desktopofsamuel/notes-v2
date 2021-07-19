@@ -7,7 +7,6 @@ category: '遙控'
 slug: 'the-expanse'
 tags:
   - Netflix
-  - 'The Expanse'
   - 美劇
 ---
 

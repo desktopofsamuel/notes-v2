@@ -1,15 +1,17 @@
 ---
 title: 城市裡看地圖 — Google Map 轉用 Citymapper
-date: "2018-07-17T06:50:47.036Z"
-slug: "城市裡看地圖-google-map-轉用-citymapper"
+date: '2018-07-17T06:50:47.036Z'
+slug: '城市裡看地圖-google-map-轉用-citymapper'
 template: post
 draft: false
-description: "去年轉用 Android 以後，沒有再安裝新的地圖應用，只是乖乖使用內置的 Google Map。近日重新下載這個來自英國倫敦的 Citymapper ，發現他們經過幾年搜集香港交通數據，路線搜尋、車程預計和交通的資料庫也比 Google Map 好，他們投放在 Localization 的心機也是有目共睹。"
-category: "桌面"
+description: '去年轉用 Android 以後，沒有再安裝新的地圖應用，只是乖乖使用內置的 Google Map。近日重新下載這個來自英國倫敦的 Citymapper ，發現他們經過幾年搜集香港交通數據，路線搜尋、車程預計和交通的資料庫也比 Google Map 好，他們投放在 Localization 的心機也是有目共睹。'
+category: '桌面'
 tags:
-  - "App"
-  - "Citymapper"
-  - "Google Map"
+  - 'App'
+  - 'Citymapper'
+  - 'Google Map'
+  - '城市'
+  - '地圖'
 ---
 
 ![](/media/1__sHKWMGTSOCpNv3EAR0VGFQ.png)
