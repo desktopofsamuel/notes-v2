@@ -5,8 +5,8 @@ import Post from '@/components/post';
 import MDXCompProvider from '@/components/mdx-provider';
 import { HStack } from '@chakra-ui/react';
 import Tag from '@/components/tag';
-import { useSiteMetadata } from '../hooks';
 import SEO from '@/components/seo';
+import { useSiteMetadata } from '../hooks';
 
 const PostTemplate = ({ data }) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
@@ -41,12 +41,12 @@ export const query = graphql`
         tags
         template
         title
-        # socialImage {
-        #   publicURL
-        #   childImageSharp {
-        #     gatsbyImageData
-        #   }
-        # }
+        socialImage {
+          publicURL
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
       }
     }
   }

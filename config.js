@@ -12,6 +12,8 @@ module.exports = {
   postsPerPage: 6,
   googleAnalyticsId: 'UA-114278308-6',
   useKatex: false,
+  siteLogo: 'static/profile.jpg',
+  userTwitter: '@desktopofsamuel',
   menu: [
     {
       label: '所有文章',
