@@ -9,9 +9,9 @@ import { FaHashtag } from 'react-icons/fa';
 import GatsbyLink from '@/components/gatsby-link';
 import kebabCase from 'lodash/kebabCase';
 
-const Tag = ({ children }) => (
+const Tag = ({ children, link }) => (
   <ListItem>
-    <GatsbyLink to={`/tag/${kebabCase(children)}/`}>
+    <GatsbyLink to={`/tag/${kebabCase(link || children)}/`}>
       <ChakraTag
         variant="subtle"
         px="3"

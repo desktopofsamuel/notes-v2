@@ -3,13 +3,15 @@ import dayjs from 'dayjs';
 import Link from '@/components/gatsby-link';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import {
+  chakra,
   Box,
   SimpleGrid,
   Heading,
   Text,
   VStack,
-  Image,
 } from '@chakra-ui/react';
+
+const BackgroundImage = chakra(GatsbyImage);
 
 type EdgesType = {
   edges: [
@@ -40,6 +42,7 @@ const ImageFeed = ({ edges }: EdgesType) => (
     {edges.map((edge) => (
       <Link to={edge.node.fields.slug} key={edge.node.fields.slug}>
         <Box
+          role="group"
           height="33vh"
           width="100%"
           position="relative"
@@ -48,27 +51,27 @@ const ImageFeed = ({ edges }: EdgesType) => (
         >
           <Box
             bgGradient="linear(to-b, blackAlpha.200, blackAlpha.500)"
+            _groupHover={{ opacity: '0.5' }}
             width="100%"
             height="100%"
             position="absolute"
             top="0"
             zIndex="1"
+            transition="all 0.2s ease-in-out"
           />
           {edge.node.frontmatter.socialImage && (
-            <GatsbyImage
+            <BackgroundImage
               image={
                 edge.node.frontmatter.socialImage.childImageSharp
                   .gatsbyImageData
               }
-              // src={edge.node.frontmatter.socialImage}
               alt={edge.node.frontmatter.title}
-              style={{
-                height: '100%',
-                width: '100%',
-                objectFit: 'cover',
-                zIndex: '-1',
-              }}
+              objectFit="cover"
+              zIndex="-1"
+              height="100%"
+              transition="all 0.2s ease-in-out"
               loading="lazy"
+              _groupHover={{ transform: 'scale(1.05)' }}
             />
           )}
 
