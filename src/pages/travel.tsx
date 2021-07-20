@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '@/components/layout';
 import ImageFeed from '@/components/image-feed';
-import { Heading } from '@chakra-ui/react';
+import { Heading, SimpleGrid } from '@chakra-ui/react';
 import { useSiteMetadata } from '../hooks';
 
 const TravelPage = ({ data }) => {
@@ -17,7 +17,11 @@ const TravelPage = ({ data }) => {
   return (
     <Layout title={pageTitle}>
       <Heading as="h1">#地圖</Heading>
-      <ImageFeed edges={edges} />
+      <SimpleGrid spacing="4" columns={{ base: 1, sm: 2 }}>
+        {edges.map((edge) => (
+          <ImageFeed edge={edge} />
+        ))}
+      </SimpleGrid>
     </Layout>
   );
 };
