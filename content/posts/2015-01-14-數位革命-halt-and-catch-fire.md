@@ -6,7 +6,7 @@ draft: false
 category: '遙控'
 slug: '數位革命-halt-and-catch-fire'
 socialImage: '/media/unknown-11.jpeg'
-tag:
+tags:
   - 美劇
 ---
 
