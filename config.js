@@ -31,6 +31,10 @@ module.exports = {
       label: '#遙控',
       path: '/category/遙控/',
     },
+    // {
+    //   label: '#科技',
+    //   path: '/tech/',
+    // },
   ],
   author: {
     name: 'Samuel W.',

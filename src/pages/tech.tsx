@@ -25,9 +25,15 @@ const TechPage = ({ data }) => {
         {featEdges.map((edge) => (
           <ImageFeed edge={edge} />
         ))}
+        <Heading as="h2" fontSize="xl">
+          評測
+        </Heading>
         {appEdges.map((edge) => (
           <SmallFeed edge={edge} />
         ))}
+        <Heading as="h2" fontSize="xl">
+          所有科技文章
+        </Heading>
         <PostList edges={feedEdges} />
       </Stack>
     </Layout>

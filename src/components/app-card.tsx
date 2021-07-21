@@ -14,7 +14,7 @@ import GatsbyLink from '@/components/gatsby-link';
 
 const AppCard = ({ title, description, image, link, label }) => {
   return (
-    <Box border="4px solid black" p="4">
+    <Box border="4px solid black" p="4" my="4">
       <Grid gridTemplateColumns="150px auto" gap={10}>
         <Image maxW="150px" src={image} alt={title}></Image>
         <Wrap>
