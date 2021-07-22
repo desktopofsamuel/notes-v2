@@ -46,7 +46,15 @@ const Post = ({ post, hideMeta }: PostType) => {
             {dayjs(date).format(`MMMM YYYY`)}
           </Text>
           <GatsbyLink to={`/category/${kebabCase(category)}/`}>
-            <Text as="small" fontSize="sm" color="orange.500" fontWeight="bold">
+            <Text
+              as="small"
+              fontSize="sm"
+              color="secondary.400"
+              fontWeight="bold"
+              _hover={{
+                color: 'secondary.300',
+              }}
+            >
               {category}
             </Text>
           </GatsbyLink>
