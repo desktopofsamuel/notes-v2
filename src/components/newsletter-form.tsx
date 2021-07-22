@@ -123,7 +123,11 @@ const Newsletter = ({}) => {
       }}
     >
       {({ handleSubmit, handleReset, isSubmitting }) => (
-        <Form onSubmit={handleSubmit} onReset={handleReset}>
+        <Form
+          onSubmit={handleSubmit}
+          onReset={handleReset}
+          style={{ width: '100%' }}
+        >
           <Stack
             direction={{ base: 'column', md: 'row' }}
             minHeight="80px"

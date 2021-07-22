@@ -14,20 +14,23 @@ import Newsletter from '@/components/newsletter-form';
 const Footer = ({}) => {
   return (
     <Box
-      p={{ base: '6', md: '12' }}
+      py={{ base: '6', md: '12' }}
       alignItems="center"
       justifyContent="center"
+      margin="0 auto"
+      overflow="hidden"
+      position="static"
     >
       <Box
         position="absolute"
-        width="1440px"
+        width="100%"
         bottom="0"
         left="0"
         right="0"
-        marginLeft="auto"
-        marginRight="auto"
+        margin="0 auto"
         zIndex="-1"
         opacity="0.7"
+        transform={{ base: 'scale(1.1)', md: 'scale(1)' }}
       >
         <svg
           width="100%"
@@ -58,7 +61,7 @@ const Footer = ({}) => {
           </defs>
         </svg>
       </Box>
-      <Container direction={'column'}>
+      <Container direction="column">
         <VStack justifyContent="flex-start" maxWidth="100%" textAlign="left">
           <Center maxWidth="300px" p="4">
             <svg
@@ -175,7 +178,7 @@ const Footer = ({}) => {
             </svg>
           </Center>
           <Heading>Keep In Touch</Heading>
-          <Text fontSize="lg">
+          <Text fontSize="lg" textAlign={{ base: 'center', md: 'left' }}>
             在社交媒體消失前，讓我們繼續保持聯絡，以電郵接收最新通訊！
           </Text>
           <Newsletter />

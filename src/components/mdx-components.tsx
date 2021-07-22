@@ -78,7 +78,7 @@ const MDXComponents = {
   p: (props) => <chakra.p apply="mdx.p" {...props} />,
   ul: (props) => <chakra.ul apply="mdx.ul" {...props} />,
   ol: (props) => <chakra.ol apply="mdx.ul" {...props} />,
-  li: (props) => <chakra.li pb="4px" {...props} />,
+  li: (props) => <chakra.li pb="4px" ml="16px" {...props} />,
   img: Image,
   // Tweet,
   Embed,
