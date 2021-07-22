@@ -17,6 +17,7 @@ const Tag = ({ children, link }) => (
         px="3"
         py="2"
         borderRadius="full"
+        transition="all 300ms ease-in-out"
         _hover={{ background: 'primary.500', color: 'white' }}
       >
         <TagLeftIcon width="10px" as={FaHashtag} mr="1" />
