@@ -30,7 +30,7 @@ const customTheme = extendTheme({
       500: '#0077CC',
     },
     secondary: {
-      300: 'rgb(202,20,20,0.5)',
+      300: 'rgb(202,20,20,0.7)',
       400: '#ca1414',
     },
     indigo: {
@@ -146,6 +146,7 @@ const customTheme = extendTheme({
     },
     Text: {
       baseStyle: (props) => ({
+        transition: 'all 100ms ease-in-out',
         // color: mode('red.900', 'whiteAlpha.100')(props),
       }),
     },
