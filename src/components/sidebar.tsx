@@ -89,25 +89,34 @@ const Sidebar: React.FC = () => {
           columns={3}
           display={{ base: 'none', md: 'grid' }}
         >
-          <SocialIcon to="https://twitter.com/desktopofsamuel">
+          <SocialIcon
+            to="https://twitter.com/desktopofsamuel"
+            label="Link to Twitter"
+          >
             <FaTwitter />
           </SocialIcon>
-          <SocialIcon>
+          <SocialIcon
+            to="https://instagram.com/desktopofsamuel"
+            label="Link to Instagram"
+          >
             <FaInstagram />
           </SocialIcon>
-          <SocialIcon>
-            <FaMediumM />
-          </SocialIcon>
-          <SocialIcon>
+          <SocialIcon
+            to="https://www.figma.com/@desktopofsamuel"
+            label="Link to Figma"
+          >
             <FaFigma />
           </SocialIcon>
-          <SocialIcon>
-            <FaLinkedin />
-          </SocialIcon>
-          <SocialIcon>
+          <SocialIcon
+            to="https://notes.desktopofsamuel.com/rss.xml/"
+            label="Link to RSS"
+          >
             <FaRss />
           </SocialIcon>
-          <SocialIcon>
+          <SocialIcon
+            to="mailto:desktopofsamuel@gmail.com"
+            label="Write an Email"
+          >
             <FaEnvelope />
           </SocialIcon>
         </SimpleGrid>

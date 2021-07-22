@@ -29,7 +29,10 @@ const customTheme = extendTheme({
       400: '#78c7ff',
       500: '#0077CC',
     },
-
+    secondary: {
+      300: 'rgb(202,20,20,0.5)',
+      400: '#ca1414',
+    },
     indigo: {
       100: '#EAF4FA',
       200: '#D6E8F6',
