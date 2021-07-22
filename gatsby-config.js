@@ -148,6 +148,7 @@ module.exports = {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
           'G-HZZK8J63TH', // Google Analytics / GA
+          'UA-114278308-6',
         ],
         // This object gets passed directly to the gtag config command
         // This config will be shared across all trackingIds
