@@ -24,17 +24,13 @@ module.exports = {
       path: '/pages/now/',
     },
     {
-      label: '#地圖',
-      path: '/travel/',
+      label: '科技',
+      path: '/tech/',
     },
     {
-      label: '#遙控',
-      path: '/category/遙控/',
+      label: '旅遊',
+      path: '/travel/',
     },
-    // {
-    //   label: '#科技',
-    //   path: '/tech/',
-    // },
   ],
   author: {
     name: 'Samuel W.',

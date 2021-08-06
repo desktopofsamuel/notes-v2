@@ -88,7 +88,7 @@ const ImageFeed = ({ edge }: EdgesType) => (
           {dayjs(edge.node.frontmatter.date).format(`MMMM YYYY`)}
         </Text>
 
-        <Heading as="h2" fontSize="xl" mt="2" color="white">
+        <Heading as="h2" fontSize="2xl" mt="2" color="white">
           {edge.node.frontmatter.title}
         </Heading>
 

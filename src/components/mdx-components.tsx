@@ -45,7 +45,7 @@ const MDXComponents = {
   inlineCode: InlineCode,
   code: Codeblock,
   pre: Pre,
-  kbd: Kbd,
+  kbd: (props) => <Kbd mx="2" {...props} />,
   blockquote: (props) => (
     <Alert
       mt="4"

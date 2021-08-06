@@ -25,7 +25,7 @@ const TechPage = ({ data }) => {
         {featEdges.map((edge) => (
           <ImageFeed edge={edge} />
         ))}
-        <Heading as="h2" fontSize="xl">
+        {/* <Heading as="h2" fontSize="xl">
           評測
         </Heading>
         {appEdges.map((edge) => (
@@ -34,6 +34,7 @@ const TechPage = ({ data }) => {
         <Heading as="h2" fontSize="xl">
           所有科技文章
         </Heading>
+         */}
         <PostList edges={feedEdges} />
       </Stack>
     </Layout>
@@ -51,7 +52,7 @@ export const query = graphql`
           # socialImage: { regex: "/" }
         }
       }
-      limit: 1
+      limit: 4
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
@@ -84,7 +85,7 @@ export const query = graphql`
           # socialImage: { regex: "/" }
         }
       }
-      skip: 1
+      skip: 4
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
