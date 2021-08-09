@@ -10,7 +10,7 @@ tags: ['Obsidian', 'Evernote', 'Git', 'Productivity', '筆記']
 
 ## 前言： 不捨得用了 11 年的 Evernote
 
-一直都在尋找 Evernote 的替代品，畢竟功能上已被競爭對手超越太遠了。不過，念著用了 11 年的感情，以及試過幾個 App 還是有些痛點（Bear 仍未有 Web 版本，Notion 速度太慢、block-based 對寫作來說不算方便），再加上 Evernote 上年新推出的 Revamp 更，令我至今還未轉到新的平台。
+一直都在尋找 Evernote 的替代品，畢竟功能上已被競爭對手超越太遠了。不過，念著用了 11 年的感情，以及試過幾個 App 還是有些痛點（Bear 仍未有 Web 版本，Notion 速度太慢、block-based 對寫作來說不算方便），再加上 Evernote 上年新推出的 Revamp，令我至今還未轉到新的平台。
 
 ## 直到 Obsidian 的出現
 
@@ -26,7 +26,7 @@ Obsidian 的所有筆記以 Markdown 格式儲存，Markdown 是近年來大熱�
 
 ![Obsidian 可自訂顏色，還可支援 Dark Mode](/media/obsidian-theme.png)
 
-Obsidian 安裝 Plugin ，可以簡單增加方便功能。設定當中，亦可選不同的社區製作的顏色主題，配色想自己動手來的話，甚至可以自行寫 CSS 來修改，自訂度滿分。此外，視窗介面（如 Sidebar、Editor、 Graph View 、 Tags 等等）亦可以自行 Drag & Drop，可以自己介面自己砌。
+Obsidian 安裝 Plugin ，可以簡單增加方便功能。設定當中，亦可選不同的社區製作的顏色主題，配色想自己動手來的話，甚至可以自行寫 CSS 來修改，自訂度滿分。此外，視窗介面（如 Sidebar、Editor、Graph View、Tags 等等）亦可以自行 Drag & Drop，可以自己介面自己砌。
 
 ### 3. 自訂雲端同步
 
@@ -34,7 +34,7 @@ Obsidian 的筆記全部以 .md 格式儲存於用戶指定的資料夾（名為
 
 ### 4. 免費
 
-開放及社區主導的特質，讓 Obsidian 可以免費下載。功能最相近的軟件是 Roam Research，設定比較簡單，不過需付月費 USD\$15。相比之下，Obsidian 略為複雜，但卻是免費，只有使用 Publish 和 Sync 兩個增值服務才需付費。
+開放及社區主導的特質，讓 Obsidian 可以免費下載。功能最相近的軟件是 Roam Research，設定比較簡單，不過需付月費 USD$15。相比之下，Obsidian 略為複雜，但卻是免費，只有使用 Publish 和 Sync 兩個增值服務才需付費。
 
 ### 5. Zettelkasten 卡片盒筆記法
 
@@ -52,7 +52,7 @@ Obsidian 的筆記全部以 .md 格式儲存於用戶指定的資料夾（名為
 
 ## 如何使用 Git 為 Obsidian 跨平台同步筆記
 
-Obsidian 本身有額外的付費服務 [Obsidian Sync](https://obsidian.md/sync)（現時收費每月 USD\$ 4)，可以輕鬆設定同步。不過，現時 Obsidian 只有桌面版本（Windows, macOS, Linus），手機版本仍在開發中，Sync 未能於手機上使用，月費並不划算。不過，這不代表手機上無法讀寫 Obsidian 的筆記。
+Obsidian 本身有額外的付費服務 [Obsidian Sync](https://obsidian.md/sync)（現時收費每月 USD\$ 4)，可以輕鬆設定同步。不過，現時 Obsidian 只有桌面版本（Windows, macOS, Linux），手機版本仍在開發中，Sync 未能於手機上使用，月費並不划算。不過，這不代表手機上無法讀寫 Obsidian 的筆記。
 
 先前所言，由於 Obsidian 可自訂 Vault 的位置，加上本身使用 Markdown 檔案格式，只要用雲端服務（如 Dropbox, Google Drive 或 iCloud Drive）同步整個資料夾，就可以配上 Markdown 編輯器，如 [iA Writer](https://ia.net/writer), [Ulysses](https://ulysses.app/), [Pretext](https://apps.apple.com/us/app/pretext/id1347707000) （需支援 iCloud Drive 的直接修改 Edit In) 功能） 來讀寫筆記。不過 Obsidian 的互文 Link 和 Tag 功能就暫時不能使用。
 
