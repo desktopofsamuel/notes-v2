@@ -8,6 +8,8 @@ socialImage: '/media/obsidian-screenshot.png'
 tags: ['Obsidian', 'Evernote', 'Git', 'Productivity', '筆記']
 ---
 
+> 更新：2021 年 7 月終於推出了 [Obsidian 的 Mobile App](https://obsidian.md/mobile)，同步功能只支援 Obsidian Sync 和本文章介紹的 Git (輔以 Working Copy)。iCloud、 Google Drive 等雲端服務則暫未支援。
+
 ## 前言： 不捨得用了 11 年的 Evernote
 
 一直都在尋找 Evernote 的替代品，畢竟功能上已被競爭對手超越太遠了。不過，念著用了 11 年的感情，以及試過幾個 App 還是有些痛點（Bear 仍未有 Web 版本，Notion 速度太慢、block-based 對寫作來說不算方便），再加上 Evernote 上年新推出的 Revamp，令我至今還未轉到新的平台。
