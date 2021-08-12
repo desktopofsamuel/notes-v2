@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import Layout from '@/components/layout';
 import PostList from '@/components/post-list';
 import Pagination from '@/components/pagination';
+import Helmet from 'react-helmet';
 import { PageContext, AllMdx } from '@/type';
 import { useSiteMetadata } from '../hooks';
 
@@ -26,11 +27,9 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
       : siteTitle;
 
   return (
-    <Layout
-      title={pageTitle}
-      subtitle={siteSubtitle}
-      description={siteDescription}
-    >
+    <Layout subtitle={siteSubtitle} description={siteDescription}>
+      <Helmet title={pageTitle} />
+
       <PostList edges={edges} />
       {(hasPrevPage || hasNextPage) && (
         <Pagination

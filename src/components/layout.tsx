@@ -23,19 +23,27 @@ const Layout: React.FC = ({
   title,
   description,
   keywords,
+  url,
   ...props
 }: Props) => {
   return (
     <>
-      <SEO title={title} description={description} keywords={keywords} />
-      <Helmet title={`${title}  | ${config.siteTitle}`}>
-        <html lang={config.lang} />
+      <SEO
+        title={title}
+        description={description}
+        keywords={keywords}
+        url={url}
+      />
+      {console.log(url)}
+
+      <Helmet title={title}>
+        {/* <html lang={config.lang} />
         <meta name="title" content={title} />
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
         <meta name="publisher" content={config.siteTitleShort} />
         <meta name="author" content={config.siteTitleShort} />
-        <meta name="copyright" content={config.copyright} />
+        <meta name="copyright" content={config.copyright} /> */}
       </Helmet>
       <ChakraProvider theme={customTheme} resetCSS={true}>
         <Container maxW="container.lg">

@@ -4,12 +4,13 @@ import urljoin from 'url-join';
 import dayjs from 'dayjs';
 import config from '../../config';
 
-const SEO = ({ postNode, postPath, postSEO }) => {
+const SEO = ({ postNode, postPath, postSEO, url }) => {
   let title;
   let description;
   let image;
   let keywords;
   let postURL;
+  let metaURL;
 
   if (postSEO) {
     const postMeta = postNode.frontmatter;
@@ -28,6 +29,7 @@ const SEO = ({ postNode, postPath, postSEO }) => {
     description = config.siteDescription;
     image = config.siteLogo;
     keywords = config.siteKeywords;
+    metaURL = `${config.url + config.pathPrefix + url} `;
   }
 
   const imagePathMatch = `(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]`;
@@ -136,7 +138,7 @@ const SEO = ({ postNode, postPath, postSEO }) => {
       </script>
 
       {/* OpenGraph tags */}
-      <meta property="og:url" content={postSEO ? postURL : blogURL} />
+      <meta property="og:url" content={postSEO ? postURL : metaURL} />
       {postSEO ? (
         <meta property="og:type" content="article" />
       ) : (

@@ -7,12 +7,19 @@ import config from '../../config';
 
 const PageTemplate = ({ data }) => {
   const page = data.mdx;
-  const { title } = page.frontmatter;
+  const { title, tags } = page.frontmatter;
+  const description = page.excerpt;
   const pageTitle = `${title} | ${config.title}`;
 
   return (
     <MDXCompProvider>
-      <Layout title={pageTitle}>
+      <Layout
+        title={pageTitle}
+        description={description}
+        keywords={tags}
+        url={page.fields.slug}
+      >
+        {console.log(data)}
         <Post post={data.mdx} hideMeta />
       </Layout>
     </MDXCompProvider>

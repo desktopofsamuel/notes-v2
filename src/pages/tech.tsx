@@ -19,7 +19,7 @@ const TechPage = ({ data }) => {
   const pageTitle = `#科技 | ${siteTitle}`;
 
   return (
-    <Layout title={pageTitle}>
+    <Layout title="#科技">
       <Heading as="h1">#科技</Heading>
       <Stack spacing="8">
         {featEdges.map((edge) => (

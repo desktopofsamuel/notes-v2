@@ -13,6 +13,7 @@ module.exports = {
   googleAnalyticsId: 'UA-114278308-6',
   useKatex: false,
   siteLogo: 'static/profile.jpg',
+  siteKeywords: '科技,設計,UI,UX,旅行,城市,香港',
   userTwitter: '@desktopofsamuel',
   menu: [
     {
