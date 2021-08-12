@@ -12,6 +12,7 @@ const MusicCard = () => {
       allSpotifyTopArtist(sort: { fields: order }, limit: 5) {
         edges {
           node {
+            id
             name
             image {
               localFile {
@@ -35,7 +36,11 @@ const MusicCard = () => {
           <Text m="0">I'm listening to</Text>
           <SimpleGrid columns={2} rows={3} spacing={10}>
             {data.allSpotifyTopArtist.edges.map((artist, index) => (
-              <Link to={artist.node.external_urls.spotify} target="_blank">
+              <Link
+                to={artist.node.external_urls.spotify}
+                target="_blank"
+                key={artist.node.id}
+              >
                 <ArtistImage
                   image={
                     artist.node.image.localFile.childImageSharp.gatsbyImageData

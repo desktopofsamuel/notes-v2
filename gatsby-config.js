@@ -104,6 +104,41 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://oku.club/rss/collection/UfVaj`,
+        name: `Oku`,
+        // Optional
+        // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
+        parserOption: {
+          customFields: {
+            item: ['itunes:duration'],
+          },
+        },
+      },
+    },
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://letterboxd.com/samuelisme/rss/`,
+        name: `Letterboxd`,
+        // Optional
+        // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
+        parserOption: {
+          customFields: {
+            item: [
+              'letterboxd:watchedDate',
+              'letterboxd:memberRating',
+              'letterboxd:filmTitle',
+              'letterboxd:filmYear',
+              'description',
+              { includeSnippet: true },
+            ],
+          },
+        },
+      },
+    },
+    {
       resolve: '@chakra-ui/gatsby-plugin',
       options: {
         resetCSS: true,
