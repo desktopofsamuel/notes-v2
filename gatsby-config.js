@@ -91,7 +91,18 @@ module.exports = {
         ],
       },
     },
-
+    {
+      resolve: `gatsby-source-spotify`,
+      options: {
+        clientId: process.env.SPOTIFY_CLIENT_ID,
+        clientSecret: process.env.SPOTIFY_CLIENT_SECRET, // Don't add to public repository
+        refreshToken: process.env.SPOTIFY_REFRESH_TOKEN,
+        fetchPlaylists: false, // optional. Set to false to disable fetching of your playlists
+        fetchRecent: true, // optional. Set to false to disable fetching of your recently played tracks
+        //timeRanges: ['short_term', 'medium_term', 'long_term'], optional. Set time ranges to be fetched
+        timeRanges: ['short_term'], // optional. Set time ranges to be fetched
+      },
+    },
     {
       resolve: '@chakra-ui/gatsby-plugin',
       options: {
