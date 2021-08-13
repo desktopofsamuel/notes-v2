@@ -1,6 +1,13 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Box, Text, chakra, SimpleGrid } from '@chakra-ui/react';
+import {
+  Box,
+  Text,
+  chakra,
+  SimpleGrid,
+  useColorModeValue,
+  Tooltip,
+} from '@chakra-ui/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Link from '@/components/gatsby-link';
 
@@ -32,28 +39,35 @@ const MusicCard = () => {
   return (
     <>
       {data.allSpotifyTopArtist.edges && (
-        <Box backgroundColor="gray.100" p="4" borderRadius="16">
-          <Text m="0">I'm listening to</Text>
-          <SimpleGrid columns={2} rows={3} spacing={10}>
+        <Box
+          backgroundColor={useColorModeValue('gray.100', 'gray.700')}
+          p="4"
+          borderRadius="16"
+          gridColumn={{ base: 'span 2', md: 'initial' }}
+        >
+          <Text m="0">最近在聽</Text>
+          <SimpleGrid columns={2} rows={3} spacing={4}>
             {data.allSpotifyTopArtist.edges.map((artist, index) => (
               <Link
                 to={artist.node.external_urls.spotify}
                 target="_blank"
                 key={artist.node.id}
               >
-                <ArtistImage
-                  image={
-                    artist.node.image.localFile.childImageSharp.gatsbyImageData
-                  }
-                  alt={artist.node.name}
-                  objectFit="cover"
-                  w="100px"
-                  h="100px"
-                  transition="all 0.2s ease-in-out"
-                  loading="lazy"
-                  _groupHover={{ transform: 'scale(1.05)' }}
-                />
-                <Text key={index}>{artist.node.name}</Text>
+                <Tooltip label={artist.node.name} textSize="md">
+                  <ArtistImage
+                    image={
+                      artist.node.image.localFile.childImageSharp
+                        .gatsbyImageData
+                    }
+                    alt={artist.node.name}
+                    objectFit="cover"
+                    w="100px"
+                    h="100px"
+                    transition="all 0.2s ease-in-out"
+                    loading="lazy"
+                    _groupHover={{ transform: 'scale(1.05)' }}
+                  />
+                </Tooltip>
               </Link>
             ))}
           </SimpleGrid>

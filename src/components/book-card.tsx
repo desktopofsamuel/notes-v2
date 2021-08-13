@@ -1,8 +1,16 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Box, Text, chakra, SimpleGrid } from '@chakra-ui/react';
+import {
+  Box,
+  Text,
+  chakra,
+  SimpleGrid,
+  useColorModeValue,
+} from '@chakra-ui/react';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Link from '@/components/gatsby-link';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 const BookCard = () => {
   const data = useStaticQuery(graphql`
@@ -23,14 +31,29 @@ const BookCard = () => {
   return (
     <>
       {data.allFeedOku.edges && (
-        <Box backgroundColor="gray.100" p="4" borderRadius="16">
-          <Text m="0">I'm reading to</Text>
+        <Box
+          backgroundColor={useColorModeValue('gray.100', 'gray.700')}
+          p="4"
+          borderRadius="16"
+          gridColumn={{ base: 'span 2', md: 'initial' }}
+        >
+          <Text m="0">最近在讀</Text>
           {data.allFeedOku.edges.map((book) => (
-            <Box key={book.node.id}>
-              <Link to={book.node.guid} target="_blank">
-                <Text> {book.node.title}</Text>
+            <Box key={book.node.id} mb="8">
+              <Link
+                fontSize="lg"
+                fontWeight="bold"
+                lineHeight="short"
+                to={book.node.guid}
+                target="_blank"
+                isExternal
+              >
+                {book.node.title} <ExternalLinkIcon mx="2px" />
               </Link>
-              <Text>by {book.node.creator}</Text>
+
+              <Text m="0" fontSize="xs" textTransform="uppercase">
+                by {book.node.creator}
+              </Text>
             </Box>
           ))}
         </Box>

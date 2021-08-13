@@ -7,6 +7,11 @@ import Helmet from 'react-helmet';
 import { PageContext, AllMdx } from '@/type';
 import { useSiteMetadata } from '../hooks';
 
+import MusicCard from '@/components/music-card';
+import BookCard from '@/components/book-card';
+import MovieCard from '@/components/movie-card';
+import { SimpleGrid } from '@chakra-ui/react';
+
 type Props = {
   data: AllMdx;
   pageContext: PageContext;
@@ -29,7 +34,13 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
   return (
     <Layout subtitle={siteSubtitle} description={siteDescription}>
       <Helmet title={pageTitle} />
-
+      {hasPrevPage === false && (
+        <SimpleGrid columns={2} spacing={4} mb="8">
+          <MusicCard />
+          <BookCard />
+          <MovieCard />
+        </SimpleGrid>
+      )}
       <PostList edges={edges} />
       {(hasPrevPage || hasNextPage) && (
         <Pagination
