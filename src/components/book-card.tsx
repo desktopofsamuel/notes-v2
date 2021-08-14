@@ -1,14 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import {
-  Box,
-  Text,
-  chakra,
-  SimpleGrid,
-  useColorModeValue,
-} from '@chakra-ui/react';
-import { FaExternalLinkAlt } from 'react-icons/fa';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { Box, Text, useColorModeValue } from '@chakra-ui/react';
 import Link from '@/components/gatsby-link';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 
@@ -37,9 +29,11 @@ const BookCard = () => {
           borderRadius="16"
           gridColumn={{ base: 'span 2', md: 'initial' }}
         >
-          <Text m="0">最近在讀</Text>
+          <Text m="0" mb="2">
+            📚 最近在讀
+          </Text>
           {data.allFeedOku.edges.map((book) => (
-            <Box key={book.node.id} mb="8">
+            <Box key={book.node.id} mb="4">
               <Link
                 fontSize="lg"
                 fontWeight="bold"

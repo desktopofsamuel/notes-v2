@@ -55,18 +55,24 @@ const MovieCard = () => {
           borderRadius="16"
           gridColumn="span 2"
         >
-          <Text m="0">最近在看</Text>
-          <Grid gridTemplateColumns="repeat(auto-fit, 120px)">
+          <Text m="0" mb="2">
+            🎬 最近在看
+          </Text>
+          <Grid gridTemplateColumns="repeat(5, 1fr)" transform="scale(0.9)">
             {data.allFeedLetterboxd.edges.map((movie, index) => (
               <Box
                 key={movie.node.id}
                 mr="-30px"
                 zIndex={index}
-                _hover={{ zIndex: '100' }}
+                transition="all 100ms ease-in-out"
+                _hover={{
+                  zIndex: '100',
+                  transform: 'rotate3d(1, 1, 1,2deg) scale3d(1.1, 1.1, 1.1)',
+                }}
                 boxShadow="2px 0 7px grey;"
               >
                 <Link to={movie.node.link} target="_blank">
-                  <Tooltip label={movie.node.title} fontSize="md">
+                  <Tooltip label={movie.node.title} fontSize="md" mt="10px">
                     <Img
                       src={rssParser(movie.node.content)}
                       alt={movie.node.title}

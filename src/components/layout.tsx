@@ -34,7 +34,7 @@ const Layout: React.FC = ({
         keywords={keywords}
         url={url}
       />
-      {console.log(url)}
+      {/* {console.log(url)} */}
 
       <Helmet title={title}>
         {/* <html lang={config.lang} />

@@ -10,7 +10,7 @@ import { useSiteMetadata } from '../hooks';
 import MusicCard from '@/components/music-card';
 import BookCard from '@/components/book-card';
 import MovieCard from '@/components/movie-card';
-import { SimpleGrid } from '@chakra-ui/react';
+import { SimpleGrid, Divider, Heading, Text } from '@chakra-ui/react';
 
 type Props = {
   data: AllMdx;
@@ -35,11 +35,15 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
     <Layout subtitle={siteSubtitle} description={siteDescription}>
       <Helmet title={pageTitle} />
       {hasPrevPage === false && (
-        <SimpleGrid columns={2} spacing={4} mb="8">
-          <MusicCard />
-          <BookCard />
-          <MovieCard />
-        </SimpleGrid>
+        <>
+          <Heading fontSize="md">近期 Now</Heading>
+          <SimpleGrid columns={2} spacing={4} mb="8">
+            <MusicCard />
+            <BookCard />
+            <MovieCard />
+          </SimpleGrid>
+          <Divider my="10" />
+        </>
       )}
       <PostList edges={edges} />
       {(hasPrevPage || hasNextPage) && (
