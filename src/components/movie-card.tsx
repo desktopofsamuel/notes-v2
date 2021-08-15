@@ -17,9 +17,9 @@ const MovieCard = () => {
     let imgLink = null;
     const searchTerm = `\"/></p>`;
     const imgTagPosition = htmlString.indexOf(searchTerm);
-    const elements = htmlString.slice(14, imgTagPosition);
-    imgLink = elements;
-    // console.log(imgLink);
+    const elements = htmlString.slice(14, imgTagPosition); // Delete string after the img tag
+    imgLink = elements.replace('0-500-0-750', '0-200-0-300'); // Load a smaller image
+    console.log(imgLink);
     return imgLink;
   }
 

@@ -10,7 +10,7 @@ import {
   Tooltip,
   Center,
 } from '@chakra-ui/react';
-import { FaPlayCircle } from 'react-icons/fa';
+import { FaPlayCircle, FaVolumeDown } from 'react-icons/fa';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Link from '@/components/gatsby-link';
 
@@ -59,7 +59,7 @@ const MusicCard = () => {
             justifyContent="center"
           >
             {data.allSpotifyTopArtist.edges.map((artist, index) => (
-              <Center textAlign="center">
+              <Center textAlign="center" flexDirection="column">
                 <Link
                   to={artist.node.external_urls.spotify}
                   target="_blank"
@@ -75,14 +75,18 @@ const MusicCard = () => {
                     transition="all 100ms ease-in-out"
                   >
                     <Box
-                      position="relative"
+                      position="absolute"
                       zIndex="100"
                       transform="translate(50%,50%)"
                       opacity={0}
+                      w="25px"
+                      h="25px"
+                      right="0"
+                      bottom="0"
                       transition="all 100ms ease-in-out"
                       _groupHover={{ opacity: 1 }}
                     >
-                      <FaPlayCircle color="white" size="20px" />
+                      <FaVolumeDown size="20px" />
                     </Box>
                     <ArtistImage
                       position="absolute"
@@ -100,9 +104,10 @@ const MusicCard = () => {
                       _groupHover={{ opacity: 0.8 }}
                     />
                   </Box>
-
-                  <Text m="0">{artist.node.name}</Text>
                 </Link>
+                <Text m="0" mt={2}>
+                  {artist.node.name}
+                </Text>
               </Center>
             ))}
           </SimpleGrid>
