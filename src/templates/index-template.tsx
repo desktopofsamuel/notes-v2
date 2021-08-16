@@ -6,7 +6,6 @@ import Pagination from '@/components/pagination';
 import Helmet from 'react-helmet';
 import { PageContext, AllMdx } from '@/type';
 import { useSiteMetadata } from '../hooks';
-
 import MusicCard from '@/components/music-card';
 import BookCard from '@/components/book-card';
 import MovieCard from '@/components/movie-card';

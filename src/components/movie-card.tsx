@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import {
   Box,
   Text,
-  chakra,
   Grid,
   useColorModeValue,
   Tooltip,

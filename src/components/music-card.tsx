@@ -27,7 +27,7 @@ const MusicCard = () => {
             image {
               localFile {
                 childImageSharp {
-                  gatsbyImageData
+                  gatsbyImageData(width: 160, height: 160)
                 }
               }
             }
