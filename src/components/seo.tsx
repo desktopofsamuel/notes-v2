@@ -35,7 +35,7 @@ const SEO = ({ postNode, postPath, postSEO, url }) => {
   const imagePathMatch = `(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]`;
 
   const getImagePath = (imageURI: string) => {
-    console.log(imageURI);
+    // console.log(imageURI);
     if (!imageURI.match(imagePathMatch))
       return urljoin(config.url, config.pathPrefix, imageURI);
 

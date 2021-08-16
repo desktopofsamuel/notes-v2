@@ -91,7 +91,53 @@ module.exports = {
         ],
       },
     },
-
+    {
+      resolve: `gatsby-source-spotify`,
+      options: {
+        clientId: process.env.SPOTIFY_CLIENT_ID,
+        clientSecret: process.env.SPOTIFY_CLIENT_SECRET, // Don't add to public repository
+        refreshToken: process.env.SPOTIFY_REFRESH_TOKEN,
+        fetchPlaylists: false, // optional. Set to false to disable fetching of your playlists
+        fetchRecent: true, // optional. Set to false to disable fetching of your recently played tracks
+        //timeRanges: ['short_term', 'medium_term', 'long_term'], optional. Set time ranges to be fetched
+        timeRanges: ['short_term'], // optional. Set time ranges to be fetched
+      },
+    },
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://oku.club/rss/collection/UfVaj`,
+        name: `Oku`,
+        // Optional
+        // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
+        parserOption: {
+          customFields: {
+            item: ['itunes:duration'],
+          },
+        },
+      },
+    },
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `https://letterboxd.com/samuelisme/rss/`,
+        name: `Letterboxd`,
+        // Optional
+        // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
+        parserOption: {
+          customFields: {
+            item: [
+              'letterboxd:watchedDate',
+              'letterboxd:memberRating',
+              'letterboxd:filmTitle',
+              'letterboxd:filmYear',
+              'description',
+              { includeSnippet: true },
+            ],
+          },
+        },
+      },
+    },
     {
       resolve: '@chakra-ui/gatsby-plugin',
       options: {
