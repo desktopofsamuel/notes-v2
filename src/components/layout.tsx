@@ -50,8 +50,8 @@ const Layout: React.FC = ({
           <Grid
             gridTemplateColumns={{
               base: '100%',
-              md: 'minmax(0, 200px) auto',
-              lg: 'minmax(0, 200px) minmax(0,1px) auto',
+              md: '200px auto',
+              lg: '200px minmax(0,1px) auto',
             }}
             py="10"
             gap={{ base: '0', md: '2', lg: '10' }}
