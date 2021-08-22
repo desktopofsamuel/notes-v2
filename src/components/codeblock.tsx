@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import {
   Box,
   HStack,
-  Text,
-  Button,
   useClipboard,
   useColorModeValue,
   IconButton,
 } from '@chakra-ui/react';
 import { FaCheck, FaClone } from 'react-icons/fa';
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import theme from 'prism-react-renderer/themes/github';
 
 const Codeblock = (props) => {
   const showLines = true;
@@ -65,8 +65,25 @@ const Codeblock = (props) => {
         />
       </HStack>
       {/* ) : undefined} */}
-      <Box p="4">
-        <Text fontFamily="mono">{editorCode}</Text>
+      <Box p="4" whiteSpace="break-spaces">
+        <Highlight
+          theme={theme}
+          {...defaultProps}
+          code={editorCode}
+          language="jsx"
+        >
+          {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            <pre className={className} style={{ whiteSpace: 'break-spaces' }}>
+              {tokens.map((line, i) => (
+                <div {...getLineProps({ line, key: i })}>
+                  {line.map((token, key) => (
+                    <span {...getTokenProps({ token, key })} />
+                  ))}
+                </div>
+              ))}
+            </pre>
+          )}
+        </Highlight>
       </Box>
     </Box>
   );

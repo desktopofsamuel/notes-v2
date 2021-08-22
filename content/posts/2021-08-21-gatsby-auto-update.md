@@ -42,26 +42,16 @@ yarn add gatsby-source-spotify
 
 ```
 {
-
  resolve: `gatsby-source-spotify`,
-
  options: {
-
- clientId: process.env.SPOTIFY_CLIENT_ID,
-
- clientSecret: process.env.SPOTIFY_CLIENT_SECRET, // Don't add to public repository
-
- refreshToken: process.env.SPOTIFY_REFRESH_TOKEN,
-
- fetchPlaylists: false, // optional. Set to false to disable fetching of your playlists
-
- fetchRecent: true, // optional. Set to false to disable fetching of your recently played tracks
- //timeRanges: ['short_term', 'medium_term', 'long_term'], optional. Set time ranges to be fetched
-
+    clientId: process.env.SPOTIFY_CLIENT_ID,
+    clientSecret: process.env.SPOTIFY_CLIENT_SECRET, // Don't add to public repository
+    refreshToken: process.env.SPOTIFY_REFRESH_TOKEN,
+    fetchPlaylists: false, // optional. Set to false to disable fetching of your playlists
+    fetchRecent: true, // optional. Set to false to disable fetching of your recently played tracks
+    timeRanges: ['short_term', 'medium_term', 'long_term'], optional. Set time ranges to be fetched
  },
-
- },
-
+},
 ```
 
 記得我們需要在 env 檔案中加入 `SPOTIFY_CLIENT_ID`、`SPOTIFY_CLIENT_SECRET`、`SPOTIFY_REFRESH_TOKEN`。Client ID 和 Client Secret 均可在 [Spotify Developer Dashboard ](https://developer.spotify.com/dashboard/applications)中建立一個 App 後可以使用。至於 Refresh Token，參考 [Github 的指示](https://github.com/leolabs/gatsby-source-spotify)，就需要再 Edit Settings 中加入 `http://localhost:5071/spotify`到 Redirect URIs 然後再於 command line 輸入指令，就可以登入 Spotify 授權獲取資訊。
@@ -92,120 +82,69 @@ query SpotifyQuery {
     }
   }
 }
-
-
 ```
 
 然後建立一個新的 Music component，再用 Static Query 將 Spotify 的資料顯示（因不會變更及 Build 的時候只使用一次）。這裡我 render 了歌手的相片和名字。同樣道理也適用於單曲和大碟上。最後在顯示的頁面 Import <MusicCard/>就大功告成。
 
 ```
 const MusicCard = () => {
- const data = useStaticQuery(graphql`
- query MusicCardQuery {
-    allSpotifyTopArtist(sort: { fields: order }, limit: 10) {
-        edges {
+  const data = useStaticQuery(graphql`
+  query MusicCardQuery {
+     allSpotifyTopArtist(sort: { fields: order }, limit: 10) {
+         edges {
+          node {
+            id
+            name
+            image {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 160, height: 160)
+                  }
+                }
+              }
+            external_urls {
+              spotify
+            }
+          }
+        }
+      }
+    }
+  `);
 
- node {
+  return (
+    <>
+      {data.allSpotifyTopArtist.edges && (
+        <div>
+          <h3>🎧 最近在聽</h3>
 
- id
+          <div>
+            {data.allSpotifyTopArtist.edges.map((artist, index) => (
+              <div>
+                <Link
+                  to={artist.node.external_urls.spotify}
+                  target="_blank"
+                  key={artist.node.id}
+                >
+                  <div>
+                    <GatsbyImage
+                      image={
+                        artist.node.image.localFile.childImageSharp
+                          .gatsbyImageData
+                      }
+                      alt={artist.node.name}
+                    />
+                  </div>
+                </Link>
 
- name
-
- image {
-
- localFile {
-
- childImageSharp {
-
- gatsbyImageData(width: 160, height: 160)
-
- }
-
- }
-
- }
-
- external_urls {
-
- spotify
-
- }
-
- }
-
- }
-
- }
-
- }
-
- `);
-
- return (
-
- <>
-
- {data.allSpotifyTopArtist.edges && (
-
- <div>
-
- <h3>🎧 最近在聽</h3>
-
- <div>
-
- {data.allSpotifyTopArtist.edges.map((artist, index) => (
-
- <div>
-
- <Link
-
- to={artist.node.external_urls.spotify}
-
- target="_blank"
-
- key={artist.node.id}
-
- >
-
- <div>
-
- <GatsbyImage
-
- image={
-
- artist.node.image.localFile.childImageSharp
-
- .gatsbyImageData
-
- }
-
- alt={artist.node.name}
-
- />
-
- </div>
-
- </Link>
-
- <p>{artist.node.name}</p>
-
- </div>
-
- ))}
-
- </div>
-
- </div>
-
- )}
-
- </>
-
- );
-
+                <p>{artist.node.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </>
+  );
 };
-
-
 
 export default MusicCard;
 ```
@@ -226,46 +165,24 @@ yarn add gatsby-source-rss-feed
 
 ```
  {
-
- resolve: `gatsby-source-rss-feed`,
-
- options: {
-
- url: `https://letterboxd.com/samuelisme/rss/`,
-
- name: `Letterboxd`,
-
- // Optional
-
- // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
-
- parserOption: {
-
- customFields: {
-
- item: [
-
- 'letterboxd:watchedDate',
-
- 'letterboxd:memberRating',
-
- 'letterboxd:filmTitle',
-
- 'letterboxd:filmYear',
-
- 'description',
-
- { includeSnippet: true },
-
- ],
-
- },
-
- },
-
- },
-
- },
+    resolve: `gatsby-source-rss-feed`,
+    options: {
+    url: `https://letterboxd.com/samuelisme/rss/`,
+    name: `Letterboxd`,
+    parserOption: {
+        customFields: {
+            item: [
+            'letterboxd:watchedDate',
+            'letterboxd:memberRating',
+            'letterboxd:filmTitle',
+            'letterboxd:filmYear',
+            'description',
+            { includeSnippet: true },
+            ],
+        },
+    },
+    },
+ }
 
 ```
 
@@ -276,37 +193,22 @@ yarn add gatsby-source-rss-feed
 同樣地選擇所需的欄位，就可以自行加入到 Static Query 中。
 
 ```
- query MovieCardPage {
-
- allFeedLetterboxd(limit: 5) {
-
- edges {
-
- node {
-
- id
-
- title
-
- letterboxd {
-
- watchedDate
-
- memberRating
-
- }
-
- content
-
- link
-
- }
-
- }
-
- }
-
- }
+query MovieCardPage {
+	allFeedLetterboxd(limit: 5) {
+		edges {
+			node {
+				id
+				title
+				letterboxd {
+					watchedDate
+					memberRating
+				}
+				content
+				link
+			}
+		}
+	}
+}
 ```
 
 ### 如何顯示海報？
@@ -321,21 +223,13 @@ yarn add gatsby-source-rss-feed
 
 ```
 function rssParser(htmlString) {
-
  let imgLink = null;
-
  const searchTerm = `\"/></p>`;
-
  const imgTagPosition = htmlString.indexOf(searchTerm);
-
  const elements = htmlString.slice(14, imgTagPosition); // Delete string after the img tag
-
  imgLink = elements.replace('0-500-0-750', '0-200-0-300'); // Load a smaller image
-
  console.log(imgLink);
-
  return imgLink;
-
  }
 ```
 
@@ -343,97 +237,54 @@ function rssParser(htmlString) {
 
 ```
 const MovieCard = () => {
+	const data = useStaticQuery(graphql`
+		query MovieCardPage {
+			allFeedLetterboxd(limit: 5) {
+				edges {
+					node {
+						id
+						title
+						letterboxd {
+							watchedDate
+							memberRating
+						}
+						content
+						link
+					}
+				}
+			}
+		}
+	`);
 
- const data = useStaticQuery(graphql`
+	return (
+		<>
+			{data.allFeedLetterboxd.edges && (
+				<div>
+					<h3>🎬 最近在看</h3>
 
- query MovieCardPage {
-
- allFeedLetterboxd(limit: 5) {
-
- edges {
-
- node {
-
- id
-
- title
-
- letterboxd {
-
- watchedDate
-
- memberRating
-
- }
-
- content
-
- link
-
- }
-
- }
-
- }
-
- }
-
- `);
-
-
-
- return (
-
- <>
-
- {data.allFeedLetterboxd.edges && (
-
- <div>
-
- <h3>🎬 最近在看</h3>
-
- <div>
-
- {data.allFeedLetterboxd.edges.map((movie, index) => (
-
- <div key={movie.node.id}>
-
- <Link to={movie.node.link} target="_blank">
-
- <img
-
- src={rssParser(movie.node.content)}
-
- alt={movie.node.title}
-
- />
-
- {/* <Text>{movie.node.title}</Text> */}
-
- </Link>
-
- </div>
-
- ))}
-
- </div>
-
- </div>
-
- )}
-
- </>
-
- );
-
+					<div>
+						{data.allFeedLetterboxd.edges.map((movie, index) => (
+							<div key={movie.node.id}>
+								<Link to={movie.node.link} target="_blank">
+									<img
+										src={rssParser(movie.node.content)}
+										alt={movie.node.title}
+									/>
+									{/* <Text>{movie.node.title}</Text> */}
+								</Link>
+							</div>
+						))}
+					</div>
+				</div>
+			)}
+		</>
+	);
 };
-
-
 
 export default MovieCard;
 ```
 
-最後在顯示的頁面 Import `<MovieCard/>`就大功告成。
+最後在顯示的頁面 Import `< MovieCard/ >`就大功告成。
 
 ## Oku 整合我的閱讀紀錄
 
@@ -447,21 +298,11 @@ Oku 是新的閱讀平台，跟 Goodread 差不多。
 
 ```
  {
-
- resolve: `gatsby-source-rss-feed`,
-
- options: {
-
- url: `https://oku.club/rss/collection/UfVaj`,
-
- name: `Oku`,
-
- // Optional
-
- // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
-
- },
-
+    resolve: `gatsby-source-rss-feed`,
+    options: {
+        url: `https://oku.club/rss/collection/UfVaj`,
+        name: `Oku`,
+    },
  },
 ```
 
@@ -469,106 +310,61 @@ Oku 是新的閱讀平台，跟 Goodread 差不多。
 
 ```
  query BookCardPage {
+	allFeedOku {
+		edges {
+			node {
+				id
+				title
+				contentSnippet
+				creator
+				guid
+			}
+		}
+	}
+}
 
- allFeedOku {
-
- edges {
-
- node {
-
- id
-
- title
-
- contentSnippet
-
- creator
-
- guid
-
- }
-
- }
-
- }
-
- }
 ```
 
 最後在顯示的頁面 Import `<BookCard/>`就大功告成。
 
 ```
 const BookCard = () => {
+	const data = useStaticQuery(graphql`
+		query BookCardPage {
+			allFeedOku {
+				edges {
+					node {
+						id
+						title
+						contentSnippet
+						creator
+						guid
+					}
+				}
+			}
+		}
+	`);
 
- const data = useStaticQuery(graphql`
+	return (
+		<>
+			{data.allFeedOku.edges && (
+				<div>
+					<h3>📚 最近在讀</h3>
 
- query BookCardPage {
+					{data.allFeedOku.edges.map((book) => (
+						<div key={book.node.id}>
+							<Link to={book.node.guid} target="_blank">
+								{book.node.title}
+							</Link>
 
- allFeedOku {
-
- edges {
-
- node {
-
- id
-
- title
-
- contentSnippet
-
- creator
-
- guid
-
- }
-
- }
-
- }
-
- }
-
- `);
-
- return (
-
- <>
-
- {data.allFeedOku.edges && (
-
- <div>
-
- <h3>📚 最近在讀</h3>
-
- {data.allFeedOku.edges.map((book) => (
-
- <div key={book.node.id}>
-
- <Link to={book.node.guid} target="_blank">
-
- {book.node.title}
-
- </Link>
-
-
-
- <p>by {book.node.creator}</p>
-
- </div>
-
- ))}
-
- </div>
-
- )}
-
- </>
-
- );
-
+							<p>by {book.node.creator}</p>
+						</div>
+					))}
+				</div>
+			)}
+		</>
+	);
 };
-
-
 
 export default BookCard;
 ```
