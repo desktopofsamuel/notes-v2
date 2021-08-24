@@ -53,6 +53,7 @@ const Codeblock = (props) => {
           colorScheme="blue"
           onClick={onCopy}
           variant="ghost"
+          aria-label="Copy code"
           color={
             hasCopied
               ? useColorModeValue('green.600', 'green.100')

@@ -173,10 +173,12 @@ const customTheme = extendTheme({
           fontSize: '2xl',
           my: '0',
           lineHeight: 'tall',
-          borderBottom: '1px dotted rgba(0,0,0,0)',
+          paddingBottom: '6px',
+          borderBottom: '1.5px dotted rgba(0,0,0,0)',
           transition: 'all 0.1s ease-in-out',
+          display: 'inline',
           _hover: {
-            borderBottom: '1px dotted black',
+            borderBottom: '1.5px dotted darkgrey',
           },
         },
         heading: {
