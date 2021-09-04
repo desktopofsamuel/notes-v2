@@ -84,7 +84,7 @@ query SpotifyQuery {
 }
 ```
 
-然後建立一個新的 Music component，再用 Static Query 將 Spotify 的資料顯示（因不會變更及 Build 的時候只使用一次）。這裡我 render 了歌手的相片和名字。同樣道理也適用於單曲和大碟上。最後在顯示的頁面 Import <MusicCard/>就大功告成。
+然後建立一個新的 Music component，再用 Static Query 將 Spotify 的資料顯示（因不會變更及 Build 的時候只使用一次）。這裡我 render 了歌手的相片和名字。同樣道理也適用於單曲和大碟上。最後在顯示的頁面 Import `<MusicCard/>` 就大功告成。
 
 ```
 const MusicCard = () => {
@@ -192,7 +192,7 @@ yarn add gatsby-source-rss-feed
 
 同樣地選擇所需的欄位，就可以自行加入到 Static Query。
 
-> Static Query 與一般的 Page Query 不同（如每篇 blog 的 template），靜態的意思是不接受 variable， blog post 和 blog list 的 query 不同（每篇也是
+> Static Query 與一般的 Page Query 不同（如每篇 blog 的 template），靜態的意思是不接受 variable，由於我們從不同 Source Plugin 取得的資訊也是恆定不變，與正常網誌的 Blog post / Blog list 範本不同，所以可以使用更快更有效的 Static Query。
 
 ```
 query MovieCardPage {
@@ -215,13 +215,13 @@ query MovieCardPage {
 
 ### 如何顯示海報？
 
-由於海報是以 HTML 的形式放在 content 裡，這裡需要少許功夫才刪淨相片的鏈結。
+由於海報是以 HTML 的形式放在 RSS Feed 的 content 裡，這裡需要少許功夫才刪淨相片的鏈結。
 
 ```
 "content": " <p><img src=\"https://a.ltrbxd.com/resized/film-poster/3/6/9/8/3/5/369835-the-suicide-squad-0-500-0-750-crop.jpg?k=86bb8db581\"/></p> <p>Watched on Friday August 13, 2021.</p> "
 ```
 
-我寫了個簡單的 function，將自動搜尋`</p>`的位置，然後刪淨相片的鏈結，另外將相片的大細修改（由 500px x 700px 改為 200px x 300px），提高載入速度。
+我寫了個簡單的 function，將自動搜尋`<p>` close tag 的位置，然後刪淨相片的鏈結，另外將相片的大細修改（由 500px x 700px 改為 200px x 300px），提高載入速度。
 
 ```
 function rssParser(htmlString) {
@@ -290,7 +290,7 @@ export default MovieCard;
 
 ## Oku 整合我的閱讀紀錄
 
-Oku 是新的閱讀平台，跟 Goodread 差不多。
+Oku 是新的閱讀分享平台，跟 Goodread 差不多，不過使用 Oku 的好處是，它不同閱讀狀態都有獨立的 RSS Feed，所以比較容易處理，可直接使用 Reading 的 RSS Feed 就可以。
 
 我們同樣也是用`gatsby-source-rss-feed`引用 Oku 的閱讀紀錄。可惜的是 Oku 暫未支援於 RSS 顯示封面。Oku 的 RSS 鏈結少許 tricky，感謝網友分享，在 Reading Collection 一頁，原來 View Source 就會看到自己的 RSS 鏈結。而我的是`https://oku.club/rss/collection/UfVaj`。
 
@@ -373,7 +373,7 @@ export default BookCard;
 
 ## 後話
 
-用 RSS Feed 雖然簡單，不過其中一個缺點是非即時。往往 RSS Feed 更新也有至少幾分鐘的 延遲，不過對我這用法沒有太大影響。
+用 RSS Feed 雖然簡單，不過其中一個缺點是非即時。往往 RSS Feed 更新也有至少幾分鐘的延遲，不過對我這用法沒有太大影響。
 
 Gatsby 先前 2021 年 7 月其實推出了 Functions ，讓 Gatsby 這種靜態網頁也可以經 API 即時獲取最新資訊，不過至今未有太多教學，下一步值得一試是改用 Gatsby Functions 直接與 Spotify API 對話，擷取即時資訊（如我正在聽甚麼歌）。現在用 Gatsby 的 Source 插件，只有在 Build 網站時才更新一次資訊。（個人來說來也是一件好事，鼓勵自己不斷寫作才會更新網誌，當然你也可以自行設定 Webhook 自動定時 Build 網站）。
 
