@@ -139,6 +139,24 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: process.env.AIRTABLE_KEY, // may instead specify via env, see below
+        concurrency: 5, // default, see using markdown and attachments for more information
+        tables: [
+          {
+            baseId: `appW4gVPhW2puIptz`,
+            tableName: `Tech`,
+            mapping: {
+              Description: 'text/markdown',
+              'Description-tc': 'text/markdown',
+              Image: 'fileNode',
+            },
+          },
+        ],
+      },
+    },
+    {
       resolve: '@chakra-ui/gatsby-plugin',
       options: {
         resetCSS: true,

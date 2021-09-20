@@ -31,4 +31,27 @@ export const postFragment = graphql`
   }
 `;
 
-export default postFragment;
+export const techFragment = graphql`
+  fragment tech on AirtableEdge {
+    node {
+      id
+      data {
+        Description_tc {
+          childMdx {
+            body
+          }
+        }
+        Link
+        Image {
+          url
+        }
+        Name_tc
+        Category
+        Platform
+        CTA
+        ExtraLink
+        Order
+      }
+    }
+  }
+`;
