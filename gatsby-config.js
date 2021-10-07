@@ -87,19 +87,19 @@ module.exports = {
               backgroundColor: 'transparent',
             },
           },
-          {
-            resolve: `gatsby-remark-embedder`,
-            options: {
-              customTransformers: [
-                // Your custom transformers
-              ],
-              services: {
-                youtube: {
-                  height: 480,
-                },
-              },
-            },
-          },
+          // {
+          //   resolve: `gatsby-remark-embedder`,
+          //   options: {
+          //     customTransformers: [
+          //       // Your custom transformers
+          //     ],
+          //     services: {
+          //       youtube: {
+          //         height: 480,
+          //       },
+          //     },
+          //   },
+          // },
           'gatsby-remark-copy-linked-files',
         ],
       },
