@@ -33,8 +33,7 @@ const Entry = ({ title, date, commit, description, image, link, label }) => {
               {dayjs(date).format(`YYYY-MM-DD`)}
           </Text> <Box>
           <Heading fontSize="lg" variant="title">{title}</Heading>
-          
-          <Text>{description}</Text>
+          <Box m="0" dangerouslySetInnerHTML={{__html: description}} ></Box>
              <Link
                 to={`https://github.com/desktopofsamuel/notes-v2/commit/${commit}`}
                 title='View Commit on Github'
