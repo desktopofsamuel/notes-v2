@@ -7,18 +7,19 @@ import { ExternalLinkIcon } from '@chakra-ui/icons';
 const BookCard = () => {
   const data = useStaticQuery(graphql`
     query BookCardPage {
-      allFeedOku {
-        edges {
-          node {
-            id
-            title
-            contentSnippet
-            creator
-            guid
-          }
-        }
+  allFeedOku(limit: 4, sort: {fields: isoDate, order: DESC}) {
+    edges {
+      node {
+        id
+        title
+        contentSnippet
+        creator
+        guid
+        isoDate
       }
     }
+  }
+}
   `);
   return (
     <>
@@ -39,6 +40,7 @@ const BookCard = () => {
                 fontWeight="bold"
                 lineHeight="short"
                 to={book.node.guid}
+                title={`Read more about ${book.node.title} on Oku`}
                 target="_blank"
                 isExternal
               >
