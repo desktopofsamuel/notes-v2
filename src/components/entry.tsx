@@ -12,6 +12,7 @@ import {
   SimpleGrid,
   Grid,
   Wrap,
+  Flex,
   ListItem,
 } from '@chakra-ui/react';
 import GatsbyLink from '@/components/gatsby-link';
@@ -21,20 +22,18 @@ const Entry = ({ title, date, commit, description, image, link, label }) => {
   return (
     <ListItem>
     <Box>
-       <HStack spacing="8" align="stretch">
+       <Grid gap={{ base: "2", md: "8"}} align="stretch" gridTemplateColumns={{ base: "1fr", md: "max-content 1fr"}} >
           <Text
               as="time"
               fontFamily="mono"
-              lineHeight="20px"
+              mt="1px"
               fontWeight="bold"
               textTransform="uppercase"
-               
             >
               {dayjs(date).format(`YYYY-MM-DD`)}
           </Text> <Box>
-          <Heading fontSize="lg" mb="2" color="black">{title}</Heading>
-          
-          <Text>{description}</Text>
+          <Heading fontSize="lg" variant="title">{title}</Heading>
+          <Box m="0" dangerouslySetInnerHTML={{__html: description}} ></Box>
              <Link
                 to={`https://github.com/desktopofsamuel/notes-v2/commit/${commit}`}
                 title='View Commit on Github'
@@ -42,7 +41,7 @@ const Entry = ({ title, date, commit, description, image, link, label }) => {
                 isExternal
               ><Text fontFamily="mono" color="gray.500">{commit.substring(0,6)}</Text></Link>
         </Box>
-        </HStack>
+        </Grid>
        </Box>
     </ListItem>
   );
