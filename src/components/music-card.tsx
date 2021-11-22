@@ -9,12 +9,37 @@ import {
   useColorModeValue,
   Tooltip,
   Center,
+  keyframes
 } from '@chakra-ui/react';
 import { FaPlayCircle, FaVolumeDown } from 'react-icons/fa';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Link from '@/components/gatsby-link';
 
 const ArtistImage = chakra(GatsbyImage);
+
+const bounce = keyframes`
+10% {
+    transform: scaleY(0.3); /* start by scaling to 30% */
+  }
+
+  30% {
+    transform: scaleY(1); /* scale up to 100% */
+  }
+
+  60% {
+    transform: scaleY(0.5); /* scale down to 50% */
+  }
+
+  80% {
+    transform: scaleY(0.75); /* scale up to 75% */
+  }
+
+  100% {
+    transform: scaleY(0.6); /* scale down to 60% */
+  }
+`
+
+const animation = `${bounce} 2.2s ease infinite alternate`
 
 const MusicCard = () => {
   const data = useStaticQuery(graphql`
@@ -62,6 +87,7 @@ const MusicCard = () => {
               <Center textAlign="center" flexDirection="column">
                 <Link
                   to={artist.node.external_urls.spotify}
+                  title={`Listen to ${artist.node.name} now on Spotify`}
                   target="_blank"
                   key={artist.node.id}
                 >
@@ -77,16 +103,24 @@ const MusicCard = () => {
                     <Box
                       position="absolute"
                       zIndex="100"
-                      transform="translate(50%,50%)"
+                     top="26px"
+                     left="26px"
                       opacity={0}
                       w="25px"
                       h="25px"
                       right="0"
                       bottom="0"
+                      color="white"
                       transition="all 100ms ease-in-out"
                       _groupHover={{ opacity: 1 }}
                     >
-                      <FaVolumeDown size="20px" />
+                      {/* <FaVolumeDown size="20px" /> */}
+                      <Box position="relative" display="flex" justifyContent="space-between" width="30px" height="30px">
+                      <Box backgroundColor="white"  width="4px" height="100%" borderRadius="6px" animation={animation} transformOrigin="bottom" />
+                      <Box backgroundColor="white"  width="4px" height="100%" borderRadius="6px" animation={animation} transformOrigin="bottom" style={{ animationDelay: '-2.2s' }}/>
+                      <Box backgroundColor="white"  width="4px" height="100%" borderRadius="6px" animation={animation} transformOrigin="bottom" style={{ animationDelay:"-3.7s" }}/>
+                      <Box backgroundColor="white"  width="4px" height="100%" borderRadius="6px" animation={animation} transformOrigin="bottom" style={{ animationDelay:"-4.2s" }}/>
+                      </Box>
                     </Box>
                     <ArtistImage
                       position="absolute"
