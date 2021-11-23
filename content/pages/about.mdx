@@ -9,7 +9,22 @@ draft: false
 
 帕慕克說過，真正的博物館是時間被轉化成空間的地方。若把我的人生策展成一個展覽，書桌上大概會放著一部 MacBook、一部相機和一枝筆桿。正職是 UI/UX 設計師，閒時愛看電影。大學時對城市研究最著迷，旅行時不忘寫下大街小巷的見聞。
 
-我的 [Instagram](https://www.instagram.com/desktopofsamuel/) 和 [Twitter](https://twitter.com/desktopofsamuel)
+import { HStack, Button } from '@chakra-ui/react';
+import { FaTwitter, FaInstagram } from 'react-icons/fa';
+import Link from '@/components/gatsby-link';
+
+<HStack>
+  <Link to="https://www.instagram.com/desktopofsamuel/">
+    <Button leftIcon={<FaInstagram />} variant="solid">
+      Instagram
+    </Button>
+  </Link>
+  <Link to="https://www.instagram.com/desktopofsamuel/">
+    <Button leftIcon={<FaTwitter />} variant="solid">
+      Twitter
+    </Button>
+  </Link>
+</HStack>
 
 ## 現在 Now
 

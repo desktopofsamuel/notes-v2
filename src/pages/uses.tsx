@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '@/components/layout';
 import {
   Box,
+  Flex,
   Heading,
   SimpleGrid,
   Grid,
@@ -101,7 +102,7 @@ const UsesPage = () => {
     <Layout>
       <Heading as="h1">#我的Setup</Heading>
       {data.hardware.edges.map((item) => (
-        <Grid gridTemplateColumns="100px auto" gap="3">
+        <Grid gridTemplateColumns={{ base: '100px auto', md: "150px auto"}} gap={{ base: '5', md: '8'}} mb="4">
           <Box>
             {/* {!!item.node.data.Image.localFiles.childImageSharp ? (
               <GatsbyImage
@@ -115,7 +116,7 @@ const UsesPage = () => {
               />
             ) : ( */}
             {console.log(item.node.data.Image.localFiles)}
-            <GatsbyImage
+            <Link to={item.node.data.Link}><GatsbyImage
               image={
                 item.node.data.Image.localFiles[0].childImageSharp
                   .gatsbyImageData
@@ -124,20 +125,21 @@ const UsesPage = () => {
               height="100px"
               placeholder="tracedSVG"
               alt={item.node.data.Name_tc}
-            />
+            /> </Link>
           </Box>
           <Box>
-            <Heading fontSize="lg">
+            <Heading fontSize="lg" my="0">
               {item.node.data.Name_tc || item.node.data.Name}
             </Heading>
             <MDXRenderer>
               {!!item.node.data.Description_tc &&
                 item.node.data.Description_tc.childMdx.body}
             </MDXRenderer>
-            <Link to={item.node.data.CTA}>View More</Link>
+           
           </Box>
         </Grid>
       ))}
+    
       {/* {data.software.edges.map((item) => (
         <Box>
           <Text>{item.node.data.Name}</Text>
