@@ -18,7 +18,7 @@ const MovieCard = () => {
     const imgTagPosition = htmlString.indexOf(searchTerm);
     const elements = htmlString.slice(14, imgTagPosition); // Delete string after the img tag
     imgLink = elements.replace('0-500-0-750', '0-200-0-300'); // Load a smaller image
-    console.log(imgLink);
+    // console.log(imgLink);
     return imgLink;
   }
 
