@@ -8086,6 +8086,15 @@ gatsby-plugin-image@^1.9.0:
     objectFitPolyfill "^2.3.0"
     prop-types "^15.7.2"
 
+gatsby-plugin-lodash@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-lodash/-/gatsby-plugin-lodash-5.2.0.tgz#e09cf383c70611337e51170fc8b5ea9de5daf42e"
+  integrity sha512-jwuXLdyyGu0P6We0gwBlzVKyL5cNqZgxf27sIg5yPy0BEFaxNmSeym0/v3opwNt+0mYCDbsYaw423qfYeHGn1w==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+    babel-plugin-lodash "^3.3.4"
+    lodash-webpack-plugin "^0.11.6"
+
 gatsby-plugin-mdx@^2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-2.8.0.tgz#5ee3b608313c382328eaedaa38e847ebcd80137d"
@@ -10743,6 +10752,13 @@ lodash-es@^4.17.21:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
   integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
+
+lodash-webpack-plugin@^0.11.6:
+  version "0.11.6"
+  resolved "https://registry.yarnpkg.com/lodash-webpack-plugin/-/lodash-webpack-plugin-0.11.6.tgz#8204c6b78beb62ce5211217dfe783c21557ecd33"
+  integrity sha512-nsHN/+IxZK/C425vGC8pAxkKJ8KQH2+NJnhDul14zYNWr6HJcA95w+oRR7Cp0oZpOdMplDZXmjVROp8prPk7ig==
+  dependencies:
+    lodash "^4.17.20"
 
 lodash.assignin@^4.0.9:
   version "4.2.0"

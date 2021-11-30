@@ -52,6 +52,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-image`,
     `gatsby-remark-images`,
+    `gatsby-plugin-lodash`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
