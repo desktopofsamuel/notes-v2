@@ -19,7 +19,7 @@ const PageTemplate = ({ data }) => {
         keywords={tags}
         url={page.fields.slug}
       >
-        {console.log(data)}
+        {/* {console.log(data)} */}
         <Post post={data.mdx} hideMeta />
       </Layout>
     </MDXCompProvider>
