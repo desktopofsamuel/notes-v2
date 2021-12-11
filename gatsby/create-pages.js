@@ -8,7 +8,7 @@ const createPostsPages = require('./pagination/create-posts-pages.js');
 const query = `
   {
     pages: allMdx(
-      filter: {frontmatter: {draft: {ne: true}}, fileAbsolutePath: {regex: "/pages/"}}
+      filter: {frontmatter: {draft: {ne: true}, template: {eq: "page"}}}
     ) {
       edges {
         node {
@@ -24,7 +24,7 @@ const query = `
       }
     }
     posts: allMdx(
-      filter: {frontmatter: {draft: {ne: true}}, fileAbsolutePath: {regex: "/posts/"}}
+      filter: {frontmatter: {draft: {ne: true}, template: {eq: "post"}}}
     ) {
       edges {
         node {

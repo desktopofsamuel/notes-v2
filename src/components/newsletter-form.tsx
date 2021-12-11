@@ -172,7 +172,7 @@ const Newsletter = ({}) => {
             >
               Submit
             </Button>
-            {console.log(isSubmitting)}
+            {/* {console.log(isSubmitting)} */}
           </Stack>
           {status === 'SUCCESS' && (
             <Alert status="success">

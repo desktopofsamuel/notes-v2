@@ -52,8 +52,11 @@ export const query = graphql`
       limit: $postsLimit
       skip: $postsOffset
       filter: {
-        fileAbsolutePath: { regex: "/posts/" }
-        frontmatter: { tags: { in: [$tag] }, draft: { ne: true } }
+        frontmatter: { 
+          tags: { in: [$tag] }, 
+          draft: { ne: true }, 
+          template: { eq: "post" }
+        }
       }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
