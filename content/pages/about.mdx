@@ -5,11 +5,22 @@ slug: now
 draft: false
 ---
 
+import Link from '@/components/gatsby-link';
+import { HStack, Alert, AlertIcon, Button } from '@chakra-ui/react';
+import { FaTwitter, FaInstagram } from 'react-icons/fa';
+
 ## 關於我 About Me
 
 帕慕克說過，真正的博物館是時間被轉化成空間的地方。若把我的人生策展成一個展覽，書桌上大概會放著一部 MacBook、一部相機和一枝筆桿。正職是 UI/UX 設計師，閒時愛看電影。大學時對城市研究最著迷，旅行時不忘寫下大街小巷的見聞。
 
-我的 [Instagram](https://www.instagram.com/desktopofsamuel/) 和 [Twitter](https://twitter.com/desktopofsamuel)
+<HStack gap="4">
+  <Link to="https://twitter.com/desktopofsamuel">
+    <Button leftIcon={<FaTwitter />}>我的 Twitter</Button>
+  </Link>
+  <Link to="https://www.instagram.com/desktopofsamuel/">
+    <Button leftIcon={<FaInstagram />}>我的 Instagram</Button>
+  </Link>
+</HStack>
 
 ## 現在 Now
 
@@ -17,11 +28,15 @@ draft: false
 
 ### 最近喜愛的東西 Recent Favorites
 
-import { Alert, AlertIcon } from '@chakra-ui/react';
-
 <Alert status="info">
   <AlertIcon />
-  最近喜愛的東西已搬到<a href="/">主頁</a>，
+  <p>
+    最近喜愛的東西已搬到<a href="/">主頁</a>，如何將網誌連結到 Spotify,
+    Letterboxd 等平台，可參考這篇
+    <a href="/posts/gatsby-個人狀況自動更新-整合spotify音樂-letterboxd電影-書本紀錄/">
+      技術分享
+    </a>
+  </p>
 </Alert>
 
 <!-- - 最近在看 Starstruck, Never Have I Ever 和 Loki

@@ -36,6 +36,9 @@ const Sidebar: React.FC = () => {
       gap="10"
       gridTemplateColumns={{ base: 'auto auto', md: 'auto' }}
       mb={{ base: '8', md: '0' }}
+      position={{ base: 'initial', md: 'sticky'}}
+      top={{ base: '0', md: '4'}}
+      height={{ base: 'initial', md: '100px'}}
     >
       <Flex direction="column">
         {/* Bio */}
