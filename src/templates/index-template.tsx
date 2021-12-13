@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import Layout from '@/components/layout';
 import PostList from '@/components/post-list';
 import Pagination from '@/components/pagination';
-import Helmet from 'react-helmet';
 import { PageContext, AllMdx } from '@/type';
 import { useSiteMetadata } from '../hooks';
 import MusicCard from '@/components/music-card';
@@ -31,8 +30,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
       : siteTitle;
 
   return (
-    <Layout subtitle={siteSubtitle} description={siteDescription}>
-      <Helmet title={pageTitle} />
+    <Layout title={pageTitle} subtitle={siteSubtitle} description={siteDescription}>
       {hasPrevPage === false && (
         <>
           <Heading fontSize="md">近期 Now</Heading>
