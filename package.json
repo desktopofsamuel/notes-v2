@@ -46,6 +46,7 @@
     "gatsby-plugin-image": "^1.9.0",
     "gatsby-plugin-lodash": "^5.2.0",
     "gatsby-plugin-mdx": "^2.8.0",
+    "gatsby-plugin-netlify-cache": "^2.0.0",
     "gatsby-plugin-sharp": "^3.9.0",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-plugin-webfonts": "^2.1.0",

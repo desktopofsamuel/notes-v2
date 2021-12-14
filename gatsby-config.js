@@ -54,6 +54,12 @@ module.exports = {
     `gatsby-remark-images`,
     `gatsby-plugin-lodash`,
     {
+      resolve: 'gatsby-plugin-netlify-cache',
+      options: {
+        cachePublic: true,
+      },
+    },
+    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
