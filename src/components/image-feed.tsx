@@ -61,7 +61,6 @@ const ImageFeed = ({ edge }: EdgesType) => (
             edge.node.frontmatter.socialImage.childImageSharp.gatsbyImageData
           }
           alt={edge.node.frontmatter.title}
-          objectFit="cover"
           zIndex="-1"
           height="100%"
           transition="all 0.2s ease-in-out"
