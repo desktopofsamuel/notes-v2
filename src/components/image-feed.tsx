@@ -39,7 +39,7 @@ const ImageFeed = ({ edge }: EdgesType) => (
   <Link to={edge.node.fields.slug} key={edge.node.fields.slug}>
     <Box
       role="group"
-      height="33vh"
+      height="500px"
       width="100%"
       position="relative"
       borderRadius="xl"

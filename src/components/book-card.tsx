@@ -38,7 +38,7 @@ const BookCard = () => {
               <Link
                 fontSize="lg"
                 fontWeight="bold"
-                lineHeight="short"
+                lineHeight="0"
                 to={book.node.guid}
                 title={`Read more about ${book.node.title} on Oku`}
                 target="_blank"
