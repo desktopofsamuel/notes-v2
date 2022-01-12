@@ -36,9 +36,9 @@ const Sidebar: React.FC = () => {
       gap="10"
       gridTemplateColumns={{ base: 'auto auto', md: 'auto' }}
       mb={{ base: '8', md: '0' }}
-      position={{ base: 'initial', md: 'sticky'}}
-      top={{ base: '0', md: '4'}}
-      height={{ base: 'initial', md: '100px'}}
+      position={{ base: 'initial', md: 'sticky' }}
+      top={{ base: '0', md: '4' }}
+      height={{ base: 'initial', md: '100px' }}
     >
       <Flex direction="column">
         {/* Bio */}
@@ -112,13 +112,13 @@ const Sidebar: React.FC = () => {
           </SocialIcon>
           <SocialIcon
             to="https://notes.desktopofsamuel.com/rss.xml/"
-            label="Link to RSS"
+            label="Follow me by RSS"
           >
             <FaRss />
           </SocialIcon>
           <SocialIcon
-            to="mailto:desktopofsamuel@gmail.com"
-            label="Write an Email"
+            to="https://follow.it/desktop-of-samuel?action=followPub"
+            label="Follow me by Email"
           >
             <FaEnvelope />
           </SocialIcon>
@@ -128,6 +128,7 @@ const Sidebar: React.FC = () => {
           aria-label="Switch Color Mode"
           variant="solid"
           colorScheme="gray"
+          marginTop="8"
           onClick={toggleColorMode}
           isRound
           icon={colorMode === `light` ? <FaMoon /> : <FaSun />}
